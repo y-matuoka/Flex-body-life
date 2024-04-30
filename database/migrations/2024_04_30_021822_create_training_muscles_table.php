@@ -18,7 +18,7 @@ class CreateTrainingMusclesTable extends Migration
             $table->string('training_name')->nullable();
             $table->text('description')->nullable();
             $table->string('training_image')->nullable();
-            $table->tinyInteger('trainnig_ level')->default(0)->unsigned();
+            $table->tinyInteger('training_ level')->default(0)->unsigned();
             $table->timestamps();
         });
     }

@@ -15,10 +15,10 @@ class InquiriesTableSeeder extends Seeder
     {
         DB::table('inquiries')->insert([
             'name' => 'testname',
-            'emial' => 'test@email.com',
+            'email' => 'test@email.com',
             'comment' => 'testtesttest',
             'created_at' => Carbon::now(),
-            'modified_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
     }
 }

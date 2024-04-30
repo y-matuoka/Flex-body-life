@@ -22,8 +22,9 @@ class UsersTableSeeder extends Seeder
             'delflag' => 0,
             'remenber_token' => null,
             'email_verified_at' => Carbon::now(),
+            'authority' => 1,
             'created_at' => Carbon::now(),
-            'modified_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
     }
 }
