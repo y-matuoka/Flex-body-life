@@ -1,7 +1,7 @@
 <?php
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
-use Iluminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 
 class EvaluationsTableSeeder extends Seeder
 {
