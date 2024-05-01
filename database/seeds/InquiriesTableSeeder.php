@@ -14,11 +14,11 @@ class InquiriesTableSeeder extends Seeder
     public function run()
     {
         DB::table('inquiries')->insert([
-            'name' => 'testname',
-            'emial' => 'test@email.com',
+            'username' => 'testname',
+            'email' => 'test@email.com',
             'comment' => 'testtesttest',
             'created_at' => Carbon::now(),
-            'modified_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
     }
 }

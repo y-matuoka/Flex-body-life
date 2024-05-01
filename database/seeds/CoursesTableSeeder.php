@@ -14,10 +14,14 @@ class CoursesTableSeeder extends Seeder
     public function run()
     {
         DB::table('courses')->insert([
+            
+            'course' => 2,
+            'Achievement_date' => Carbon::now(),
+            'status_count' => 3,
+            'completed' => 1,
             'user_id' => 1,
-            'course' => 0,
             'created_at' => Carbon::now(),
-            'modified_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
     }
 }
