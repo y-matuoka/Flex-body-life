@@ -1,9 +1,10 @@
 <?php
+
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class Training_stretchesTableSeeder extends Seeder
+class Training_musclesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,7 +18,7 @@ class Training_stretchesTableSeeder extends Seeder
         [
             'training_name' => 'スクワット',
             'description' => '足を肩幅程度に開き、つま先は正面またはやや外側に開いた状態にする。',
-            'training_image	' => 'squat.jpg',
+            'training_image' => 'squat.jpg',
             'training_ level' => 0,//初級
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
@@ -25,7 +26,7 @@ class Training_stretchesTableSeeder extends Seeder
         [
             'training_name' => 'スクワット',
             'description' => '足を肩幅程度に開き、つま先は正面またはやや外側に開いた状態にする。',
-            'training_image	' => 'squat.jpg',
+            'training_image' => 'squat.jpg',
             'training_ level' => 1,//中級
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
@@ -33,7 +34,7 @@ class Training_stretchesTableSeeder extends Seeder
         [
             'training_name' => 'スクワット',
             'description' => '足を肩幅程度に開き、つま先は正面またはやや外側に開いた状態にする。',
-            'training_image	' => 'squat.jpg',
+            'training_image' => 'squat.jpg',
             'training_ level' => 2,//上級
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),

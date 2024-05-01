@@ -14,7 +14,7 @@ class InquiriesTableSeeder extends Seeder
     public function run()
     {
         DB::table('inquiries')->insert([
-            'name' => 'testname',
+            'username' => 'testname',
             'email' => 'test@email.com',
             'comment' => 'testtesttest',
             'created_at' => Carbon::now(),

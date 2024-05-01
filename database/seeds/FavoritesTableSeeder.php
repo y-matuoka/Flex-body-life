@@ -15,11 +15,11 @@ class FavoritesTableSeeder extends Seeder
     {
         DB::table('favorites')->insert([
             'user_id' => 1,
-            'stretches_id' => 1,
-            'muscle_training_id' => 2,
-            'training_mix_id' => 3,
+            'stretch_id' => 1,
+            'training_muscle_id' => 2,
+            'training_mix_id' => 2,
             'created_at' => Carbon::now(),
-            'modified_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
     }
 }

@@ -15,10 +15,10 @@ class CoursesTableSeeder extends Seeder
     {
         DB::table('courses')->insert([
             
-            'course' => 0,
+            'course' => 2,
             'Achievement_date' => Carbon::now(),
-            'status_count' => 0,
-            'completed' => 0,
+            'status_count' => 3,
+            'completed' => 1,
             'user_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
