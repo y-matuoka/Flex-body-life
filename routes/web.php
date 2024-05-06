@@ -11,14 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-// 下２つの記述は消してください。
-// views作成時に画面で確認したい為、記述しました。
-Route::get('auth/register', function(){
-    return view('auth.register');
-});
-Route::get('goal_setting/index', function(){
-    return view('goal_setting.index');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', 'HomeController@index')->name('home');
+
+Auth::routes();
