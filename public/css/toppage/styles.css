@@ -19,8 +19,8 @@ body {
 
 img{
   margin: 40px 0 0 40px;
-  max-width: 60%;
-  height: auto;
+  max-width: 60%; /*画像のサイズを縮小*/
+  height: auto; /*高さの調節*/
 }
 
 .btn-container {
@@ -30,7 +30,7 @@ img{
 }
 
 .btn-container .btn {
-  margin-right: 400px; /* ボタン間の余白 */
+  margin-right: 150px; /* ボタン間の余白 */
 }
 
 .btn-container .btn:last-child {
@@ -38,27 +38,34 @@ img{
 }
 
 .btn-lg {
-  padding: 20px 40px; /* ボタンのパディングを大きくする */
-  font-size: 25px; /* ボタンのテキストのサイズを大きくする */
+  padding: 10px 55px; /* ボタンのパディングを大きくする */
+  font-size: 30px; /* ボタンのテキストのサイズを大きくする */
+
 }
 
 @media (max-width: 768px) {
+  .container {
+    text-align: center; /* 画像とボタンを中央に配置 */
+  }
+
   img {
     margin: 20px auto; /* 画像のマージンを調整して中央に配置 */
     max-width: 80%; /* 画像の最大幅を調整 */
   }
 
   .btn-container {
+    display: flex;
+    justify-content: center; /* ボタンを中央に配置 */
     flex-wrap: wrap; /* ボタンが折り返すように設定 */
-    margin-top: 40px; /* ボタンと画像の間の余白を調整 */
+    margin-top: 20px; /* ボタンと画像の間の余白を調整 */
   }
 
   .btn-container .btn {
-    margin-right: 0;
-    margin-bottom: 10px; /* ボタンの下に余白を追加 */
+    margin: 5px; /* ボタン間の余白を設定 */
     width: auto; /* ボタンの幅を自動調整 */
     height: auto; /* ボタンの高さを自動調整 */
     padding: 10px 20px; /* パディングを設定 */
     font-size: 16px; /* ボタンのテキストのサイズを設定 */
   }
 }
+
