@@ -7,9 +7,10 @@
   <title>Flex-body-life</title>
 
 @yield('styles')
-@section()
+{{-- @section() --}}
 
-  <link rel="stylesheet" href="/css/styles.css"> 
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/register/styles.css"> 
   {{-- コンフリクトを避けるためのcssの作り方 --}}
   {{-- ↑各ページに固有のスタイリングを適用させるには各ページのcssを記載 --}}
   {{-- 各ページ共通部分のスタイルを描いたCSSファイルを用意する --}}
