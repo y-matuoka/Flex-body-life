@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Flex-body-life</title>
+  <style>
+    html, body {
+                background-color: #F3D6BA;}
+  </style>
 
 @yield('styles')
-@section()
 
   <link rel="stylesheet" href="/css/styles.css"> 
   {{-- コンフリクトを避けるためのcssの作り方 --}}
