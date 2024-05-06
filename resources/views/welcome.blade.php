@@ -70,15 +70,15 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}"></a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}"></a>
                         @endif
                     @endauth
                 </div>
             @endif
-
+{{-- 
             <div class="content">
                 <div class="title m-b-md">
                     Laravel
@@ -95,6 +95,6 @@
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </body>
 </html>
