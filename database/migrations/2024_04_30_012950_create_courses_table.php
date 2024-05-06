@@ -16,7 +16,7 @@ class CreateCoursesTable extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->tinyInteger('course');
-            $table->dateTime('Achievement_date');
+            $table->dateTime('Achievement_date')->default(now());
             $table->tinyInteger('status_count')->default(0)->unsigned();
             $table->tinyInteger('completed')->default(0)->unsigned();
             $table->bigInteger('user_id')->unsigned();
