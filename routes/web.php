@@ -21,9 +21,9 @@ Auth::routes();
 
 // 下２つの記述は消してください。
 // views作成時に画面で確認したい為、記述しました。
-Route::get('auth/register', function(){
-    return view('auth.register');
-});
+// Route::get('auth/register', function(){
+//     return view('auth.register');
+// });
 Route::get('goal_setting/index', function(){
     return view('goal_setting.index');
 });

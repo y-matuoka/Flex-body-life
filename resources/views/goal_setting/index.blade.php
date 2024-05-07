@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('styles')
+<link rel="stylesheet" href="/css/goal_setting/styles.css">
 @endsection
 
 @section('content')
@@ -10,9 +11,9 @@
 					<div class="d-table-cell align-middle">
 						<div class="text-center mt-4">
               <span class="log">
-                <img src="{{ asset("images/user_name.png") }}" class="img-fluid" >
+                <img src="" class="img-fluid" >
               </span>
-							  <h3 class="h3 ">目標設定</h3>
+							  <h2 class="h2">目標設定</h2>
 						</div>
 
 						<div class="card">
@@ -43,23 +44,18 @@
                         </span>
 											<input class="form-control form-control-lg" id="email" type="email" name="email" placeholder="例) shibukawa@email.com">
 										</div>
-										<div class="form-group">
-											<label for="password">パスワード</label>
-                        <span class="log">
-                          <img src="{{ asset("images/key.png") }}" class="img-fluid" >
-                        </span>
-											<input class="form-control form-control-lg" id="password" type="password" name="password" placeholder="例) ?文字以上必要です。">
-										</div>
 										<div class="text-center mt-3">
-											<button type="submit" class="btn btn-lg btn-light">新規登録する！</button>
+											<button type="submit" class="btn btn-lg btn-light">スタート！</button>
 										</div>
 									</form>
 								</div>
 							</div>
 						</div>
 
-            <div class="flex-log">
-              <img src="{{ asset("images/flex-logo.png") }}" class="img-fluid" alt="...">
+            <div class="images">
+              <img src="{{ asset("images/training(1).png") }}" class="img-fluid" alt="...">
+							<img src="{{ asset("images/flex-logo.png") }}" class="img-fluid" alt="...">
+							<img src="{{ asset("images/stretch(1).png") }}" class="img-fluid" alt="...">
             </div>
 
 					</div>

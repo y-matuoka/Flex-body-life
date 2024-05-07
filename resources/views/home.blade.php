@@ -13,8 +13,8 @@
     <img src="{{ asset('images/flex-logo.png') }}" alt="flex-logo">
   </div>
   <div class="btn-container">
-    <a href="auth/register" class="btn btn-lg">新規登録</a>
-    <a href="#" class="btn btn-lg">ログイン</a>
+    <a href="{{ route('register') }}" class="btn btn-lg">新規登録</a>
+    <a href="{{ route('login')}}" class="btn btn-lg">ログイン</a>
 </div>
 </body>
 </html>
