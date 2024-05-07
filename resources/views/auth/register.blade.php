@@ -22,7 +22,7 @@
                 <div class="m-sm-4">
                   {{-- action属性を追記必ず --}}
                   {{-- {{route('register')}} --}}
-                  <form action="" method="POST">
+                  <form action="{{ route('register') }}" method="POST">
                     @csrf
                     <div class="form-group">
                       <label for="name">ニックネーム</label>
@@ -43,10 +43,17 @@
                         <span class="log">
                           <img src="{{ asset("images/key.png") }}" class="img-fluid" >
                         </span>
-                      <input class="form-control form-control-lg" id="password" type="password" name="password" placeholder="例) ?文字以上必要です。">
+                      <input class="form-control form-control-lg" id="password" type="password" name="password" placeholder="例) 8文字以上必要です。">
+                    </div>
+                    <div class="form-group">
+                      <label for="password-confirm">パスワード(確認)</label>
+                        <span class="log">
+                          <img src="{{ asset("images/key.png") }}" class="img-fluid" >
+                        </span>
+                      <input class="form-control form-control-lg" id="password-confirm" type="password" name="password_confirmation" placeholder="確認のためにもう一度入力してください。">
                     </div>
                     <div class="text-center mt-3">
-                      <button type="submit" class="btn btn-lg btn-light">新規登録する！</button>
+                      <button type="submit" class="btn btn-lg btn-light">新規登録</button>
                     </div>
                   </form>
                 </div>

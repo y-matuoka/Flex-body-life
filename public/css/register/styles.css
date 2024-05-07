@@ -5,7 +5,7 @@
 /* class名がダブっているとブートストラップのクラス名が反映されてしまうので注意！ */
 /* 各ページで書くもののみを記載（文字とかフォント　ヘッダー） */
 
-body{
+main{
   margin-top:20px;
   background-color: #F3D6BA;
   color: #A59B93;
