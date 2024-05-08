@@ -87,7 +87,7 @@ return [
     'min' => [
         'numeric' => 'The :attribute must be at least :min.',
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' =>':attribute には文字を入力してください。',
+        'string' => ':attribute は :min文字以上で入力してください。',
         'array' => 'The :attribute must have at least :min items.',
     ],
     'not_in' => 'The selected :attribute is invalid.',
@@ -111,7 +111,7 @@ return [
         'array' => 'The :attribute must contain :size items.',
     ],
     'starts_with' => 'The :attribute must start with one of the following: :values.',
-    'string' => 'The :attribute must be a string.',
+    'string' => ':attribute には文字を入力してください。',
     'timezone' => 'The :attribute must be a valid zone.',
     'unique' => '入力いただいた :attribute はすでに使用されています。',
     'uploaded' => 'The :attribute failed to upload.',
