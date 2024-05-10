@@ -1,0 +1,98 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css');
+/* cssをいちから書くよりは楽だけどブートストラップについて調べるほうが手間がかかる可能性がある */
+/* class名がダブっているとブートストラップのクラス名が反映されてしまうので注意！ */
+/* 各ページで書くもののみを記載（文字とかフォント　ヘッダー） */
+
+main{
+  background-color: #F3D6BA;
+  color: #A59B93;
+}
+img {
+  max-width: 100%;
+}
+.return img{
+  width: 3%;
+}
+.text-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.text-center img{
+  width: 12%;
+  height: 12%;
+}
+form{
+  background-color:  #F3D6BA;
+}
+.row {
+  display: flex;
+  flex-direction: column;
+}
+#h2 {
+  margin-bottom: 3rem;
+}
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  margin-bottom: 2.5rem;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border: 0px solid #E5E9F2;
+  border-radius: .2rem;
+}
+.form {
+  width: 100%;
+}
+#form-group {
+  margin-bottom: 2.5rem;
+}
+#textarea {
+  font-size: 2.2rem;
+}
+.btn {
+  background-color: #A59B93;
+  border-color: #A59B93;
+}
+.flex-log {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+.flex-log img {
+  max-width: 20%;
+}
+.img-fluid-1 {
+  height: 160px;
+}
+.img-fluid-2 {
+  height: 40px;
+  margin-left: 30px;
+}
+
+@media (max-width: 480px){
+  main {
+    margin-top: 3.5rem;
+  }
+  .return img{
+    width: 8%;
+  }
+  #textarea {
+    font-size: 1.9rem;
+  }
+  .img-fluid-2 {
+    margin-left: 0;
+  }
+  #h2 {
+    margin-bottom: 4rem;
+  }
+  .card {
+    margin-bottom: 3.5rem;
+  }
+}
