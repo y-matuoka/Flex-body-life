@@ -45,10 +45,8 @@ form{
   background-color: #A59B93;
   border-color: #A59B93;
 }
-.flex-log {
-  text-align: center;
-}
-.flex-log img{
+
+.footer-log img{
  max-width: 80px;
  height: auto;
 }

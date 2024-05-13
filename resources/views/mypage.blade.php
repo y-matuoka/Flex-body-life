@@ -54,8 +54,10 @@
 <div class="right">
   <div class="course-info">
     <p class="museomoderno-title">My Training Course</p>
+  <div class="textarea-container">
     <textarea id="course-text" class="museomoderno-title" placeholder=""></textarea>
-    <button onclick="window.location.href='';" class="museomoderno-title">Change</button>
+    <button onclick="window.location.href='#';" class="museomoderno-title">Change</button>
+   </div>
   </div>
 
   <div class="goal-container">

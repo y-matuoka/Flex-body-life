@@ -59,6 +59,34 @@ main div li {
   float: right;
 }
 
+textarea {
+  width: 100%; /* テキストエリアを親要素の幅いっぱいに広げる */
+  max-width: 500px; /* 最大幅を設定（必要に応じて調整）*/
+  height: auto; /* 高さを自動的に調整 */
+  resize: none; /* テキストエリアのリサイズを禁止 */
+  font-size: 16px; /* 適切なフォントサイズを設定 */
+  padding: 10px; /* 適切な余白を設定 */
+}
+
+/* テキストエリアとボタンのラッパー */
+.textarea-container {
+  position: relative; /* 相対的な位置指定 */
+}
+
+/* 変更ボタン */
+.change-button {
+  position: absolute; /* 絶対的な位置指定 */
+  bottom: 10px; /* テキストエリアの下からの距離 */
+  right: 10px; /* テキストエリアの右からの距離 */
+  background-color: #A59B93; /* ボタンの背景色 */
+  color: #fff; /* ボタンのテキスト色 */
+  border: none; /* ボーダーなし */
+  border-radius: 5px; /* 角丸 */
+  padding: 5px 10px; /* ボタンの内側の余白 */
+  cursor: pointer; /* カーソルをポインターに変更 */
+}
+
+
 .course-info button{
   margin: 0 0 0 -60px;
   border: none;
@@ -190,17 +218,23 @@ a:hover{
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   text-align: center;
   padding: 10px; /* 適切な余白を設定 */
+  padding: 10px;
 }
 
 footer img {
-  width: 100px;
-  height: auto;
+  position: absolute; /* 画像を親要素に対して位置を決定 */
+  bottom: 10px; /* フッターの下部からの距離 */
+  left: 50%; /* 中央に配置 */
+  transform: translateX(-50%); /* 中央揃え */
+  width: 100px; /* 画像の幅 */
+  height: auto; /* 高さを自動調整 */
+  z-index: 1000; /* フッターの上に表示されるようにz-indexを設定 */
 }
 
 @media screen and (max-width: 768px) {
@@ -218,6 +252,7 @@ footer img {
   .right {
     width: 100%;
     flex-direction: column;
+    position: static; /* 追加：相対的な位置を持つようにする */
   }
 }
 @media screen and (max-width: 768px) {
