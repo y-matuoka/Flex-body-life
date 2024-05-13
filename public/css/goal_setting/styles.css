@@ -1,5 +1,6 @@
 @import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css');
+
 /* cssをいちから書くよりは楽だけどブートストラップについて調べるほうが手間がかかる可能性がある */
 /* class名がダブっているとブートストラップのクラス名が反映されてしまうので注意！ */
 /* 各ページで書くもののみを記載（文字とかフォント　ヘッダー） */
@@ -55,10 +56,21 @@ form{
 #textarea {
   font-size: 2.2rem;
 }
+.form-group {
+  margin-bottom: 3rem;
+}
+.log img {
+  max-width: 20px;
+  height: auto;
+}
+.log {
+  margin-left: 0.5rem;
+}
 .btn {
   background-color: #A59B93;
   border-color: #A59B93;
 }
+
 .flex-log {
   display: flex;
   justify-content: space-between;
@@ -94,5 +106,15 @@ form{
   }
   .card {
     margin-bottom: 3.5rem;
+  }
+}
+
+.footer-log img{
+ max-width: 80px;
+ height: auto;
+}
+@media (max-width: 480px){
+  .h3 {
+    font-size: 26px;
   }
 }
