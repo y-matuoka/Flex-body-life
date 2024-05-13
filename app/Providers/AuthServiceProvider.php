@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use App\GoalSetting;
+use App\Policies\GoalSettingPolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -14,6 +16,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Model' => 'App\Policies\ModelPolicy',
+        GoalSetting::class => GoalSettingPolicy::class,
+
     ];
 
     /**

@@ -6,18 +6,33 @@
 /* 各ページで書くもののみを記載（文字とかフォント　ヘッダー） */
 
 main{
-  margin-top:20px;
   background-color: #F3D6BA;
   color: #A59B93;
+}
+img {
+  max-width: 100%;
+}
+.return img{
+  width: 3%;
+}
+.text-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.text-center img{
+  width: 12%;
+  height: 12%;
 }
 form{
   background-color:  #F3D6BA;
 }
-.h3 {
-  margin-bottom: 3rem;
+.row {
+  display: flex;
+  flex-direction: column;
 }
-.card {
-  margin-bottom: 4rem;
+#h2 {
+  margin-bottom: 3rem;
 }
 .card {
   position: relative;
@@ -26,10 +41,20 @@ form{
   -ms-flex-direction: column;
   flex-direction: column;
   min-width: 0;
+  margin-bottom: 2.5rem;
   word-wrap: break-word;
   background-clip: border-box;
-  border: 0px solid #e5e9f2;
+  border: 0px solid #E5E9F2;
   border-radius: .2rem;
+}
+.form {
+  width: 100%;
+}
+#form-group {
+  margin-bottom: 2.5rem;
+}
+#textarea {
+  font-size: 2.2rem;
 }
 .form-group {
   margin-bottom: 3rem;
@@ -44,6 +69,44 @@ form{
 .btn {
   background-color: #A59B93;
   border-color: #A59B93;
+}
+
+.flex-log {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+.flex-log img {
+  max-width: 20%;
+}
+.img-fluid-1 {
+  height: 160px;
+}
+.img-fluid-2 {
+  height: 40px;
+  margin-left: 30px;
+}
+
+@media (max-width: 480px){
+  main {
+    margin-top: 3.5rem;
+  }
+  .return img{
+    width: 8%;
+  }
+  #textarea {
+    font-size: 1.9rem;
+  }
+  .img-fluid-2 {
+    margin-left: 0;
+  }
+  #h2 {
+    margin-bottom: 4rem;
+  }
+  .card {
+    margin-bottom: 3.5rem;
+  }
 }
 
 .footer-log img{
