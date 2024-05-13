@@ -21,4 +21,9 @@ class MyPageController extends Controller
         'courseAll' => $courseAll
       ]);
     }
+
+    public function execute()
+    {
+      return view('mypage/execute');
+    }
 }

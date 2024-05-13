@@ -39,3 +39,4 @@ Route::get('goal_setting/update', function(){
  * リマインダー
  */
 Route::get('/mypage/reminder', 'MyPageController@reminder')->name('mypage.reminder');
+Route::get('/mypage/execute', 'MyPageController@execute')->name('mypage.execute');
