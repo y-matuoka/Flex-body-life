@@ -1,0 +1,232 @@
+/* bootstrap と bootflat のインポート */
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css');
+
+/* mypage.css */
+
+body {
+  background-color: #F3D6BA;
+  margin: 0;
+  padding: 0;
+}
+
+/* example.css */
+.museomoderno-title {
+  font-family: "MuseoModerno", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold; /* タイトルなので太字 */
+  font-style: normal;
+}
+
+header {
+  background-color: #E0E0E0;
+  color: #fff;
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* 横並びにする */
+}
+
+nav ul li {
+  margin-right: 30px;
+}
+
+nav ul li a {
+  font-size: 20px;
+  color: #A59B93;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+}
+
+main div li {
+  font-size: 300px;
+}
+
+.left{
+  width: 50%;
+  position: absolute;
+}
+
+.right{
+  width: 50%;
+  float: right;
+}
+
+.course-info button{
+  margin: 0 0 0 -60px;
+  border: none;
+  color: #ffffff;
+  background-color: #A59B93;
+  border-radius: 50%; /* ボタンを角丸にする */
+  padding: 3px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.goal-container button{
+  margin: 0 0 0 10px;
+  border: none;
+  color: #ffffff;
+  background-color: #A59B93;
+  border-radius: 50%; /* ボタンを角丸にする */
+  padding: 3px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+button:hover{
+  background: #57504b;
+}
+
+.course-info p {
+  font-size: 25px;
+  color: #A59B93;
+}
+
+.course-info textarea{
+  margin: -8px 12px 20px 0;
+  resize: none;
+  font-size: 30px;
+  width: 500px;
+  height: 50px;
+}
+
+.goal-container textarea{
+  margin: 0px -65px 20px 0;
+  resize: none;
+  font-size: 30px;
+  width: 550px;
+  height: 150px;
+}
+
+.goal-container h2{
+  color: #A59B93;
+}
+
+.days img {
+  margin: -15px 0 0 -10px;
+  max-width: 65%;
+}
+
+.month-name {
+  color: #A59B93;
+  margin: -55px 0px 20px 200px;
+}
+
+/* プロフィール*/
+.profile {
+  margin-bottom: 20px;
+}
+
+.profile h1 {
+  color: #A59B93;
+  font-size: 40px;
+  margin: 0 0 15px 150px;
+}
+
+.avatar-container {
+  position: relative;
+  display: inline-block; /* 要素を横並びに配置 */
+}
+
+.avatar {
+  margin: -10px 0 0 150px;
+  width: 180px; /* アイコンの幅 */
+  height: 180px; /* アイコンの高さ */
+  border-radius: 50%; /* アイコンを丸くする */
+  overflow: hidden; /* 要素外の部分を隠す */
+  background-color: #ffffff; /* デフォルトの背景色 */
+}
+
+.avatar img {
+  width: 100%; /* 画像を要素の幅いっぱいにする */
+  height: auto; /* 高さを自動調整 */
+  display: block; /* 画像を中央に配置 */
+}
+
+.no-icon-text {
+  position: absolute; /* 絶対配置を有効にする */
+  top: 50%; /* 上端を中央に配置 */
+  left: 50%; /* 左端を中央に配置 */
+  transform: translate(-50%, -50%); /* 中央揃え */
+  color: white; /* テキストの色 */
+  font-size: 16px; /* フォントサイズ */
+}
+
+.change-avatar {
+  margin: -20px 0 0 125px;
+  background-color: #A59B93;
+  color: #fff;
+  border: none;
+  border-radius: 100px; /* ボタンを角丸にする */
+  padding: 12px;
+  cursor: pointer;
+}
+
+.change-avatar img {
+  width: 20px; /* ロゴのサイズ調整 */
+}
+
+.customer-info a {
+  display: inline-block;
+  margin: 30px 0 40px 180px;
+  color: #A59B93;
+}
+
+.unsubscribe a {
+  margin: 0 0 0 220px;
+  color: #A59B93;
+}
+
+a:hover{
+  color: #57504b;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px; /* 適切な余白を設定 */
+}
+
+footer img {
+  width: 100px;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    width: 100%; 
+    height: auto;
+  }
+
+  header nav ul {
+    flex-direction: row; 
+  }
+}
+@media screen and (max-width: 768px) {
+  .left,
+  .right {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 768px) {
+  .avatar-container {
+    width: 50px; 
+  }
+
+  .days img {
+    width: 100px;
+  }
+}
+
