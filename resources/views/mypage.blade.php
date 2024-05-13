@@ -37,7 +37,7 @@
     </div>
   </div>
 
-
+  <p>{{ Auth::user()->name }}</p>
 
   <div class="days">
     <div class="month-name">
@@ -72,6 +72,9 @@
   <div class="unsubscribe">
     <a href="#" class="museomoderno-title">退会する</a>
   </div>
+
+  <a href="{{ route('mypage.reminder') }}">リマインダー画面</a>
+
 </div>
 </main>
 

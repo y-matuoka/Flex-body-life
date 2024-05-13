@@ -34,3 +34,8 @@ Route::group(['middleware' => 'auth'],function(){
 Route::get('goal_setting/update', function(){
     return view('goal_setting.update');
 });
+
+/**
+ * リマインダー
+ */
+Route::get('/mypage/reminder', 'MyPageController@reminder')->name('mypage.reminder');
