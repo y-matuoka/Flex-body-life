@@ -33,3 +33,6 @@ Route::group(['middleware' => 'auth'],function(){
 Route::get('goal_setting/update', function(){
     return view('goal_setting.update');
 });
+Route::get('course_selection/index', function(){
+    return view('course_selection.index');
+});
