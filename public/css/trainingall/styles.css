@@ -1,0 +1,99 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css');
+
+/* cssをいちから書くよりは楽だけどブートストラップについて調べるほうが手間がかかる可能性がある */
+/* class名がダブっているとブートストラップのクラス名が反映されてしまうので注意！ */
+/* 各ページで書くもののみを記載（文字とかフォント　ヘッダー） */
+
+body {
+    margin-top: 20px;
+    background-color: #F3D6BA;
+    color: #A59B93;
+    font-family: "MuseoModerno", sans-serif;
+}
+
+
+form {
+    background-color: #F3D6BA;
+}
+
+.btn {
+    background-color: #A59B93;
+    border-color: #A59B93;
+}
+
+.flex-log {
+    text-align: center;
+}
+
+.flex-log img {
+    max-width: 80px;
+    height: auto;
+}
+
+.no-border {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn-xxl {
+    padding: 50px 50px;
+    font-size: 30px;
+    font-weight: bold;
+    min-width: 300px;
+    font-family: "MuseoModerno", sans-serif;
+}
+
+.no-border {
+    border: none;
+}
+.responsive-img {
+  max-width: 33px;
+  height: auto;
+}
+
+/* 追加のメディアクエリ */
+@media (max-width: 768px) {
+.responsive-img {
+    max-width: 2px;
+   ;
+  }
+  .row.mt-5 .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+    .panel-heading h4 {
+        font-size: 15px;
+    }
+
+
+    .panel-heading h5 {
+        font-size: 16px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .btn-xxl {
+        margin-top: 18px;
+        padding: 20px 20px;
+        font-size: 20px;
+        min-width: 230px;
+        margin-top: 20px;
+    }
+
+
+    .flex-log img {
+        max-width: 60px;
+        margin-bottom: 20px;
+    }
+
+.col-md-4 text-center {
+  max-width: 10px;
+}
+}
