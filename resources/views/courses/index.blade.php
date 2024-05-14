@@ -42,25 +42,32 @@
                 </div>
             </div>
         </div>
-
+        @if (session('error'))
+            <p class="text-danger mt-3">
+                {{ session('error') }}
+            </p>
+        @endif
         {{-- 筋トレ,ストレッチ,Mixボタン --}}
         <div class="main">
-            <div class="course-flex">
-                <div class="course"> 
-                    <button type="button" class="btn-xxl no-border">MIX</button>
-                    <p class="content">柔軟性と筋持久力を高め <br>バランスの取れた身体にしたい方へ！</p>
+            <form action="{{ route('course.store') }}" method="POST">
+            @csrf
+                <div class="course-flex">
+                    <div class="course"> 
+                        <button type="submit" name="button1" value="MIX" class="btn-xxl no-border">MIX</button>
+                        <p class="content">柔軟性と筋持久力を高め <br>バランスの取れた身体にしたい方へ！</p>
+                    </div>
+                    <div class="course">
+                        <button type="submit" name="button2" value="muscle" class="btn-xxl no-border">筋トレ</button>
+                        <p class="content">筋肉を付けたい、身体を大きくしたい <br>筋肉の持久力を高めたい方へ！</p>
+                        <img src="{{ asset("images/training(2).png") }}" class="img-fluid-1" alt="training">
+                    </div>
+                    <div class="course">
+                        <button type="submit" name="button3" value="strech" class="btn-xxl no-border">ストレッチ</button>
+                        <p class="content">身体を柔らかく、怪我のしにくい <br>柔軟な身体にした方へ！</p>
+                        <img src="{{ asset("images/strech(2).png") }}" class="img-fluid-2" alt="stretch">
+                    </div>
                 </div>
-                <div class="course">
-                    <button type="button" class="btn-xxl no-border">筋トレ</button>
-                    <p class="content">筋肉を付けたい、身体を大きくしたい <br>筋肉の持久力を高めたい方へ！</p>
-                    <img src="{{ asset("images/training(2).png") }}" class="img-fluid-1" alt="training">
-                </div>
-                <div class="course">
-                    <button type="button" class="btn-xxl no-border">ストレッチ</button>
-                    <p class="content">身体を柔らかく、怪我のしにくい <br>柔軟な身体にした方へ！</p>
-                    <img src="{{ asset("images/strech(2).png") }}" class="img-fluid-2" alt="stretch">
-                </div>
-            </div>
+            </form>
             <div class="flex-log">
                 <img src="{{ asset("images/flex-logo.png") }}" class="img-fluid-3" alt="logo">
             </div>
