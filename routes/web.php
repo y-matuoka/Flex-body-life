@@ -41,15 +41,33 @@ Route::get('auth/trainingmenu', function(){
 Route::get('auth/trainingall', function(){
     return view('auth.trainingall');
 });
+Route::get('auth/trainingall_2', function(){
+    return view('auth.trainingall_2');
+});
 
 // 5/14追加views作成時に画面で確認したい為、記述しました。
 
+Route::get('/auth/trainingall', function () {
+    return view('auth.trainingall'); 
+})->name('auth.trainingall');
+
+
+Route::get('/auth/trainingall_2', function () {
+    return view('auth.trainingall_2'); 
+})->name('auth.trainingall_2');
+
+
+
 Route::get('/auth/muscle', function () {
-    return view('auth.muscle'); // 'resources/views/auth/muscle.blade.php' に対応します
+    return view('auth.muscle'); 
 })->name('auth.muscle');
 
 
 Route::get('/auth/stretch', function () {
+<<<<<<< HEAD
+    return view('auth.stretch'); 
+})->name('auth.stretch');
+=======
     return view('auth.stretch'); // 'resources/views/auth/stretch.blade.php' に対応します
 })->name('auth.stretch');
 
@@ -57,3 +75,4 @@ Route::get('/auth/stretch', function () {
 Route::get('goal_setting/update', function(){
     return view('goal_setting.update');
 });
+>>>>>>> 6492b32dfdb2208ef2ad2168436f1aac1c5e85fe

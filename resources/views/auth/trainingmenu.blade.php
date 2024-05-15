@@ -50,9 +50,9 @@
     {{-- 筋トレとストレッチボタン --}}
 <div class="row-mt-5">
   <div class="col-md-12 text-center">
-      <a href="{{ route('auth.muscle') }}">
+      <a href="{{ route('auth.trainingall') }}">
         <button type="button" class="btn-xxl no-border ">筋トレ</button></a>
-        <a href="{{ route('auth.stretch') }}">
+        <a href="{{ route('auth.trainingall_2') }}">
       <button type="button" class="btn-xxl no-border">ストレッチ</button></a>
   </div>
 </div>
