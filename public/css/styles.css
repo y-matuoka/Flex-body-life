@@ -7,4 +7,17 @@
 
 .body {
   background-color: #F3D6BA;
+  font-family: "MuseoModerno", sans-serif;
+  font-style: normal;
+}
+
+html, body {
+  background-color: #F3D6BA;}
+  /* example.css */
+
+.museomoderno-title {
+  font-family: "MuseoModerno", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold; /* タイトルなので太字 */
+  font-style: normal;
 }

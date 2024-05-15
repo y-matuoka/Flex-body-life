@@ -29,6 +29,29 @@ Route::group(['middleware' => 'auth'],function(){
     Route::post('/goal_setting/{id}/update',  'GoalSettingController@update')->name('goal.update');
 });
 
+Route::get('goal_setting/index', function(){
+    return view('goal_setting.index');
+});
+
+// 5/8追加views作成時に画面で確認したい為、記述しました。
+Route::get('auth/trainingmenu', function(){
+    return view('auth.trainingmenu');
+});
+// 5/10追加views作成時に画面で確認したい為、記述しました。
+Route::get('auth/trainingall', function(){
+    return view('auth.trainingall');
+});
+
+// 5/14追加views作成時に画面で確認したい為、記述しました。
+
+Route::get('/auth/muscle', function () {
+    return view('auth.muscle'); // 'resources/views/auth/muscle.blade.php' に対応します
+})->name('auth.muscle');
+
+
+Route::get('/auth/stretch', function () {
+    return view('auth.stretch'); // 'resources/views/auth/stretch.blade.php' に対応します
+})->name('auth.stretch');
 
 //目標設定更新ページ。ビューをみるために記載しました
 Route::get('goal_setting/update', function(){

@@ -6,13 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Flex-body-life</title>
   <style>
-    html, body {
-                background-color: #F3D6BA;}
+
   </style>
 
 @yield('styles')
 
   <link rel="stylesheet" href="/css/styles.css"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   {{-- コンフリクトを避けるためのcssの作り方 --}}
   {{-- ↑各ページに固有のスタイリングを適用させるには各ページのcssを記載 --}}
   {{-- 各ページ共通部分のスタイルを描いたCSSファイルを用意する --}}
