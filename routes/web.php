@@ -18,6 +18,11 @@
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/mypage', 'MyPageController@index');
 
+// マイページ更新ページ
+Route::get('/mypage/update', 'MypageUpdateController@show')->name('mypage.update');
+Route::post('/mypage/update', 'MypageUpdateController@updateProfile')->name('update.profile');
+
+
 Auth::routes();
 
 //目標設定ページ
