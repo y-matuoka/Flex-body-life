@@ -1,0 +1,151 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css');
+
+/* cssをいちから書くよりは楽だけどブートストラップについて調べるほうが手間がかかる可能性がある */
+/* class名がダブっているとブートストラップのクラス名が反映されてしまうので注意！ */
+/* 各ページで書くもののみを記載（文字とかフォント　ヘッダー） */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  /* overflow: hidden; */
+}
+body {
+  background-color: #F3D6BA !important;
+}
+
+.mypage-update-inner {
+  padding: 20px;
+  width: 768px;
+  margin: 0 auto;
+}
+
+.article {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.row {
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  color: #A59B93;
+  margin: 20px 0 0 30px ;
+}
+
+.header h1 {
+  font-size: 50px !important;
+}
+
+.icon {
+    width: 20px; /* アイコンの幅を設定 */
+    height: 20px; /* アイコンの高さを設定 */
+    margin-left: 10px; /* ラベルとの間隔を設定 */
+    vertical-align: middle; /* ラベルと垂直に揃える */
+}
+
+.form-group {
+  color: #A59B93;
+  margin: 30px;
+  margin-bottom: 10px;
+  font-size: 20px
+}
+
+.form-group .passwaord {
+  margin: 30px ;
+}
+
+.form-control {
+  background-color:#F3D6BA;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.form-group input#name,
+.form-group input#email,
+.form-group input#password  {
+  width: 120% ; /* 横幅を設定 */
+  max-width: 565px; /* 最大横幅を設定 */
+  height: 45px; /* 縦幅を設定 */
+  margin-bottom: 10px; /* 入力フィールドの下の余白を設定 */
+  box-sizing: border-box; /* ボックスのサイズを調整 */
+}
+
+.custom-size:hover {
+  background-color: #cfc4bb;
+}
+
+.custom-size {
+  background-color: #867e76;
+  color: #fff;
+  margin: 0 0 0 23px;
+  font-weight: bold;
+  font-size: 16px; /* フォントサイズを指定 */
+  padding: 5px 20px; /* パディングを指定 */
+}
+
+.footer1 {
+  justify-content: center;
+  background-color: #F3D6BA; /* フッターの背景色 */
+  width: 100%; /* フッターの幅を100%に設定 */
+}
+
+.footer1 img {
+  display: flex;
+  text-align: center; /* 中央揃え */
+  max-width: 100px; /* ロゴの最大幅 */
+  margin: 50px 0px 0px 227px; /* 左右のマージンを自動で調整して中央に配置 */
+}
+
+/* 通常のスタイル */
+.mypage-update-inner {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* タブレットやスマートフォン向けのスタイル */
+@media only screen and (max-width: 768px) {
+  .mypage-update-inner {
+    justify-content: center;
+    padding: 50px 20px; /* 上下に50px、左右に20pxのパディングを追加 */
+    margin: 50px auto; /* 上下に50px、左右は自動で中央に配置 */
+  }
+  .form-group {
+    font-size: 40px !important;
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .header {
+    margin: 60px 0px 240px 30px !important; /* 左右のマージンを自動で調整して中央に配置 */
+    text-align: center;
+  }
+  .header h1 {
+    font-size: 65px !important; /* フォントサイズを調整 */
+
+  }
+
+  .footer1{
+    margin: 0; /* マージンをリセット */
+    position: static;
+    bottom: 0; /* 下部に配置 */
+    width: 100%; /* 幅を100%に設定 */
+  }
+}
+
+@media only screen and (max-width: 767px){
+
+  .footer1{
+    margin: 50px 0px 0px 107px; /* マージンをリセット */
+    position: fixed;
+    bottom: 0; /* 下部に配置 */
+    width: 100%; /* 幅を100%に設定 */
+    right: 0;
+    left: 0;
+  }
+}

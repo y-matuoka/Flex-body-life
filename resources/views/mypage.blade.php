@@ -50,7 +50,7 @@
     </div> --}}
   </div>
 </div>
-
+{{-- #の部分にリンクを貼る --}}
 <div class="right">
   <div class="course-info">
     <p class="museomoderno-title">My Training Course</p>
