@@ -12,6 +12,10 @@ body {
     font-family: "MuseoModerno", sans-serif;
 }
 
+.center {
+    display: flex;
+}
+
 
 form {
     background-color: #F3D6BA;
@@ -57,12 +61,18 @@ form {
   height: auto;
 }
 
+
 /* 追加のメディアクエリ */
 @media (max-width: 768px) {
 .responsive-img {
     max-width: 2px;
    ;
   }
+
+  .h1 {
+    font-size: 15px;
+}
+
   .row.mt-5 .col-md-4 {
     flex: 0 0 100%;
     max-width: 100%;

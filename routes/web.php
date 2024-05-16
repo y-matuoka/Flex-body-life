@@ -47,9 +47,13 @@ Route::get('/auth/muscle', function () {
     return view('auth.muscle');
 })->name('auth.muscle');
 Route::get('/auth/stretch', function () {
-    return view('auth.stretch'); // 'resources/views/auth/stretch.blade.php' に対応します
+    return view('auth.stretch');
 })->name('auth.stretch');
 //目標設定更新ページ。ビューをみるために記載しました
 Route::get('goal_setting/update', function(){
     return view('goal_setting.update');
 });
+// 5/15　musclepageからmypageに行くためのルーティング
+Route::get('mypage', function () {
+    return view('mypage');
+})->name('mypage');
