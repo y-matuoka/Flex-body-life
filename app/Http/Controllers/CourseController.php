@@ -38,34 +38,36 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         $user = Auth::user();
-        $courseSelection = new Course;
-        $courseSelection->user_id = $user->id;
-
+        $courses = new Course;
+        $courses->user_id = $user->id;
+        
         //$button1を押していたらtrue
         if($request->has('button1') ){
-            // トレーニングmixが表示
-            $courseSelection->course = 1;
+            // トレーニングmixを1
+            $courses->course = 1;
             //登録してから１週間後の日付を登録
-            $courseSelection->Achievement_date = Carbon::now()->addDay(7);
+            $courses->Achievement_date = Carbon::now()->addDay(7);
 
         } else if($request->has('button2')){
-            // 筋トレメニューを表示
-            $courseSelection->course = 2;
-            $courseSelection->Achievement_date = Carbon::now()->addDay(7);
+            // 筋トレメニューを2
+            $courses->course = 2;
+            $courses->Achievement_date = Carbon::now()->addDay(7);
         } else if($request->has('button3')){
-            // ストレッチメニューを表示
-            $courseSelection->course = 3;
-            $courseSelection->Achievement_date = Carbon::now()->addDay(7);
+            // ストレッチメニューを3
+            $courses->course = 3;
+            $courses->Achievement_date = Carbon::now()->addDay(7);
         } else {
             // もし選択しなかった時のメッセージ
             $message = 'トレーニングを選択してください。';
             return redirect()->back()->with('error',$message);
         }
 
-        $user->courses()->save($courseSelection);
-
+        $user->courses()->save($courses);
+        
         // トレーニング表示画面に遷移
-        return redirect()->route('training.index');
+        return redirect()->route('training.index',[
+            'id' => $courses->id,
+        ]);
     }
 
     /**
@@ -74,9 +76,19 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $id)
     {
-        //
+        $courses = Course::find($id);
+
+        $courseSelect = [
+            1 => 'トレーニングMIX',
+            2 => '筋トレ',
+            3 => 'ストレッチ',
+        ];
+        return view('courses/updated',[
+            'courses' => $courses,
+            'courseSelect' => $courseSelect,
+        ]);
     }
 
     /**
@@ -85,9 +97,14 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(int $id)
     {
-        //
+        $courses = Course::find($id);
+
+        return view('courses\edit', [
+            'courses' => $courses,
+        ]);
+
     }
 
     /**
@@ -97,9 +114,37 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, int $id)
     {
-        //
+
+        $courses = Course::where('user_id', Auth::id())->find($id);
+
+        if($request->has('button1')){
+            // トレーニングmixを1
+            $courses->course = 1;
+            //変更してから１週間後の日付を登録
+            $courses->Achievement_date = Carbon::now()->addDay(7);
+
+        } else if($request->has('button2')){
+            // 筋トレメニューを2
+            $courses->course = 2;
+            $courses->Achievement_date = Carbon::now()->addDay(7);
+        } else if($request->has('button3')){
+            // ストレッチメニューを3
+            $courses->course = 3;
+            $courses->Achievement_date = Carbon::now()->addDay(7);
+        } else {
+            // もし選択しなかった時のメッセージ
+            $message = 'トレーニングを選択してください。';
+            return redirect()->back()->with('error',$message);
+        }
+
+        $courses->save();
+
+        
+        return redirect()->route('courses.updated',[
+            'id' => $courses->id,
+        ]);
     }
 
     /**

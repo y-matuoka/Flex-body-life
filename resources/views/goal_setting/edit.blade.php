@@ -20,7 +20,7 @@
 								<h2 class="h2" id="h2">目標設定更新</h2>
 							<img src="{{ asset("images/megahon.png") }}" class="img-fluid-3" alt="megaphone">
 						</div>
-						
+
 						<div class="card">
 							<div class="card-body">
                 @if ($errors->any())

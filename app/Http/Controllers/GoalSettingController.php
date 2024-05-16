@@ -65,7 +65,7 @@ class GoalSettingController extends Controller
         $this->authorize('update', $goalSetting);
 
         return view('goal.update',[
-            'id' => $goalSetting->id,
+            'goalSetting' => $goalSetting,
         ]);
     }
 
@@ -78,7 +78,7 @@ class GoalSettingController extends Controller
      */
     public function update(GoalSettingRequest $request, $id)
     {
-        //GoalSettingモデルのuser_idとログインしているユーザーのidが
+        //GoalSettingモデルのuser_idとログインしているユーザーのidがあっているか
         $goalSetting = GoalSetting::where('user_id', Auth::id())->find($id);
 
         if (!$goalSetting) {

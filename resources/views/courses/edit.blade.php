@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('styles')
-    <link rel="stylesheet" href="/css/course_selection/styles.css">
+    <link rel="stylesheet" href="/css/courses/styles.css">
 @endsection
 
 @section('content')
@@ -42,6 +42,7 @@
                 </div>
             </div>
         </div>
+        
         @if (session('error'))
             <p class="text-danger mt-3">
                 {{ session('error') }}
@@ -49,7 +50,7 @@
         @endif
         {{-- 筋トレ,ストレッチ,Mixボタン --}}
         <div class="main">
-            <form action="{{ route('course.store') }}" method="POST">
+            <form action="{{ route('course.edit',['id' => $courseSelection->id]) }}" method="POST">
             @csrf
                 <div class="course-flex">
                     <div class="course"> 
@@ -64,7 +65,7 @@
                     <div class="course">
                         <button type="submit" name="button3" value="strech" class="btn-xxl no-border">ストレッチ</button>
                         <p class="content">身体を柔らかく、怪我のしにくい <br>柔軟な身体にした方へ！</p>
-                        <img src="{{ asset("images/strech(2).png") }}" class="img-fluid-2" alt="stretch">
+                        <img src="{{ asset("images/stretch(2).png") }}" class="img-fluid-2" alt="stretch">
                     </div>
                 </div>
             </form>

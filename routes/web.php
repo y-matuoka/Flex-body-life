@@ -30,16 +30,21 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('/courses/index', 'CourseController@index')->name('course.index');
     Route::post('/courses/index', 'CourseController@store')->name('course.store');
 
-    Route::get('/courses/{id}/edit', 'CourseController@')->name('course.index');
-    Route::post('/courses/{id}/edit', 'CourseController@store')->name('course.store');
+    
+    Route::get('/courses/{id}/edit', 'CourseController@edit')->name('course.edit');
+    Route::post('/courses/{id}/edit', 'CourseController@update')->name('course.update');
+    Route::get('/courses/{id}/updated', 'CourseController@show')->name('courses.updated');
+
 });
-//コース選択ページ 最終的にauthにいれる
 
 
 
 Route::get('/training/index', function(){
     return view('training/index');
 })->name('training.index');
+
+
+
 
 //目標設定更新ページ。ビューをみるために記載しました
 Route::get('goal_setting/update', function(){

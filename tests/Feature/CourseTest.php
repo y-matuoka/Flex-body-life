@@ -15,7 +15,7 @@ class CourseTest extends TestCase
 
     public function test_store_with_button1()
     {
-        $user = factory(User::class)->create(); ;
+        $user = factory(User::class)->create();
 
         $response = $this->actingAs($user)->post('/courses/index', [
             'button1' => 'true'
