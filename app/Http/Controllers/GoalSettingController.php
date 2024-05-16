@@ -40,13 +40,13 @@ class GoalSettingController extends Controller
     public function store(GoalSettingRequest $request)
     {
         // ログインしているユーザー
-        $user = Auth::User();
+        $user = Auth::user();
 
         $goalSetting = new GoalSetting();
         $goalSetting->user_id = $user->id;
         $goalSetting->goal_content = $request->goal_content;
 
-        $user->GoalSetting()->save($goalSetting);
+        $user->goalSettings()->save($goalSetting);
 
         // ストレッチコースに遷移するように記述を変更する
         return redirect()->route('goal.index');
@@ -65,7 +65,7 @@ class GoalSettingController extends Controller
         $this->authorize('update', $goalSetting);
 
         return view('goal.update',[
-            'id' => $goalSetting->id,
+            'goalSetting' => $goalSetting,
         ]);
     }
 
@@ -78,7 +78,7 @@ class GoalSettingController extends Controller
      */
     public function update(GoalSettingRequest $request, $id)
     {
-        //GoalSettingモデルのuser_idとログインしているユーザーのidが
+        //GoalSettingモデルのuser_idとログインしているユーザーのidがあっているか
         $goalSetting = GoalSetting::where('user_id', Auth::id())->find($id);
 
         if (!$goalSetting) {

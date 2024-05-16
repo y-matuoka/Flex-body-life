@@ -1,0 +1,142 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css');
+/* cssをいちから書くよりは楽だけどブートストラップについて調べるほうが手間がかかる可能性がある */
+/* class名がダブっているとブートストラップのクラス名が反映されてしまうので注意！ */
+/* 各ページで書くもののみを記載（文字とかフォント　ヘッダー） */
+main{
+  margin-top:20px;
+  background-color: #F3D6BA;
+  color: #A59B93;
+  font-family: "MuseoModerno", sans-serif; /* フォントファミリーを設定 */
+}
+/* body, .container {
+  overflow: hidden;
+} */
+.row {
+  margin: 0;
+  padding: 0;
+}
+.h2 {
+  letter-spacing: 0.5rem;
+}
+.return img{
+  width: 3%;
+}
+.panel-heading h1{
+  margin: 0;
+}
+form{
+  background-color:  #F3D6BA;
+}
+.form-group {
+  margin-bottom: 3rem;
+}
+.panel-heading {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #A59B93;
+}
+.side-image img {
+  max-width: 45px;
+  height: auto;
+
+}
+.btn-xxl {
+  padding: 50px 50px; /* ボタンの内側の余白を大きくする */
+  font-size: 30px; /* ボタンのテキストサイズを大きくする */
+  font-weight: bold; /* テキストを太くする */
+   min-width: 250px;/* ボタンの最小幅を設定する */
+  font-family: "MuseoModerno", sans-serif;
+}
+.no-border {
+  border: none;
+}
+.course-flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
+  text-align: center;
+  /* margin-bottom: 0; */
+}
+.course {
+  position: relative;
+ width: 400px;
+ height: 200px;
+}
+.course:first-of-type {
+  order: 3;
+  margin-bottom: 15px;
+}
+.content {
+  width: 65%;
+  margin: 0 auto;
+}
+.flex-log {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 20px;
+}
+.flex-log img {
+  max-width: 20%;
+}
+.img-fluid-1 {
+  position: absolute;
+  left: -55px;
+  top: 0;
+  height: 140px;
+}
+.img-fluid-2 {
+  position: absolute;
+  right: -65px;
+  top: 0;
+  height: 160px;
+}
+.img-fluid-3 {
+  height: 40px;
+}
+
+/*  */
+@media screen and (max-width: 834px){
+  .course {
+    width: 40%;
+  }
+  .img-fluid-1 {
+    max-width: 25%;
+    height: auto;
+    top: 45px;
+    left: -70px;
+  }
+  .img-fluid-2 {
+    max-width: 30%;
+    height: auto;
+    right: -85px;
+    top: 45px;
+  }
+  .course-flex {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap-reverse;
+    text-align: center;
+    /* margin-bottom: 0; */
+  }
+}
+/* 576px以下 */
+@media screen and (max-width: 576px) {
+  .course {
+    width: 100%;
+  }
+  .flex-log {
+    flex-direction: column;
+    align-items: center;
+  }
+  .flex-log img {
+    max-width: 50%;
+    margin-bottom: 20px;
+  }
+  .img-fluid-1,
+  .img-fluid-2 {
+    display: none;
+  }
+}
