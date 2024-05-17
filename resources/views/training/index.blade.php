@@ -33,9 +33,9 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid-2">
     <div class="row justify-content-center mt-5"> <!-- 修正 -->
-        <div class=" text-center">
+        <div class=" text-center training-menu">
           {{-- 各画像を表示 --}}
             <img src="{{ asset('images/腹筋2.png') }}" alt="" class="responsive-img">
         </div>

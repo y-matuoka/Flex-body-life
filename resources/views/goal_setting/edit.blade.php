@@ -31,11 +31,10 @@
                   </div>
                 @endif
 								<div class="m-sm-4">
-									{{-- {{route('goal.', ['goal'=>$goal_id])}} --}}
-									<form action="{{ route('goal.edit') }}" method="POST">
+									<form action="{{ route('goal.edit', ["id" => $id]) }}" method="POST">
 										@csrf
 										<div class="form-group" id="form-group">
-											<textarea class="form" id="textarea" name="text" rows="5" cols="40" >{{ old('goal_content')}}</textarea>
+											<textarea class="form" id="textarea" name="goal_content" rows="5" cols="40"></textarea>
 										</div>
 										<div class="text-center mt-3">
 											<button type="submit" class="btn btn-lg btn-light">更新</button>

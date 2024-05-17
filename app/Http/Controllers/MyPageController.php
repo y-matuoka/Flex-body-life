@@ -11,10 +11,20 @@ class MyPageController extends Controller
     {
         $user = Auth::user();
         $userGoal = $user->goalSettings()->first();
+        $userCourse = $user->courses()->first();
+        
+        $courseSelect = [
+            1 => 'トレーニングMIX',
+            2 => '筋トレ',
+            3 => 'ストレッチ',
+        ];
+
         // dd($userGoal);
         return view('mypage', [
             "user" => $user,
             "userGoal" => $userGoal,
+            "userCourse" => $userCourse,
+            "courseSelect" => $courseSelect,
         ]);
     }
 }

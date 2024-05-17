@@ -21,7 +21,7 @@ Auth::routes();
 // ログイン状態時にアクセス
 Route::group(['middleware' => 'auth'],function(){
     //目標設定
-    Route::get('/goal_setting/index', 'GoalSettingController@index')->name('goal.index');
+    Route::get('/goal_setting/{id}/index', 'GoalSettingController@index')->name('goal.index');
     Route::post('/goal_setting/index',  'GoalSettingController@store')->name('goal.store');
      //目標設定変更
     Route::get('/goal_setting/{id}/edit', 'GoalSettingController@edit')->name('goal.edit');
@@ -32,7 +32,8 @@ Route::group(['middleware' => 'auth'],function(){
     //コース選択変更
     Route::get('/courses/{id}/edit', 'CourseController@edit')->name('course.edit');
     Route::post('/courses/{id}/edit', 'CourseController@update')->name('course.update');
-    //コース変更完了
+
+    //コース変更完了しました画面
     Route::get('/courses/{id}/updated', 'CourseController@show')->name('courses.updated');
 });
 

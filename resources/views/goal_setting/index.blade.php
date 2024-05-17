@@ -30,10 +30,16 @@
                     @endforeach
                   </div>
                 @endif
-								<div class="m-sm-4">
-									{{-- {{route('goals.create',['goal' => $goal_id])}} --}}
+								
+									@if (!is_null($goalSetting->goal_content))
+									@auth
+									<div class="m-sm-4 text-center">
+										<a class="registered" href="{{ url('/mypage')}} ">すでに目標は登録されています。マイページへ！</a>
+									</div>
+									@else
 									<form action="{{ route('goal.store') }}" method="POST">
 										@csrf
+										<div class="m-sm-4">
 										<div class="form-group" id="form-group">
 											<textarea class="form" id="textarea" name="goal_content" rows="5" cols="40" placeholder="目標を記入してトレーニングを始めよう！"></textarea>
 										</div>
@@ -41,6 +47,8 @@
 											<button type="submit" class="btn btn-lg btn-light">スタート！</button>
 										</div>
 									</form>
+									@endif
+									@endauth
 								</div>
 						</div>
 

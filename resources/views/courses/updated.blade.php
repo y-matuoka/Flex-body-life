@@ -22,12 +22,12 @@
                 @endif
                 <div class="m-sm-4">
                   <div class="course_comp">
-                    {{  $courseSelect[$courses->course]}}コースに変更が完了しました！
+                    {{-- {{  $courseSelect[$courses->course]}}コースに変更が完了しました！ --}}
                   </div>
                 </div>
                 <div class="text-center mt-3">
                   {{-- マイページへのリンクに変える --}}
-                  <a href="/" class="btn btn-lg btn-light">マイページへ</a>
+                  <a href="mypage" class="btn btn-lg btn-light">マイページへ</a>
                 </div>
               </div>
             </div>
