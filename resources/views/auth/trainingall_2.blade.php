@@ -1,37 +1,38 @@
 @extends('welcome')
 @extends('layout')
 @section('styles')
-<link rel="stylesheet" href="/css/trainingall.styles.css">
+<link rel="stylesheet" href="/css/trainingmenu/styles.css">
 <style>
     body, .container {
         overflow: hidden;
     }
-    .panel-heading {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .panel-heading h2 {
+    .row {
         margin: 0;
-        font-size: 24px;
+        padding: 0;
     }
-    .container-fluid {
-        max-height: 100vh; /* 画面の80%までスクロール可能にする */
-        overflow-y: scroll; /* 縦方向のスクロールバーを表示する */
+    .panel-heading h1,
+     {
+        margin: 0;
     }
+
 </style>
 @endsection
 @section('content')
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-offset-3 col-md-6">
-            <div class="panel-heading text-center" style="color: #A59B93;">
-            </div>
-            <div class="center">
-<h1 class="text-center training-menu"><img src="{{ asset('images/体操右.png') }}" alt="" style="max-width: 45px; height: auto;">ストレッチ方法一覧<img src="{{ asset('images/体操左.png') }}" alt="" style="max-width: 45px; height: auto;">
-                </h1>
-                <h4 class="text-center training-menu"><img src="{{ asset('images/right.png') }}" alt="" style="max-width: 45px; height: auto;">   表示したいトレーニング方法のアイコンをクリックしてください   <img src="{{ asset('images/left.png') }}" alt="" style="max-width: 45px; height: auto;"></h4>
-        </div>
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <div class="panel-heading text-center" style="color: #A59B93; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <img src="{{ asset('images/right.png') }}" alt="" style="max-width: 45px; height: auto;">
+                    </div>
+                    <h2>
+                        トレーニング方法一覧
+                    </h2>
+                    <div>
+                        <img src="{{ asset('images/left.png') }}" alt="" style="max-width: 45px; height: auto;">
+                    </div>
+                </div>
+            <h5 class="text-center training-menu">見たいトレーニングメニューを選択してください</h5>
             <div class="panel-body">
                 @if($errors->any())
                 <div class="alert alert-danger">
@@ -46,104 +47,47 @@
             </div>
         </div>
     </div>
-    <div class="row.mt-5">
-        <div class="col-md-4 text-center">
-            <p style="font-weight: bold; font-size: 28px;color: #A59B93">伸脚</p>
-            <a href="{{ route('auth.stretch') }}">
-                <br>
-                <br>
-            <img src="{{ asset('images/伸脚.png') }}" alt="" style="max-width: 200px; height: auto;">
-        </a>
-        </div>
-        <div class="col-md-4 text-center">
-            <a href="{{ route('auth.stretch') }}">
-            <p style="font-weight: bold; font-size: 28px;color: #A59B93">スクワット</p>
-            <img src="{{ asset('images/スクワット.png') }}" alt="" style="max-width: 200px; height: auto;">
-        </a>
-        </div>
-        <div class="col-md-4 text-center">
-            <a href="{{ route('auth.stretch') }}">
-                <p style="font-weight: bold; font-size: 28px;color: #A59B93">ストレッチ</p>
-                <img src="{{ asset('images/ストレッチ.png') }}" alt="" style="max-width: 150px; height: auto;">
-            </a>
-        </div>
-    </div>
-<div class="row mt-5">
-    <div class="col-md-4 text-center">
-        <p style="font-weight: bold; font-size: 28px;color: #A59B93">腕伸ばし</p>
-        <a href="{{ route('auth.stretch') }}">
-            <br>
-            <br>
-        <img src="{{ asset('images/ポーズ.png') }}" alt="" style="max-width: 200px; height: auto;">
-    </a>
-    </div>
-    <div class="col-md-4 text-center">
-        <p style="font-weight: bold; font-size: 28px;color: #A59B93">アキレス腱のばし1</p>
-        <a href="{{ route('auth.stretch') }}">
-            <br>
-            <br>
-        <img src="{{ asset('images/ヨガ.png') }}" alt="" style="max-width: 160px; height: auto;">
-    </a>
-
-    </div>
-    <div class="col-md-4 text-center">
-        <p style="font-weight: bold; font-size: 28px;color: #A59B93">ブリッジ</p>
-        <a href="{{ route('auth.stretch') }}">
-            <br>
-            <br>
-        <img src="{{ asset('images/ブリッジ.png') }}" alt="" style="max-width: 200px; height: auto;">
-    </a>
-    </div>
+    {{-- 筋トレとストレッチボタン --}}
+<div class="row-mt-5">
+  <div class="col-md-12 text-center">
+      <a href="{{ route('auth.trainingall') }}">
+        <button type="button" class="btn-xxl no-border ">筋トレ</button></a>
+        <a href="{{ route('auth.trainingall_2') }}">
+      <button type="button" class="btn-xxl no-border">ストレッチ</button></a>
+  </div>
 </div>
-<div class="row mt-5">
-    <div class="col-md-4 text-center">
-        <p style="font-weight: bold; font-size: 28px;color: #A59B93">開脚</p>
-        <br>
-        <br>
-        <a href="{{ route('auth.stretch') }}">
-        <img src="{{ asset('images/飛ぶ女.png') }}" alt="" style="max-width: 200px; height: auto;">
-    </a>
-    </div>
-    <div class="col-md-4 text-center">
-        <p style="font-weight: bold; font-size: 28px;color: #A59B93">背中伸ばし</p>
-        <a href="{{ route('auth.stretch') }}">
-            <br>
-            <br>
-            <br>
-        <img src="{{ asset('images/伸びの姿勢.png') }}" alt="" style="max-width: 200px; height: auto;">
-    </a>
-    </div>
-    <div class="col-md-4 text-center">
-        <p style="font-weight: bold; font-size: 28px;color: #A59B93">アキレス腱伸ばし2</p>
-        <a href="{{ route('auth.stretch') }}">
-        <img src="{{ asset('images/アキレス腱.png') }}" alt="" style="max-width: 160px; height: auto;">
-    </a>
-    </div>
-
+   {{-- men と woman 画像 --}}
+<div class="row-mt-5">
+  <div class="col-md-4 text-center left-image">
+      <img src="{{ asset('images/men.png') }}" alt="" style="max-width: 200px; height: auto;">
+  </div>
+  <div class="col-md-4 text-center">
+    <br>
+    <br>
+    <br>
+    <br>
 {{-- back画像 --}}
 <div class="col-md-4 col-md-offset-4 text-center">
-    <a href="javascript:history.back()">
-  {{-- マイページに飛ぶようにする(現在home) --}}
-        <img src="{{ asset('images/back.png') }}" alt="" style="max-width: 200px; height: auto;">
-    </a>
-    <br>
-    <br>
+  <a href="javascript:history.back()">
+{{-- マイページに飛ぶようにする(現在home) --}}
+      <img src="{{ asset('images/back.png') }}" alt="" style="max-width: 200px; height: auto;">
+  </a>
+</div>
   </div>
+  <div class="col-md-4 text-center right-image">
+      <img src="{{ asset('images/woman.png') }}" alt="" style="max-width: 200px; height: auto;">
+  </div>
+</div>
+</div>
+<br>
+<br>
 {{-- ロゴ --}}
 <div class="row mt-2">
-    <div class="col-md-offset-3 col-md-6 text-center mt-2">
-        <img src="{{ asset('images/flex-logo.png') }}" alt="" style="max-width: 70px; height: auto;">
-    </div>
+  <div class="col-md-offset-3 col-md-6 text-center mt-2">
+      <img src="{{ asset('images/flex-logo.png') }}" alt="" style="max-width: 80px; height: auto;">
+  </div>
 </div>
+    </div>
 </div>
 </div>
 @endsection
-
-
-
-
-
-
-
-
-

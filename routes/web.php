@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,11 +9,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/mypage', 'MyPageController@index');
 
@@ -24,7 +21,6 @@ Route::post('/mypage/update', 'MypageUpdateController@updateProfile')->name('upd
 
 
 Auth::routes();
-
 //目標設定ページ
 Route::group(['middleware' => 'auth'],function(){
     Route::get('/goal_setting/index', 'GoalSettingController@index')->name('goal.index');
@@ -41,12 +37,11 @@ Route::group(['middleware' => 'auth'],function(){
     Route::post('/courses/{id}/edit', 'CourseController@update')->name('course.update');
     Route::get('/courses/{id}/updated', 'CourseController@show')->name('courses.updated');
 
+  
 });
-
 Route::get('goal_setting/index', function(){
     return view('goal_setting.index');
 });
-
 // 5/8追加views作成時に画面で確認したい為、記述しました。
 Route::get('auth/trainingmenu', function(){
     return view('auth.trainingmenu');
@@ -58,43 +53,29 @@ Route::get('auth/trainingall', function(){
 Route::get('auth/trainingall_2', function(){
     return view('auth.trainingall_2');
 });
-
 // 5/14追加views作成時に画面で確認したい為、記述しました。
-
 Route::get('/auth/trainingall', function () {
-    return view('auth.trainingall'); 
+    return view('auth.trainingall');
 })->name('auth.trainingall');
-
-
 Route::get('/auth/trainingall_2', function () {
-    return view('auth.trainingall_2'); 
+    return view('auth.trainingall_2');
 })->name('auth.trainingall_2');
-
-
-
 Route::get('/auth/muscle', function () {
-    return view('auth.muscle'); 
+    return view('auth.muscle');
 })->name('auth.muscle');
-
-
 Route::get('/auth/stretch', function () {
-<<<<<<< HEAD
-    return view('auth.stretch'); 
+    return view('auth.stretch');
 })->name('auth.stretch');
-=======
-    return view('auth.stretch'); // 'resources/views/auth/stretch.blade.php' に対応します
-})->name('auth.stretch');
-
 
 Route::get('/training/index', function(){
     return view('training/index');
 })->name('training.index');
 
-
-
-
 //目標設定更新ページ。ビューをみるために記載しました
 Route::get('goal_setting/update', function(){
     return view('goal_setting.update');
 });
->>>>>>> 6492b32dfdb2208ef2ad2168436f1aac1c5e85fe
+// 5/15　musclepageからmypageに行くためのルーティング
+Route::get('mypage', function () {
+    return view('mypage');
+})->name('mypage');
