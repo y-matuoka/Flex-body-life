@@ -49,7 +49,7 @@ class GoalSettingController extends Controller
         $user->goalSettings()->save($goalSetting);
 
         // ストレッチコースに遷移するように記述を変更する
-        return redirect()->route('goal.index');
+        return view('mypage');
     }
 
     /**
@@ -58,13 +58,16 @@ class GoalSettingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(int $id)
     {
-        $goalSetting = GoalSetting::find($id);
+        // dd($id);
+        // $goalSetting = GoalSetting::find($id);
+        $goalSetting = GoalSetting::where('user_id', Auth::id())->find($id);
+        dd($goalSetting);
 
-        $this->authorize('update', $goalSetting);
+        // $this->authorize('update', $goalSetting);
 
-        return view('goal.update',[
+        return view('goal_setting.edit',[
             'goalSetting' => $goalSetting,
         ]);
     }
@@ -90,7 +93,7 @@ class GoalSettingController extends Controller
         GoalSetting()->save($goalSetting);
     
         //マイページに遷移するように変更
-        return redirect()->route('goal.index');
+        return redirect()->route('mypage');
     }
 
     /**

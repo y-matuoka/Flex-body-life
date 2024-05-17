@@ -32,7 +32,7 @@
                 @endif
 								<div class="m-sm-4">
 									{{-- {{route('goals.create',['goal' => $goal_id])}} --}}
-									<form action="" method="POST">
+									<form action="{{ route('goal.store') }}" method="POST">
 										@csrf
 										<div class="form-group" id="form-group">
 											<textarea class="form" id="textarea" name="goal_content" rows="5" cols="40" placeholder="目標を記入してトレーニングを始めよう！"></textarea>

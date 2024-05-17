@@ -62,8 +62,9 @@
 
   <div class="goal-container">
     <h2 class="museomoderno-title">目標</h2>
-    <textarea class="goal-text"></textarea>
-    <button onclick="window.location.href='#';" class="museomoderno-title">Change</button>
+    <textarea class="goal-text">{{ $userGoal->goal_content }}</textarea>
+    {{-- <button onclick="window.location.href='#';" class="museomoderno-title">Change</button> --}}
+    <a href="{{ route('goal.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
   </div>
 
   <div class="customer-info">
