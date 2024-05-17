@@ -1,0 +1,160 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Course;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
+class CourseController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('courses/index');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $user = Auth::user();
+        $courses = new Course;
+        $courses->user_id = $user->id;
+        
+        //$button1を押していたらtrue
+        if($request->has('button1') ){
+            // トレーニングmixを1
+            $courses->course = 1;
+            //登録してから１週間後の日付を登録
+            $courses->Achievement_date = Carbon::now()->addDay(7);
+
+        } else if($request->has('button2')){
+            // 筋トレメニューを2
+            $courses->course = 2;
+            $courses->Achievement_date = Carbon::now()->addDay(7);
+        } else if($request->has('button3')){
+            // ストレッチメニューを3
+            $courses->course = 3;
+            $courses->Achievement_date = Carbon::now()->addDay(7);
+        } else {
+            // もし選択しなかった時のメッセージ
+            $message = 'トレーニングを選択してください。';
+            return redirect()->back()->with('error',$message);
+        }
+
+        $user->courses()->save($courses);
+        
+        // トレーニング表示画面に遷移
+        return redirect()->route('training.index',[
+            'id' => $courses->id,
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(int $id)
+    {
+        $courses = Course::find($id);
+
+        $courseSelect = [
+            1 => 'トレーニングMIX',
+            2 => '筋トレ',
+            3 => 'ストレッチ',
+        ];
+        return view('courses/updated',[
+            'courses' => $courses,
+            'courseSelect' => $courseSelect,
+        ]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(int $id)
+    {
+        $courses = Course::find($id);
+
+        return view('courses\edit', [
+            'courses' => $courses,
+        ]);
+
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, int $id)
+    {
+
+        $courses = Course::where('user_id', Auth::id())->find($id);
+
+        if($request->has('button1')){
+            // トレーニングmixを1
+            $courses->course = 1;
+            //変更してから１週間後の日付を登録
+            $courses->Achievement_date = Carbon::now()->addDay(7);
+
+        } else if($request->has('button2')){
+            // 筋トレメニューを2
+            $courses->course = 2;
+            $courses->Achievement_date = Carbon::now()->addDay(7);
+        } else if($request->has('button3')){
+            // ストレッチメニューを3
+            $courses->course = 3;
+            $courses->Achievement_date = Carbon::now()->addDay(7);
+        } else {
+            // もし選択しなかった時のメッセージ
+            $message = 'トレーニングを選択してください。';
+            return redirect()->back()->with('error',$message);
+        }
+
+        $courses->save();
+
+        
+        return redirect()->route('courses.updated',[
+            'id' => $courses->id,
+        ]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+}

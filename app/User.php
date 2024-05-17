@@ -37,8 +37,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function GoalSetting()
+    public function goalSetting()
     {
         return $this->hasOne('App\GoalSetting');
+    }
+    //UserモデルとCourseモデルが紐づいている
+    public function courses()
+    {
+        return $this->hasMany('App\Course');
     }
 }

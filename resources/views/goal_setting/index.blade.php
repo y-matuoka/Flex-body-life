@@ -10,8 +10,8 @@
 			<a href="{{ route('register') }}" onclick="history.back(); return false;">
 				<img src="{{ asset("images/return.png") }}" class="img-fluid-3" alt="back">
 			</a>
-		
 		</div>
+		
 		<div class="row">
 			<div class="col-12 col-md-offset-3 col-md-6">
 					<div class="d-table-cell align-middle">
