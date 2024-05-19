@@ -13,7 +13,7 @@
 //     return view('welcome');
 // });
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/mypage', 'MyPageController@index');
+Route::get('/mypage/{user}', 'MyPageController@index')->name('mypage');
 
 // マイページ更新ページ
 Route::get('/mypage/update', 'MypageUpdateController@show')->name('mypage.update');
@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth'],function(){
     Route::post('/courses/{id}/edit', 'CourseController@update')->name('course.update');
     Route::get('/courses/{id}/updated', 'CourseController@show')->name('courses.updated');
 
-  
+
 });
 Route::get('goal_setting/index', function(){
     return view('goal_setting.index');
@@ -76,6 +76,12 @@ Route::get('goal_setting/update', function(){
     return view('goal_setting.update');
 });
 // 5/15　musclepageからmypageに行くためのルーティング
-Route::get('mypage', function () {
-    return view('mypage');
-})->name('mypage');
+// Route::get('mypage', function () {
+//     return view('mypage');
+// })->name('mypage');
+
+// 5/17rimainderモック確認ビューの作成です
+Route::get('auth/{user}/reminder','ReminderController@index' )->name('reminder');
+
+
+
