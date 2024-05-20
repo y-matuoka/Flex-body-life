@@ -36,7 +36,7 @@ Route::group(['middleware' => 'auth'],function(){
     Route::post('/courses/{id}/edit', 'CourseController@update')->name('course.update');
 
     //コース変更完了しました画面
-    Route::get('/courses/{id}/updated', 'CourseController@show')->name('courses.updated');
+    // Route::get('/courses/{id}/updated', 'CourseController@show')->name('courses.updated');
 });
 
 Route::get('training/index', function(){

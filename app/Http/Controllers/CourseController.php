@@ -140,10 +140,11 @@ class CourseController extends Controller
         //     'courses'=>$courses,
         // ]);
 
-        return redirect(route('courses.updated',[
-            'id' => $id,
-            'courses'=>$courses,
-        ]));
+        return view('/mypage');
+        // return redirect(route('courses.updated',[
+        //     'id' => $id,
+        //     // 'courses'=>$courses,
+        // ]));
     }
 
  /**
@@ -152,22 +153,22 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(int $id)
-    {
-        //$courses = Course::find($id);
-        $courses = Course::where('user_id', $id)->first();
-        // dd($courses);
+    // public function show(int $id)
+    // {
+    //     //$courses = Course::find($id);
+    //     $courses = Course::where('user_id', $id)->first();
+    //     // dd($courses);
 
-        $courseSelect = [
-            1 => 'トレーニングMIX',
-            2 => '筋トレ',
-            3 => 'ストレッチ',
-        ];
+    //     $courseSelect = [
+    //         1 => 'トレーニングMIX',
+    //         2 => '筋トレ',
+    //         3 => 'ストレッチ',
+    //     ];
         
-        return view('courses/updated',[
-            'id' => $id,
-             'courses' => $courses,
-            'courseSelect' => $courseSelect,
-        ]);
-    }
+    //     return view('courses/updated',[
+    //         'id' => $id,
+    //          'courses' => $courses->id,
+    //         'courseSelect' => $courseSelect,
+    //     ]);
+    // }
 }
