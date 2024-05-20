@@ -27,12 +27,16 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected function redirectTo()
+   protected function redirectTo()
     {
         // ユーザーIDを取得してリダイレクト先URLを作成
         $user = Auth::user();
         return "/mypage/{$user->id}";
     }
+
+  //     protected $redirectTo = 'mypage';
+  
+  
     /**
      * Create a new controller instance.
      *
