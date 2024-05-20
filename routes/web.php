@@ -13,12 +13,19 @@
 //     return view('welcome');
 // });
 Route::get('/', 'HomeController@index')->name('home');
+
 Route::get('/mypage', 'MyPageController@index');
+
+Route::get('/mypage/{user}', 'MyPageController@index')->name('mypage');
+
 // マイページ更新ページ
 Route::get('/mypage/update', 'MypageUpdateController@show')->name('mypage.update');
 Route::post('/mypage/update', 'MypageUpdateController@updateProfile')->name('update.profile');
 Auth::routes();
+
 // ログイン状態時にアクセス
+
+
 
 //目標設定ページ
 Route::group(['middleware' => 'auth'],function(){
@@ -35,6 +42,7 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('/courses/{id}/edit', 'CourseController@edit')->name('course.edit');
     Route::post('/courses/{id}/edit', 'CourseController@update')->name('course.update');
 
+
     //コース変更完了しました画面
     // Route::get('/courses/{id}/updated', 'CourseController@show')->name('courses.updated');
 });
@@ -43,6 +51,10 @@ Route::get('training/index', function(){
     return view('training.index');
 });
 
+
+
+
+});
 
 Route::get('goal_setting/index', function(){
     return view('goal_setting.index');
@@ -73,6 +85,9 @@ Route::get('/auth/stretch', function () {
 })->name('auth.stretch');
 
 
+
+
+
 Route::get('/training/index', function(){
     return view('training/index');
 })->name('training.index');
@@ -81,8 +96,21 @@ Route::get('/training/index', function(){
 Route::get('goal_setting/update', function(){
     return view('goal_setting.update');
 });
+
 // 5/15musclepageからmypageに行くためのルーティング
 
 Route::get('mypage', function () {
     return view('mypage');
 })->name('mypage');
+
+// 5/15　musclepageからmypageに行くためのルーティング
+// Route::get('mypage', function () {
+//     return view('mypage');
+// })->name('mypage');
+
+// 5/17rimainderモック確認ビューの作成です
+Route::get('auth/{user}/reminder','ReminderController@index' )->name('reminder');
+
+
+
+
