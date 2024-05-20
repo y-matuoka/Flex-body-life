@@ -7,7 +7,7 @@
 @section('content')
     <div class="container">
         <div class="return">
-			<a href="{{ route('register') }}" onclick="history.back(); return false;">
+			<a href="{{ route('') }}" onclick="history.back(); return false;">
                 <img src="{{ asset("images/return.png") }}" class="img-fluid-4" alt="back">
 			</a>
         </div>

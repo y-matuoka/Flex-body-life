@@ -17,18 +17,11 @@ class GoalSettingController extends Controller
      */
     public function index()
     {
+       $user = Auth::user();
+
+        $goalSetting = GoalSetting::where('user_id', $user->id)->first();
         
-        return view('goal_setting/index');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-
+        return view('goal_setting.index',['goalSetting' => $goalSetting]);
     }
 
     /**
@@ -49,7 +42,7 @@ class GoalSettingController extends Controller
         $user->goalSettings()->save($goalSetting);
 
         // ストレッチコースに遷移するように記述を変更する
-        return redirect()->route('goal.index');
+        return view('courses.index');
     }
 
     /**
@@ -58,14 +51,14 @@ class GoalSettingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(int $id)
     {
-        $goalSetting = GoalSetting::find($id);
+        $goalSetting = GoalSetting::where('user_id', $id)->first();
+        // dd($goalSetting);
 
-        $this->authorize('update', $goalSetting);
-
-        return view('goal.update',[
+        return view('goal_setting.edit',[
             'goalSetting' => $goalSetting,
+            'id' => $id,
         ]);
     }
 
@@ -76,21 +69,23 @@ class GoalSettingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(GoalSettingRequest $request, $id)
+    public function update(GoalSettingRequest $request, int $id)
     {
+        // $test = new GoalSetting();
         //GoalSettingモデルのuser_idとログインしているユーザーのidがあっているか
-        $goalSetting = GoalSetting::where('user_id', Auth::id())->find($id);
-
-        if (!$goalSetting) {
+        $goalSetting = GoalSetting::where('user_id', $id)->first();
+        
+        if (!$request) {
             abort(404);
         }
-        $this->authorize('update', $goalSetting);
+        // dd($goalSetting);
 
         $goalSetting->goal_content = $request->goal_content;
-        GoalSetting()->save($goalSetting);
+        $goalSetting->save();
     
-        //マイページに遷移するように変更
-        return redirect()->route('goal.index');
+       
+        //
+        return view('mypage');
     }
 
     /**
