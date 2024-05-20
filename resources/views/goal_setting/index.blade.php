@@ -31,8 +31,7 @@
                   </div>
                 @endif
 								
-									@if (!is_null($goalSetting->goal_content))
-									@auth
+									@if (isset($goalSetting->goal_content))
 									<div class="m-sm-4 text-center">
 										<a class="registered" href="{{ url('/mypage')}} ">すでに目標は登録されています。マイページへ！</a>
 									</div>
@@ -48,7 +47,6 @@
 										</div>
 									</form>
 									@endif
-									@endauth
 								</div>
 						</div>
 

@@ -15,25 +15,13 @@ class GoalSettingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(int $id)
+    public function index()
     {
-        
-        $goalSetting = GoalSetting::where('user_id', $id)->first();
-        
-        return view('goal_setting/index',[
-            'goalSetting' => $goalSetting,
-            'id' => $id,
-        ]);
-    }
+       $user = Auth::user();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-
+        $goalSetting = GoalSetting::where('user_id', $user->id)->first();
+        
+        return view('goal_setting.index',['goalSetting' => $goalSetting]);
     }
 
     /**
@@ -54,7 +42,7 @@ class GoalSettingController extends Controller
         $user->goalSettings()->save($goalSetting);
 
         // ストレッチコースに遷移するように記述を変更する
-        return view('mypage');
+        return view('courses.index');
     }
 
     /**
@@ -66,13 +54,11 @@ class GoalSettingController extends Controller
     public function edit(int $id)
     {
         $goalSetting = GoalSetting::where('user_id', $id)->first();
-        //dd($goalSetting);
-
-        // $this->authorize('update', $goalSetting);
+        // dd($goalSetting);
 
         return view('goal_setting.edit',[
             'goalSetting' => $goalSetting,
-            'id' => $id
+            'id' => $id,
         ]);
     }
 

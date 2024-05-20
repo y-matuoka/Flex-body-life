@@ -19,9 +19,11 @@ Route::get('/mypage/update', 'MypageUpdateController@show')->name('mypage.update
 Route::post('/mypage/update', 'MypageUpdateController@updateProfile')->name('update.profile');
 Auth::routes();
 // ログイン状態時にアクセス
+
+//目標設定ページ
 Route::group(['middleware' => 'auth'],function(){
     //目標設定
-    Route::get('/goal_setting/{id}/index', 'GoalSettingController@index')->name('goal.index');
+    Route::get('/goal_setting//index', 'GoalSettingController@index')->name('goal.index');
     Route::post('/goal_setting/index',  'GoalSettingController@store')->name('goal.store');
      //目標設定変更
     Route::get('/goal_setting/{id}/edit', 'GoalSettingController@edit')->name('goal.edit');
@@ -40,6 +42,8 @@ Route::group(['middleware' => 'auth'],function(){
 Route::get('training/index', function(){
     return view('training.index');
 });
+
+
 Route::get('goal_setting/index', function(){
     return view('goal_setting.index');
 });
@@ -67,3 +71,18 @@ Route::get('/auth/muscle', function () {
 Route::get('/auth/stretch', function () {
     return view('auth.stretch');
 })->name('auth.stretch');
+
+
+Route::get('/training/index', function(){
+    return view('training/index');
+})->name('training.index');
+
+//目標設定更新ページ。ビューをみるために記載しました
+Route::get('goal_setting/update', function(){
+    return view('goal_setting.update');
+});
+// 5/15musclepageからmypageに行くためのルーティング
+
+Route::get('mypage', function () {
+    return view('mypage');
+})->name('mypage');

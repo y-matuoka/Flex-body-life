@@ -19,8 +19,8 @@ class MyPageController extends Controller
             3 => 'ストレッチ',
         ];
 
-        // dd($userGoal);
-        return view('mypage', [
+        //dd($userGoal);
+        return view('mypage',[
             "user" => $user,
             "userGoal" => $userGoal,
             "userCourse" => $userCourse,

@@ -22,7 +22,7 @@
                 @endif
                 <div class="m-sm-4">
                   <div class="course_comp">
-                    {{-- {{  $courseSelect[$courses->course]}}コースに変更が完了しました！ --}}
+                    コースに変更が完了しました！
                   </div>
                 </div>
                 <div class="text-center mt-3">

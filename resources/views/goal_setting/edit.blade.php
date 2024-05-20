@@ -34,7 +34,7 @@
 									<form action="{{ route('goal.edit', ["id" => $id]) }}" method="POST">
 										@csrf
 										<div class="form-group" id="form-group">
-											<textarea class="form" id="textarea" name="goal_content" rows="5" cols="40"></textarea>
+											<textarea class="form" id="textarea" name="goal_content" placeholder="{{ $goalSetting->goal_content }}" rows="5" cols="40"></textarea>
 										</div>
 										<div class="text-center mt-3">
 											<button type="submit" class="btn btn-lg btn-light">更新</button>

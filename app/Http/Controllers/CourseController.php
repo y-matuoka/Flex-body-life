@@ -63,10 +63,11 @@ class CourseController extends Controller
         }
 
         $user->courses()->save($courses);
-        
+       
         // トレーニング表示画面に遷移
         return redirect()->route('training.index',[
-            'id' => $courses->id,
+            'id' => $user->id,
+            'courses' => $courses,
         ]);
     }
 
@@ -101,9 +102,13 @@ class CourseController extends Controller
      */
     public function update(Request $request, int $id)
     {
-        $courses = new Course;
-        $courses->where('user_id', $id)->first();
-        dd($courses);
+        // $courses = new Course;
+        $courses = Course::where('user_id', $id)->first();
+        
+        if (!$request) {
+            abort(404);
+        }
+        
 
         if($request->has('button1')){
             // トレーニングmixを1
@@ -128,10 +133,17 @@ class CourseController extends Controller
         $courses->save();
 
 
-        return view('courses/updated',[
+        // dd($courses);
+
+        // return view('courses/updated',[
+        //     'id' => $id,
+        //     'courses'=>$courses,
+        // ]);
+
+        return redirect(route('courses.updated',[
             'id' => $id,
             'courses'=>$courses,
-        ]);
+        ]));
     }
 
  /**
@@ -144,7 +156,7 @@ class CourseController extends Controller
     {
         //$courses = Course::find($id);
         $courses = Course::where('user_id', $id)->first();
-        dd($courses);
+        // dd($courses);
 
         $courseSelect = [
             1 => 'トレーニングMIX',
@@ -153,6 +165,7 @@ class CourseController extends Controller
         ];
         
         return view('courses/updated',[
+            'id' => $id,
              'courses' => $courses,
             'courseSelect' => $courseSelect,
         ]);
