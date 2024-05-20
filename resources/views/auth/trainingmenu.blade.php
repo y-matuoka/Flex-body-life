@@ -14,7 +14,6 @@
      {
         margin: 0;
     }
-
 </style>
 @endsection
 @section('content')

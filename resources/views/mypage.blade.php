@@ -31,7 +31,8 @@
         <img id="avatar-img" src="images/noimageicon.png" alt="No Icon">
       </div>
       <input type="file" id="avatar-input" accept="image/*" style="display:none;">
-      <button class="change-avatar" onclick="document.getElementById('avatar-input').click();" capture>
+      {{-- <button class="change-avatar" onclick="document.getElementById('avatar-input').click();" capture> --}}
+        <a href="{{ route('course.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
         <img src="{{ asset('images/camera.png') }}" alt="アイコン変更">
       </button>
     </div>
@@ -56,13 +57,14 @@
     <p class="museomoderno-title">My Training Course</p>
   <div class="textarea-container">
     <textarea id="course-text" class="museomoderno-title" placeholder=""></textarea>
-    <button onclick="window.location.href='#';" class="museomoderno-title">Change</button>
+    {{-- <button onclick="window.location.href='#';" class="museomoderno-title">Change</button> --}}
+    <a href="{{ route('course.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
    </div>
   </div>
 
   <div class="goal-container">
     <h2 class="museomoderno-title">目標</h2>
-    <textarea class="goal-text">{{ $userGoal->goal_content }}</textarea>
+    <textarea class="goal-text"></textarea>
     {{-- <button onclick="window.location.href='#';" class="museomoderno-title">Change</button> --}}
     <a href="{{ route('goal.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
   </div>

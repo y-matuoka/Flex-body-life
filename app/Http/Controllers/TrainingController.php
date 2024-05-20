@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Course;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Course;
 
 class TrainingController extends Controller
 {
@@ -15,11 +16,9 @@ class TrainingController extends Controller
      */
     public function index(int $id)
     {
-        $course = Course::find($id);
-        $course = Auth::user()->courses()->get();
-
-        dd($course);
+        $user = Auth::user($id);
        
+        dd($user);
         return view('training.index');
     }
 
