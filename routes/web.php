@@ -54,7 +54,7 @@ Route::get('training/index', function(){
 
 
 
-});
+
 
 Route::get('goal_setting/index', function(){
     return view('goal_setting.index');
