@@ -11,6 +11,7 @@
 </head>
 <body>
 
+<div class="wrapper">
 <header>
   <nav>
     <ul>
@@ -24,79 +25,81 @@
 
 <main>
   <div class="left">
-  <div class="profile">
-    <h1 class="museomoderno-title">Mypage</h1>
-    <div class="avatar-container">
-      <div class="avatar">
-        <img id="avatar-img" src="images/noimageicon.png" alt="No Icon">
+    <div class="profile">
+      <h1 class="museomoderno-title">Mypage</h1>
+      <div class="avatar-container">
+        <div class="avatar">
+          {{-- <img id="avatar-img" src="{{ asset($avatarPath) }}" alt="No Icon"> --}}
+          <img id="avatar-img" src="{{ asset(Auth::user()->image) }}" alt="">
+        </div>
       </div>
-      <input type="file" id="avatar-input" accept="image/*" style="display:none;">
-      <button class="change-avatar" onclick="document.getElementById('avatar-input').click();" capture>
-        <img src="{{ asset('images/camera.png') }}" alt="アイコン変更">
-      </button>
+
+      {{-- <button class="button2" onclick="document.getElementById('avatar-delete-form').submit();">削除</button> --}}
+      <form id="avatar-delete-form" action="{{ route('delete.avatar') }}" method="POST">
+        @csrf
+        {{-- @method('DELETE') --}}
+        <input type="submit" value="削除">
+      </form>
+      <form id="avatar-form" action="{{ route('upload.avatar') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <input type="file" id="avatar-input" name="avatar" accept="image/*" style="display:none;">
+        <label for="avatar-input" class="change-avatar" aria-label="アバター変更">
+          <img src="{{ asset('images/camera.png') }}" alt="アイコン変更">
+        </label>
+        <input type="submit" value="変更">
+      </form>
+    </div>
+
+    <div class="days">
+      <div class="month-name">
+        <h2 id="current-month" class="museomoderno-title"></h2>
+      </div>
+      <img src="{{ asset('images/calendar.png') }}" alt="カレンダー">
     </div>
   </div>
-
-
-
-  <div class="days">
-    <div class="month-name">
-      <h2 id="current-month" class="museomoderno-title"></h2>
+  
+  <div class="right">
+    <div class="course-info">
+      <p class="museomoderno-title">My Training Course</p>
+      <div class="textarea-container">
+        <textarea id="course-text" class="museomoderno-title" placeholder=""></textarea>
+        <button onclick="window.location.href='#';" class="museomoderno-title">Change</button>
+      </div>
     </div>
-    <img src="{{ asset('images/calendar.png') }}" alt="カレンダー">
-    {{-- <div class="buttons">
-      <img src="{{ asset('images/back.png') }}" alt="戻る">
-      <img src="{{ asset('images/advance.png') }}" alt="進む">
-    </div> --}}
-  </div>
-</div>
-{{-- #の部分にリンクを貼る --}}
-<div class="right">
-  <div class="course-info">
-    <p class="museomoderno-title">My Training Course</p>
-  <div class="textarea-container">
-    <textarea id="course-text" class="museomoderno-title" placeholder=""></textarea>
-    <button onclick="window.location.href='#';" class="museomoderno-title">Change</button>
-   </div>
-  </div>
 
-  <div class="goal-container">
-    <h2 class="museomoderno-title">目標</h2>
-    <textarea class="goal-text"></textarea>
-    <button onclick="window.location.href='#';" class="museomoderno-title">Change</button>
-  </div>
+    <div class="goal-container">
+      <h2 class="museomoderno-title">目標</h2>
+      <textarea class="goal-text"></textarea>
+      <button onclick="window.location.href='{{ url('goal_setting/index') }}';" class="museomoderno-title">Change</button>
+    </div>
 
-  <div class="customer-info">
-    <a href="#" class="museomoderno-title">お客様情報変更はこちら</a>
+    <div class="customer-info">
+      <a href="{{ url('mypage/update') }}" class="museomoderno-title">お客様情報変更はこちら</a>
+    </div>
+    <div class="unsubscribe">
+      <a href="#" class="museomoderno-title">退会する</a>
+    </div>
   </div>
-  <div class="unsubscribe">
-    <a href="#" class="museomoderno-title">退会する</a>
-  </div>
-</div>
 </main>
 
-<footer>
-  <img src="{{ asset('images/flex-logo.png') }}" alt="flex-logo">
+<footer class="footer1">
+  <div class="footer2 text-center">
+      <img src="{{ asset('images/flex-logo.png') }}" alt="ロゴ">
+  </div>
 </footer>
+</div>
 
 <script>
-  //ユーザーのフォルダにアクセス、選択した画像ファイルを読み込み、その内容をURLデータとして取得し画像を表示する
-  document.getElementById('avatar-input').addEventListener('change', function(event) {
-    var file = event.target.files[0];
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      document.getElementById('avatar-img').src = e.target.result;
-    };
-    reader.readAsDataURL(file);
+  document.getElementById('avatar-input').addEventListener('change', function() {
+    document.getElementById('avatar-form').submit();
   });
-  </script>
-  <script>
-    // 現在の月を取得して表示する
-    var currentDate = new Date();
-    var options = { month: 'long', locale: 'en-US' }; // en-USは英語表記で月名を表示するように指定
-    var currentMonth = currentDate.toLocaleString('en-US', options);
-    document.getElementById('current-month').innerText = currentMonth;
-  </script>    
+
+  // 現在の月を取得して表示する
+  var currentDate = new Date();
+  var options = { month: 'long', locale: 'en-US' };
+  var currentMonth = currentDate.toLocaleString('en', options);
+  document.getElementById('current-month').innerText = currentMonth;
+</script>    
 
 </body>
 </html>

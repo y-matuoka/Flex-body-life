@@ -10,6 +10,16 @@ body {
   padding: 0;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 画面全体の高さを最低限100%に設定 */
+}
+
+main {
+  flex-grow: 1; /* メインコンテンツが残りのスペースを埋める */
+}
+
 /* example.css */
 .museomoderno-title {
   font-family: "MuseoModerno", sans-serif;
@@ -19,9 +29,16 @@ body {
 }
 
 header {
-  background-color: #E0E0E0;
+  background-color: #E0E0E0; /* ヘッダーの背景色 */
   color: #fff;
   padding: 10px;
+  width: 100%; /* ヘッダーの幅を100%に設定 */
+  box-sizing: border-box; /* パディングを含む幅の計算 */
+}
+
+nav {
+  width: 100%; /* ナビゲーションの幅を100%に設定 */
+  box-sizing: border-box; /* パディングを含む幅の計算 */
 }
 
 nav ul {
@@ -29,6 +46,8 @@ nav ul {
   margin: 0;
   padding: 0;
   display: flex; /* 横並びにする */
+  justify-content: space-around; /* メニュー項目を中央寄せにする */
+  width: 100%; /* 横幅を100%に設定 */
 }
 
 nav ul li {
@@ -40,6 +59,7 @@ nav ul li a {
   color: #A59B93;
   text-decoration: none;
 }
+
 
 main {
   padding: 20px;
@@ -88,7 +108,7 @@ textarea {
 
 
 .course-info button{
-  margin: 0 0 0 -60px;
+  margin: 0 0 0 -68px;
   border: none;
   color: #ffffff;
   background-color: #A59B93;
@@ -109,6 +129,17 @@ textarea {
   transition: .3s;
 }
 
+.button2 {
+  margin: 0 0 0 -10px;
+  border: none;
+  color: #ffffff;
+  background-color: #A59B93;
+  border-radius: 50%; /* ボタンを角丸にする */
+  padding: 6px;
+  cursor: pointer;
+  transition: .3s;
+}
+
 button:hover{
   background: #57504b;
 }
@@ -121,7 +152,7 @@ button:hover{
 .course-info textarea{
   margin: -8px 12px 20px 0;
   resize: none;
-  font-size: 30px;
+  font-size: 18px;
   width: 500px;
   height: 50px;
 }
@@ -149,14 +180,11 @@ button:hover{
 }
 
 /* プロフィール*/
-.profile {
-  margin-bottom: 20px;
-}
 
 .profile h1 {
   color: #A59B93;
   font-size: 40px;
-  margin: 0 0 15px 150px;
+  margin: 0 0 10px 150px;
 }
 
 .avatar-container {
@@ -189,7 +217,7 @@ button:hover{
 }
 
 .change-avatar {
-  margin: -20px 0 0 125px;
+  margin: -40px 0px -20px 125px;
   background-color: #A59B93;
   color: #fff;
   border: none;
@@ -203,13 +231,17 @@ button:hover{
 }
 
 .customer-info a {
+  text-align: center;
+  font-size: 20px;
   display: inline-block;
-  margin: 30px 0 40px 180px;
+  margin: 25px 0 25px 150px;
   color: #A59B93;
 }
 
 .unsubscribe a {
+  text-align: center;
   margin: 0 0 0 220px;
+  font-size: 20px;
   color: #A59B93;
 }
 
@@ -217,45 +249,35 @@ a:hover{
   color: #57504b;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  padding: 10px; /* 適切な余白を設定 */
-  padding: 10px;
+.footer1 {
+  display: flex;
+  justify-content: center;
+  background-color: #F3D6BA; /* フッターの背景色 */
+  width: 100%; /* フッターの幅を100%に設定 */
 }
 
-footer img {
-  position: absolute; /* 画像を親要素に対して位置を決定 */
-  bottom: 10px; /* フッターの下部からの距離 */
-  left: 50%; /* 中央に配置 */
-  transform: translateX(-50%); /* 中央揃え */
-  width: 100px; /* 画像の幅 */
-  height: auto; /* 高さを自動調整 */
-  z-index: 1000; /* フッターの上に表示されるようにz-indexを設定 */
+.footer1 img {
+  text-align: center; /* 中央揃え */
+  max-width: 100px; /* ロゴの最大幅 */
 }
 
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   header {
-    width: 100%; 
-    height: auto;
+    width: 532px; 
+    height: 6rem;
   }
 
   header nav ul {
     flex-direction: row; 
   }
-}
-@media screen and (max-width: 768px) {
+
   .left,
   .right {
     width: 100%;
     flex-direction: column;
     position: static; /* 追加：相対的な位置を持つようにする */
   }
-}
-@media screen and (max-width: 768px) {
+
   .avatar-container {
     width: 50px; 
   }
@@ -264,4 +286,41 @@ footer img {
     width: 100px;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .footer1{
+    margin: 0; /* マージンをリセット */
+    position: static;
+    bottom: 0; /* 下部に配置 */
+    width: 100%; /* 幅を100%に設定 */
+  }
+}
+
+@media only screen and (max-width: 767px){
+
+  header {
+    padding: 10px 0;
+  }
+
+  nav ul {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  nav ul li {
+    margin-right: 0;
+  }
+
+  .footer1 {
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    bottom: 0;
+    align-items: center;
+    background-color: #F3D6BA; /* フッターの背景色 */
+    padding: 20px 0; /* 上下の余白を設定 */
+  }
+}
+
 

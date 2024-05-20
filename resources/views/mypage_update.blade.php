@@ -56,13 +56,13 @@
                             <button type="submit" class="custom-size">
                                 変更
                             </button>
-                            
+
                             <footer class="footer1">
                                 <div class="footer2 text-center">
                                     <img src="{{ asset('images/flex-logo.png') }}" alt="ロゴ">
                                 </div>
                             </footer>
-                            
+
                         </div>
                     </form>
                 </div>

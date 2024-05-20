@@ -10,13 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/mypage', 'MyPageController@index');
+
+Route::get('/mypage', 'MyPageController@index')->name('mypage');
+Route::post('/upload-avatar', 'MyPageController@uploadAvatar')->name('upload.avatar');
+// Route::delete('/delete-avatar', 'MyPageController@deleteAvatar')->name('delete.avatar');
+Route::post('/delete-avatar', 'MyPageController@deleteAvatar')->name('delete.avatar');
+
 
 // マイページ更新ページ
 Route::get('/mypage/update', 'MypageUpdateController@show')->name('mypage.update');
@@ -69,15 +71,5 @@ Route::get('/auth/muscle', function () {
 
 
 Route::get('/auth/stretch', function () {
-<<<<<<< HEAD
     return view('auth.stretch'); 
 })->name('auth.stretch');
-=======
-    return view('auth.stretch'); // 'resources/views/auth/stretch.blade.php' に対応します
-})->name('auth.stretch');
-
-//目標設定更新ページ。ビューをみるために記載しました
-Route::get('goal_setting/update', function(){
-    return view('goal_setting.update');
-});
->>>>>>> 6492b32dfdb2208ef2ad2168436f1aac1c5e85fe
