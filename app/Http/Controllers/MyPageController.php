@@ -32,47 +32,37 @@ class MyPageController extends Controller
     }
 
     // プロフィール画像のアップロードと保存
-    public function uploadAvatar(Request $request)
-    {
-        // リクエストからアップロードされたファイルを取得
-        $avatar = $request->file('avatar');
+  public function uploadAvatar(Request $request)
+  {
+    $request->validate([
+      'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
 
-        if ($avatar) {
-            // ファイルを保存する処理（例えば、publicディレクトリ内のuploadsディレクトリに保存する場合）
-            $path = $avatar->store('uploads', 'public');
+    $avatar = $request->file('avatar');
 
-            // セッションに画像のパスを保存
-            session(['avatar_path' => 'storage/' . $path]);
+    if ($avatar) {
+      // ファイル名を生成
+      $filename = time() . '.' . $avatar->getClientOriginalExtension();
+      // 画像をpublic/imagesディレクトリに保存
+      $path = $avatar->move(public_path('images'), $filename);
 
-            return redirect()->back()->with('success', 'プロフィール画像がアップロードされました。');
-        }
+      $user = Auth::user();
+      $user->image = 'images/' . $filename;
+      $user->save();
 
-        return redirect()->back()->with('error', '画像が選択されていません。');
+      return redirect()->back()->with('success', 'プロフィール画像がアップロードされました。');
     }
+
+    return redirect()->back()->with('error', '画像が選択されていません。');
+  }
 
     // プロフィール画像の削除
     public function deleteAvatar()
     {
-        // dd('test');
-        $user = new User();
-        $user->name = Auth::user()->name;
-        $user->email = Auth::user()->email;
-        $user->password = bcrypt(Auth::user()->password);
-        $user->image = Null;
-        $user->save();
+      $user = Auth::user();
+      $user->image = null;
+      $user->save();
 
-        
-        // セッションからアバターのパスを取得
-        // $avatarPath = session('avatar_path');
-
-        // if ($avatarPath && $avatarPath != 'images/noimageicon.png') {
-        //     // ファイルを削除
-        //     Storage::disk('public')->delete(str_replace('storage/', '', $avatarPath));
-
-        //     // セッションから画像のパスを削除
-        //     session()->forget('avatar_path');
-        // }
-
-        return redirect()->back()->with('success', 'プロフィール画像が削除されました。');
+      return redirect()->back()->with('success', 'プロフィール画像が削除されました。');
     }
 }

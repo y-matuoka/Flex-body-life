@@ -52,6 +52,9 @@ nav ul {
 
 nav ul li {
   margin-right: 30px;
+  font-size: 20px;
+  color: #A59B93;
+  text-decoration: none;
 }
 
 nav ul li a {
@@ -59,7 +62,6 @@ nav ul li a {
   color: #A59B93;
   text-decoration: none;
 }
-
 
 main {
   padding: 20px;
@@ -130,17 +132,44 @@ textarea {
 }
 
 .button2 {
-  margin: 0 0 0 -10px;
-  border: none;
-  color: #ffffff;
+  position: relative;
+  top: -35px;
+  left: 300px;
   background-color: #A59B93;
-  border-radius: 50%; /* ボタンを角丸にする */
-  padding: 6px;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 7px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.button3 {
+  position: relative;
+  top: -42px;
+  left: 170px;
+  background-color: #A59B93;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 7px;
   cursor: pointer;
   transition: .3s;
 }
 
 button:hover{
+  background: #57504b ;
+}
+
+.button2:hover{
+  background: #57504b;
+}
+
+.button3:hover{
+  background: #57504b;
+}
+
+.change-avatar:hover{
   background: #57504b;
 }
 
@@ -149,6 +178,7 @@ button:hover{
   color: #A59B93;
 }
 
+/* 入力フィールド */
 .course-info textarea{
   margin: -8px 12px 20px 0;
   resize: none;
@@ -169,14 +199,17 @@ button:hover{
   color: #A59B93;
 }
 
-.days img {
-  margin: -15px 0 0 -10px;
-  max-width: 65%;
+/* カレンダー */
+#calendar {
+  max-width: 350px; /* カレンダーの最大幅を設定 */
+  height: 270px;
+  margin: -18px 0px 0px 80px; /* カレンダーを水平中央に配置 */
+  background-color: white; /* カレンダーの背景色を白に設定 */
 }
 
 .month-name {
   color: #A59B93;
-  margin: -55px 0px 20px 200px;
+  margin: -80px 0px 20px 200px;
 }
 
 /* プロフィール*/
@@ -184,7 +217,7 @@ button:hover{
 .profile h1 {
   color: #A59B93;
   font-size: 40px;
-  margin: 0 0 10px 150px;
+  margin: -20px 0 12px 150px;
 }
 
 .avatar-container {
@@ -217,7 +250,9 @@ button:hover{
 }
 
 .change-avatar {
-  margin: -40px 0px -20px 125px;
+  position: relative; /* 相対位置指定 */
+  top: -75px; /* 上方向に移動 */
+  left: 133px; /* 左方向の位置 */
   background-color: #A59B93;
   color: #fff;
   border: none;
@@ -281,10 +316,6 @@ a:hover{
   .avatar-container {
     width: 50px; 
   }
-
-  .days img {
-    width: 100px;
-  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -308,8 +339,104 @@ a:hover{
     width: 100%;
   }
 
-  nav ul li {
-    margin-right: 0;
+  nav ul li a {
+    font-size: 17px;
+    color: #A59B93;
+    text-decoration: none;
+  }
+
+  .profile h1 {
+    color: #A59B93;
+    font-size: 40px;
+    margin: -20px 0 12px 165px;
+  }
+
+  .avatar {
+    margin: 0px 0 0 160px;
+    width: 180px; /* アイコンの幅 */
+    height: 180px; /* アイコンの高さ */
+    border-radius: 50%; /* アイコンを丸くする */
+    overflow: hidden; /* 要素外の部分を隠す */
+    background-color: #ffffff; /* デフォルトの背景色 */
+  }
+
+  .change-avatar {
+    position: relative; /* 相対位置指定 */
+    top: -75px; /* 上方向に移動 */
+    left: 143px; /* 左方向の位置 */
+    background-color: #A59B93;
+    color: #fff;
+    border: none;
+    border-radius: 100px; /* ボタンを角丸にする */
+    padding: 12px;
+    cursor: pointer;
+  }
+
+  .button2 {
+    position: relative;
+    top: -35px;
+    left: 310px;
+    background-color: #A59B93;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 7px;
+    cursor: pointer;
+    transition: .3s;
+  }
+  
+  .button3 {
+    position: relative;
+    top: -42px;
+    left: 180px;
+    background-color: #A59B93;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 7px;
+    cursor: pointer;
+    transition: .3s;
+  }
+
+  .course-info button{
+    position: relative;
+    top: -20px;
+    left: 51rem;
+    background-color: #A59B93;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px;
+    cursor: pointer;
+    transition: .3s;
+  }
+
+  .goal-container button{
+    position: relative;
+    top: -20px;
+    left: 43rem;
+    background-color: #A59B93;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px;
+    cursor: pointer;
+    transition: .3s;
+  }
+
+  .customer-info a {
+    text-align: center;
+    font-size: 20px;
+    display: inline-block;
+    margin: 25px 0 25px 175px;
+    color: #A59B93;
+  }
+
+  .unsubscribe a {
+    text-align: center;
+    margin: 0 0 0 228px;
+    font-size: 20px;
+    color: #A59B93;
   }
 
   .footer1 {
@@ -320,6 +447,13 @@ a:hover{
     align-items: center;
     background-color: #F3D6BA; /* フッターの背景色 */
     padding: 20px 0; /* 上下の余白を設定 */
+  }
+
+  #calendar {
+    width: 365px; /* カレンダーの最大幅を設定 */
+    height: 270px;
+    margin: 0px 0px 40px 75px; /* カレンダーを水平中央に配置 */
+    background-color: white; /* カレンダーの背景色を白に設定 */
   }
 }
 

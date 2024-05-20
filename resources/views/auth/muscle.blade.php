@@ -1,7 +1,6 @@
 @extends('welcome')
 @extends('layout')
 @section('styles')
-<link rel="stylesheet" href="/css/trainingall.styles.css">
 <style>
     body, .container {
         overflow: hidden;
@@ -17,23 +16,41 @@
         font-size: 24px;
     }
     .container-fluid {
-        max-height: 100vh; /* 画面の80%までスクロール可能にする */
-        overflow-y: scroll; /* 縦方向のスクロールバーを表示する */
+        max-height: 100vh;
+    }
+
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+        .responsive-img {
+            max-width: 320px; /* レスポンシブデバイス用の幅 */
+            height: auto; /* 高さは自動調整 */
+        }
+    }
+
+    /* デスクトップ用 */
+    @media (min-width: 769px) {
+        .responsive-img {
+            max-width: 630px; /* デスクトップ用の幅 */
+            height: auto; /* 高さは自動調整 */
+        }
+        .text-cente {
+            font-size: 10px}
     }
 </style>
 @endsection
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-offset-3 col-md-6">
+        <div class="col-md-offset-3 col-md-6 text-center"> <!-- 修正 -->
             <div class="panel-heading text-center" style="color: #A59B93;">
             </div>
 
             <div class="center">
-<h1 class="text-center training-menu"><img src="{{ asset('images/腕右.png') }}" alt="" style="max-width: 45px; height: auto;">筋トレ方法一覧<img src="{{ asset('images/腕左.png') }}" alt="" style="max-width: 45px; height: auto;"></h1>
-
-                <h4 class="text-center training-menu"><img src="{{ asset('images/right.png') }}" alt="" style="max-width: 45px; height: auto;">   表示したいトレーニング方法のアイコンをクリックしてください  <img src="{{ asset('images/left.png') }}" alt="" style="max-width: 45px; height: auto;"></h4>
-        </div>
+                <h2 class="text-center training-menu">
+                    <img src="{{ asset('images/腕右.png') }}" alt="" style="max-width: 45px; height: auto;"> 腹筋方法
+                    <img src="{{ asset('images/腕左.png') }}" alt="" style="max-width: 45px; height: auto;">
+                </h2>
+            </div>
             <div class="panel-body">
                 @if($errors->any())
                 <div class="alert alert-danger">
@@ -48,46 +65,41 @@
             </div>
         </div>
     </div>
-  
-    <div class="row mt-5">
-        <div class="col-md-4 text-center">
-            <p style="font-weight: bold; font-size: 28px;color: #A59B93">腹筋</p>
-            <a href="{{ route('auth.muscle') }}">
-                <img src="{{ asset('images/腹筋.png') }}" alt="" style="max-width: 200px; height: auto;">
-            </a>
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-center mt-5"> <!-- 修正 -->
+        <div class="col-md-12 text-center">
+            <img src="{{ asset('images/腹筋2.png') }}" alt="" class="responsive-img">
         </div>
-    
-        <div class="col-md-4 text-center">
-            <p style="font-weight: bold; font-size: 28px;color: #A59B93">腕力</p>
-            <a href="{{ route('auth.muscle') }}">
-                <img src="{{ asset('images/マッチョ (2).png') }}" alt="" style="max-width: 170px; height: auto;">
-            </a>
-        </div>
-    
-        <div class="col-md-4 text-center">
-            <p style="font-weight: bold; font-size: 28px;color: #A59B93">バービー</p>
-            <a href="{{ route('auth.muscle') }}">
-                <img src="{{ asset('images/クラウチングスタート.png') }}" alt="" style="max-width: 200px; height: auto;">
-            </a>
-        </div>
-    </div>    
-<br>
-{{-- back画像 --}}
-<div class="col-md-4 col-md-offset-4 text-center">
-    <a href="javascript:history.back()">
-  {{-- マイページに飛ぶようにする(現在home) --}}
-        <img src="{{ asset('images/back.png') }}" alt="" style="max-width: 200px; height: auto;">
-    </a>
-    <br>
-    <br>
-  </div>
-
-{{-- ロゴ --}}
-<div class="row mt-2">
-    <div class="col-md-offset-3 col-md-6 text-center mt-2">
-        <img src="{{ asset('images/flex-logo.png') }}" alt="" style="max-width: 70px; height: auto;">
     </div>
 </div>
+
 </div>
 </div>
-@endsection 
+<br>
+<h4 class="text-center training-menu">
+    仰向けに寝て、足に床をつける。指先を頭の後ろに置いて、頭の付け根を支えます。
+    <br>
+    息を吸いながら、おへそを背中に引き寄せ、あごを少し下に向け、ゆっくりと胸を張り、
+    <br>
+    背中の上部をマットから浮かせます。トップで筋肉を引き寄せ、息を吸い込みます。
+    <br>
+    次に息を吐きながら、ゆっくりとマットに戻します。
+    <br>
+    筋肉を開放するときに息を吸い、それを30回繰り返します。
+</h4>
+<div class="text-center">
+    <a href="{{ route('mypage') }}">
+    <button type="submit" class="btn" style="background-color: #A59B93; color: white; font-size: 25px;font-family: MuseoModerno, sans-serif;">
+    My Page
+    </button></a>
+</div>
+<br>
+<footer>
+<div class="row mt-2">
+    <div class="col-md-offset-3 col-md-6 text-center mt-2">
+        <img src="{{ asset('images/flex-logo.png') }}" alt="" style="max-width: 80px; height: auto;">
+    </div>
+</div>
+</footer>
+@endsection

@@ -20,7 +20,7 @@
 								<h2 class="h2" id="h2">目標設定更新</h2>
 							<img src="{{ asset("images/megahon.png") }}" class="img-fluid-3" alt="megaphone">
 						</div>
-						
+
 						<div class="card">
 							<div class="card-body">
                 @if ($errors->any())
@@ -31,8 +31,8 @@
                   </div>
                 @endif
 								<div class="m-sm-4">
-									{{-- {{route('goal.update', ['goal'=>$goal_id])}} --}}
-									<form action="" method="POST">
+									{{-- {{route('goal.', ['goal'=>$goal_id])}} --}}
+									<form action="{{ route}}" method="POST">
 										@csrf
 										<div class="form-group" id="form-group">
 											<textarea class="form" id="textarea" name="text" rows="5" cols="40" >{{ old('text')}}</textarea>
