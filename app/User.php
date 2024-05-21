@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Course');
     }
+
+    public function Favorites()
+    {
+        return $this->hasMany('App\Favorite');
+    }
 }

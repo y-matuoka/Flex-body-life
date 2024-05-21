@@ -42,7 +42,7 @@ class GoalSettingController extends Controller
         $user->goalSettings()->save($goalSetting);
 
         // ストレッチコースに遷移するように記述を変更する
-        return view('courses.index');
+        return redirect()->route('course.index');
     }
 
     /**

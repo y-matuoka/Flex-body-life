@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Course;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -16,7 +17,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        return view('courses/index');
+        return view('courses.index');
     }
 
     /**
@@ -84,7 +85,7 @@ class CourseController extends Controller
      
         // $courses = Course::find($id);
         $courses = Course::where('user_id', $id)->first();
-        //  dd($courses);
+         //dd($courses);
 
         return view('courses/edit', [
             'courses' => $courses,

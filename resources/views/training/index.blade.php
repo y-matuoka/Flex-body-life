@@ -6,6 +6,7 @@
 </style>
 @endsection
 @section('content')
+<div class="container">
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-offset-3 col-md-6 text-center">
@@ -14,7 +15,7 @@
             <div class="center">
                 <h2 class="text-center training-menu">
                     <img src="{{ asset('images/腕右.png') }}" alt="" class="logo-1"> 
-                    {{-- ここに各コース名を表示させる --}}トレーニング
+                    {{ $training->training_name }}
                     <img src="{{ asset('images/腕左.png') }}" alt="" class="logo-1">
                 </h2>
             </div>
@@ -36,7 +37,7 @@
 <div class="container-fluid-2">
     <div class="row justify-content-center mt-5"> <!-- 修正 -->
         <div class=" text-center training-menu">
-          {{-- 各画像を表示 --}}
+          {{-- 各画像を表示 {{$training->training_image}}--}}
             <img src="{{ asset('images/腹筋2.png') }}" alt="" class="responsive-img">
         </div>
     </div>
@@ -45,13 +46,9 @@
 </div>
 <div class="training-text">
   <span class="content">
-    ゴイゴイスー
+    {{ $training->description }}
     </span>
 </div>
-
-
-{{--  説明文を表示--}}
-
 
 <div class="buttons">
   <button type="submit" name="favorite" class="btn-1">お気に入り</button>
@@ -61,9 +58,10 @@
 <br>
 <footer>
 <div class="row mt-2">
-    <div class="col-md-offset-3 col-md-6 text-center mt-2">
+    <div class="col-md-offset-3 col-md-6 text-center ">
         <img src="{{ asset('images/flex-logo.png') }}" alt="" style="max-width: 80px; height: auto;">
     </div>
 </div>
 </footer>
+</div>
 @endsection
