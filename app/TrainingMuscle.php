@@ -12,7 +12,7 @@ class TrainingMuscle extends Model
         return $this->hasMany('App\Favorite');
     }
 
-    public function isLikedBy($user): bool{
-        return Favorite::where('user_id', $user->id)->where('training_muscle_id', $this->id)->first() !==null;
-    }
+    // public function isLikedBy($user): bool{
+    //     return Favorite::where('user_id', $user->id)->where('training_muscle_id', $this->id)->first() !==null;
+    // }
 }

@@ -42,10 +42,22 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('/courses/{id}/edit', 'CourseController@edit')->name('course.edit');
     Route::post('/courses/{id}/edit', 'CourseController@update')->name('course.update');
 
+    //トレーニング表示・完了
     Route::get('/training/index', 'TrainingController@index')->name('training.index');
+    Route::post('/training/index', 'TrainingController@complete')->name('training.complete');
 
     //コース変更完了しました画面
     // Route::get('/courses/{id}/updated', 'CourseController@show')->name('courses.updated');
+
+    //お気に入り機能
+    //Mixコースのお気に入り
+    Route::post('/likeMix/{trainingMix}', 'FavoriteController@likeMix')->name('favorite.mix');
+    
+    //筋トレ
+    Route::post('/likeMuscle/{Muscle}', 'FavoriteController@likeMuscle')->name('favorite.muscle');
+   
+    //ストレッチ
+    Route::post('/likeStretch/{stretch}', 'FavoriteController@likeStretch')->name('favorite.stretch');
 });
 
 // 5/8追加views作成時に画面で確認したい為、記述しました。

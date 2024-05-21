@@ -50,10 +50,17 @@
     </span>
 </div>
 
+
+{{-- お気に入り機能 --}}
+
 <div class="buttons">
-  <button type="submit" name="favorite" class="btn-1">お気に入り</button>
+  <button type="submit" name="favorite" class="btn-1" onclick="likeMix({{ Auth::user()->id }})">お気に入り</button>
     {{-- < href="{{ route('mypage') }}"> --}}
-  <button type="submit" name="complete"  class="btn-1">完了</button>
+
+    <form action="{{ route('training.complete')}}" method="post">
+        <button type="submit" name="complete"  class="btn-1">完了</button>
+    </form>
+ 
 </div>
 <br>
 <footer>
@@ -64,4 +71,5 @@
 </div>
 </footer>
 </div>
+<script src="{{ asset('js/button.js') }}"></script>
 @endsection
