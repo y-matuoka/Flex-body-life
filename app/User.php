@@ -37,7 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function goalSetting()
+    public function goalSettings()
     {
         return $this->hasOne('App\GoalSetting');
     }

@@ -15,73 +15,73 @@
 <body>
 
 <div class="wrapper">
-<header>
-  <nav>
-    <ul>
-      <li class="museomoderno-title"><a href="#">メニュー</a></li>
-      <li class="museomoderno-title"><a href="#">お気に入り</a></li>
-      <li class="museomoderno-title"><a href="#">問い合わせ</a></li>
-      <li class="museomoderno-title"><a href="#">ログアウト</a></li>
-      <li class="museomoderno-title user-name" style="margin-left:auto;">
-        {{ Auth::user()->name }}
-      </li>
-    </ul>
-  </nav>
-</header>
+    <header>
+      <nav>
+        <ul>
+          <li class="museomoderno-title"><a href="#">メニュー</a></li>
+          <li class="museomoderno-title"><a href="#">お気に入り</a></li>
+          <li class="museomoderno-title"><a href="#">問い合わせ</a></li>
+          <li class="museomoderno-title"><a href="#">ログアウト</a></li>
+          <li class="museomoderno-title user-name" style="margin-left:auto;">
+            {{ Auth::user()->name }}
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-<main>
-  <div class="left">
-    <div class="profile">
-      <h1 class="museomoderno-title">Mypage</h1>
-      <div class="avatar-container">
-        <div class="avatar">
-          <img id="avatar-img" src="{{ asset(Auth::user()->image ?? 'images/noimageicon.png') }}" alt="">
+    <main>
+      <div class="left">
+        <div class="profile">
+          <h1 class="museomoderno-title">Mypage</h1>
+          <div class="avatar-container">
+            <div class="avatar">
+              <img id="avatar-img" src="{{ asset(Auth::user()->image ?? 'images/noimageicon.png') }}" alt="">
+            </div>
+          </div>
+
+          <form id="avatar-delete-form" action="{{ route('delete.avatar') }}" method="POST">
+            @csrf
+            <input class="button2" type="submit" value="削除">
+          </form>
+          <form id="avatar-form" action="{{ route('upload.avatar') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="file" id="avatar-input" name="avatar" accept="image/*" style="display:none;">
+            <label for="avatar-input" class="change-avatar" aria-label="アバター変更">
+              <img src="{{ asset('images/camera.png') }}" alt="アイコン変更">
+            </label>
+            <input class="button3" type="submit" value="変更">
+          </form>
+        </div>
+
+        <div class="days">
+          <div class="month-name">
+            <h2 id="current-month" class="museomoderno-title"></h2>
+          </div>
+          <div id="calendar"></div>
         </div>
       </div>
+      
+      <div class="right">
+        <div class="course-info">
+          <p class="museomoderno-title">My Training Course</p>
+          <div class="textarea-container">
+            <textarea id="course-text" class="museomoderno-title" placeholder=""></textarea>
+            <button onclick="window.location.href='{{ url('courses/index') }}';" class="museomoderno-title">Change</button>
+          </div>
+        </div>
 
-      <form id="avatar-delete-form" action="{{ route('delete.avatar') }}" method="POST">
-        @csrf
-        <input class="button2" type="submit" value="削除">
-      </form>
-      <form id="avatar-form" action="{{ route('upload.avatar') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <input type="file" id="avatar-input" name="avatar" accept="image/*" style="display:none;">
-        <label for="avatar-input" class="change-avatar" aria-label="アバター変更">
-          <img src="{{ asset('images/camera.png') }}" alt="アイコン変更">
-        </label>
-        <input class="button3" type="submit" value="変更">
-      </form>
-    </div>
+        <div class="goal-container">
+          <p class="museomoderno-title">目標</p>
+          <textarea class="goal-text"></textarea>
+          <button onclick="window.location.href='{{ url('goal_setting/index') }}';" class="museomoderno-title">Change</button>
+        </div>
 
-    <div class="days">
-      <div class="month-name">
-        <h2 id="current-month" class="museomoderno-title"></h2>
-      </div>
-      <div id="calendar"></div>
-    </div>
-  </div>
-  
-  <div class="right">
-    <div class="course-info">
-      <p class="museomoderno-title">My Training Course</p>
-      <div class="textarea-container">
-        <textarea id="course-text" class="museomoderno-title" placeholder=""></textarea>
-        <button onclick="window.location.href='#';" class="museomoderno-title">Change</button>
-      </div>
-    </div>
-
-    <div class="goal-container">
-      <h2 class="museomoderno-title">目標</h2>
-      <textarea class="goal-text"></textarea>
-      <button onclick="window.location.href='{{ url('goal_setting/index') }}';" class="museomoderno-title">Change</button>
-    </div>
-
-    <div class="customer-info">
-      <a href="{{ url('mypage/update') }}" class="museomoderno-title">お客様情報変更</a>
-    </div>
-    <div class="unsubscribe">
-      <a href="#" class="museomoderno-title">退会</a>
-    </div>
+        <div class="customer-info">
+          <a href="{{ url('mypage/update') }}" class="museomoderno-title">お客様情報変更</a>
+        </div>
+        <div class="unsubscribe">
+          <a href="#" class="museomoderno-title">退会</a>
+        </div>
   </div>
 </main>
 

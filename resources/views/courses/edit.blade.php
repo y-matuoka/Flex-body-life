@@ -50,7 +50,7 @@
         @endif
         {{-- 筋トレ,ストレッチ,Mixボタン --}}
         <div class="main">
-            <form action="{{ route('course.edit',['id' => $courseSelection->id]) }}" method="POST">
+            <form action="{{ route('course.update', ['id' => $id]) }}" method="POST">
             @csrf
                 <div class="course-flex">
                     <div class="course"> 

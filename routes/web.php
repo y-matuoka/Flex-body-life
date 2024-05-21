@@ -15,19 +15,30 @@
 // });
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\MypageUpdateController;
 
+// ホーム画面
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
 
+// マイページ
 Route::get('/mypage', 'MyPageController@index')->name('mypage');
+
+// マイページ、画像登録、解除に必要なルート
 Route::post('/upload-avatar', 'MyPageController@uploadAvatar')->name('upload.avatar');
 Route::post('/delete-avatar', 'MyPageController@deleteAvatar')->name('delete.avatar');
+
+
+// Fullcalendar
 Route::get('/calendar', function () {return view('calendar');});
 
+Route::get('/mypage/{user}', 'MyPageController@index')->name('mypage');
 
 // マイページ更新ページ
 Route::get('/mypage/update', 'MypageUpdateController@show')->name('mypage.update');
 Route::post('/mypage/update', 'MypageUpdateController@updateProfile')->name('update.profile');
-
 
 // ログイン状態時にアクセス
 

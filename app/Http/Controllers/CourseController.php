@@ -63,33 +63,15 @@ class CourseController extends Controller
         }
 
         $user->courses()->save($courses);
-        
+       
         // トレーニング表示画面に遷移
         return redirect()->route('training.index',[
-            'id' => $courses->id,
-        ]);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(int $id)
-    {
-        $courses = Course::find($id);
-
-        $courseSelect = [
-            1 => 'トレーニングMIX',
-            2 => '筋トレ',
-            3 => 'ストレッチ',
-        ];
-        return view('courses/updated',[
+            'id' => $user->id,
             'courses' => $courses,
-            'courseSelect' => $courseSelect,
         ]);
     }
+
+   
 
     /**
      * Show the form for editing the specified resource.
@@ -99,10 +81,14 @@ class CourseController extends Controller
      */
     public function edit(int $id)
     {
-        $courses = Course::find($id);
+     
+        // $courses = Course::find($id);
+        $courses = Course::where('user_id', $id)->first();
+        //  dd($courses);
 
-        return view('courses\edit', [
+        return view('courses/edit', [
             'courses' => $courses,
+            'id' => $id,
         ]);
 
     }
@@ -116,8 +102,13 @@ class CourseController extends Controller
      */
     public function update(Request $request, int $id)
     {
-
-        $courses = Course::where('user_id', Auth::id())->find($id);
+        // $courses = new Course;
+        $courses = Course::where('user_id', $id)->first();
+        
+        if (!$request) {
+            abort(404);
+        }
+        
 
         if($request->has('button1')){
             // トレーニングmixを1
@@ -141,20 +132,43 @@ class CourseController extends Controller
 
         $courses->save();
 
-        
-        return redirect()->route('courses.updated',[
-            'id' => $courses->id,
-        ]);
+
+        // dd($courses);
+
+        // return view('courses/updated',[
+        //     'id' => $id,
+        //     'courses'=>$courses,
+        // ]);
+
+        return view('/mypage');
+        // return redirect(route('courses.updated',[
+        //     'id' => $id,
+        //     // 'courses'=>$courses,
+        // ]));
     }
 
-    /**
-     * Remove the specified resource from storage.
+ /**
+     * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+    // public function show(int $id)
+    // {
+    //     //$courses = Course::find($id);
+    //     $courses = Course::where('user_id', $id)->first();
+    //     // dd($courses);
+
+    //     $courseSelect = [
+    //         1 => 'トレーニングMIX',
+    //         2 => '筋トレ',
+    //         3 => 'ストレッチ',
+    //     ];
+        
+    //     return view('courses/updated',[
+    //         'id' => $id,
+    //          'courses' => $courses->id,
+    //         'courseSelect' => $courseSelect,
+    //     ]);
+    // }
 }

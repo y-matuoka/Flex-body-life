@@ -24,7 +24,7 @@ class GoalSettingRequest extends FormRequest
     public function rules()
     {
         return [
-            'goal_content' => 'required|max:100',
+            'goal_content' => 'max:100',
         ];
     }
     public function attributes()
