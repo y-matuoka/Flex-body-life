@@ -68,6 +68,11 @@ Route::get('training/index', function(){
     return view('training.index');
 });
 
+
+
+
+
+
 Route::get('goal_setting/index', function(){
     return view('goal_setting.index');
 });
