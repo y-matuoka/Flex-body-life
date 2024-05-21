@@ -8,6 +8,18 @@ body {
   background-color: #F3D6BA;
   margin: 0;
   padding: 0;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh; /* 画面全体の高さを最低限100%に設定 */
+}
+
+main {
+  flex-grow: 1; /* メインコンテンツが残りのスペースを埋める */
 }
 
 /* example.css */
@@ -19,9 +31,16 @@ body {
 }
 
 header {
-  background-color: #E0E0E0;
+  background-color: #E0E0E0; /* ヘッダーの背景色 */
   color: #fff;
   padding: 10px;
+  width: 100%; /* ヘッダーの幅を100%に設定 */
+  box-sizing: border-box; /* パディングを含む幅の計算 */
+}
+
+nav {
+  width: 100%; /* ナビゲーションの幅を100%に設定 */
+  box-sizing: border-box; /* パディングを含む幅の計算 */
 }
 
 nav ul {
@@ -29,10 +48,15 @@ nav ul {
   margin: 0;
   padding: 0;
   display: flex; /* 横並びにする */
+  justify-content: space-around; /* メニュー項目を中央寄せにする */
+  width: 100%; /* 横幅を100%に設定 */
 }
 
 nav ul li {
   margin-right: 30px;
+  font-size: 20px;
+  color: #A59B93;
+  text-decoration: none;
 }
 
 nav ul li a {
@@ -43,6 +67,7 @@ nav ul li a {
 
 main {
   padding: 20px;
+  
 }
 
 main div li {
@@ -88,7 +113,7 @@ textarea {
 
 
 .course-info button{
-  margin: 0 0 0 -60px;
+  margin: 0 0 0 -68px;
   border: none;
   color: #ffffff;
   background-color: #A59B93;
@@ -109,8 +134,51 @@ textarea {
   transition: .3s;
 }
 
+.button2 {
+  position: relative;
+  top: -35px;
+  left: 300px;
+  background-color: #A59B93;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 7px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.button3 {
+  position: relative;
+  top: -42px;
+  left: 170px;
+  background-color: #A59B93;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 7px;
+  cursor: pointer;
+  transition: .3s;
+}
+
 button:hover{
+  background: #57504b ;
+}
+
+.button2:hover{
   background: #57504b;
+}
+
+.button3:hover{
+  background: #57504b;
+}
+
+.change-avatar:hover{
+  background: #57504b;
+}
+
+.goal-container p{
+  font-size: 30px;
+  color: #A59B93;
 }
 
 .course-info p {
@@ -118,10 +186,11 @@ button:hover{
   color: #A59B93;
 }
 
+/* 入力フィールド */
 .course-info textarea{
-  margin: -8px 12px 20px 0;
+  margin: 20px 12px 20px 0;
   resize: none;
-  font-size: 30px;
+  font-size: 18px;
   width: 500px;
   height: 50px;
 }
@@ -138,25 +207,28 @@ button:hover{
   color: #A59B93;
 }
 
-.days img {
-  margin: -15px 0 0 -10px;
-  max-width: 65%;
+/* カレンダー */
+#calendar {
+  max-width: 350px; /* カレンダーの最大幅を設定 */
+  height: 270px;
+  margin: -18px 0px 0px 80px; /* カレンダーを水平中央に配置 */
+  background-color: white; /* カレンダーの背景色を白に設定 */
 }
 
 .month-name {
   color: #A59B93;
-  margin: -55px 0px 20px 200px;
+  margin: -80px 0px 20px 200px;
 }
 
-/* プロフィール*/
-.profile {
-  margin-bottom: 20px;
+.month-name h2 {
+  font-size: 35px !important;
 }
+/* プロフィール*/
 
 .profile h1 {
   color: #A59B93;
-  font-size: 40px;
-  margin: 0 0 15px 150px;
+  font-size: 35px;
+  margin: -10px 0 13px 165px;
 }
 
 .avatar-container {
@@ -189,7 +261,9 @@ button:hover{
 }
 
 .change-avatar {
-  margin: -20px 0 0 125px;
+  position: relative; /* 相対位置指定 */
+  top: -75px; /* 上方向に移動 */
+  left: 133px; /* 左方向の位置 */
   background-color: #A59B93;
   color: #fff;
   border: none;
@@ -203,13 +277,17 @@ button:hover{
 }
 
 .customer-info a {
+  text-align: center;
+  font-size: 20px;
   display: inline-block;
-  margin: 30px 0 40px 180px;
+  margin: 25px 0 25px 175px;
   color: #A59B93;
 }
 
 .unsubscribe a {
-  margin: 0 0 0 220px;
+  text-align: center;
+  margin: 0 0 0 227px;
+  font-size: 20px;
   color: #A59B93;
 }
 
@@ -217,51 +295,442 @@ a:hover{
   color: #57504b;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  padding: 10px; /* 適切な余白を設定 */
-  padding: 10px;
+.footer1 {
+  display: flex;
+  justify-content: center;
+  background-color: #F3D6BA; /* フッターの背景色 */
+  width: 100%; /* フッターの幅を100%に設定 */
 }
 
-footer img {
-  position: absolute; /* 画像を親要素に対して位置を決定 */
-  bottom: 10px; /* フッターの下部からの距離 */
-  left: 50%; /* 中央に配置 */
-  transform: translateX(-50%); /* 中央揃え */
-  width: 100px; /* 画像の幅 */
-  height: auto; /* 高さを自動調整 */
-  z-index: 1000; /* フッターの上に表示されるようにz-indexを設定 */
+.footer1 img {
+  text-align: center; /* 中央揃え */
+  max-width: 100px; /* ロゴの最大幅 */
 }
 
-@media screen and (max-width: 768px) {
+
+
+/* レスポンシブ対応 */
+@media only screen and (max-width: 768px) {
+  /* ログイン中のユーザーの名前 */
+  .user-name {
+    overflow-wrap: break-word !important;
+    display: inline-block !important;
+    max-width: 100px; /* 必要に応じて適切な幅を指定してください */
+}
+
+  /* ヘッダー */
   header {
-    width: 100%; 
-    height: auto;
+    padding: 15px 0;
+    width: 100%;
   }
 
-  header nav ul {
-    flex-direction: row; 
+  nav ul {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  nav ul li a {
+    font-size: 20px;
+    color: #A59B93;
+    text-decoration: none;
+  }
+
+
+  /* アイコン */
+
+  .profile h1 {
+    color: #A59B93;
+    font-size: 30px;
+    text-align: center;
+    margin: 0 0 8px -130px;
+  }
+
+
+  .avatar {
+    margin: 0px 0 0 60px;
+    width: 150px; /* アイコンの幅 */
+    height: 150px;
+    border-radius: 50%; /* アイコンを丸くする */
+    overflow: hidden; /* 要素外の部分を隠す */
+    background-color: #ffffff; /* デフォルトの背景色 */
+  }
+
+  .change-avatar {
+    position: relative; /* 相対位置指定 */
+    top: -95px;
+    left: 2rem; /* 左方向の位置 */
+    background-color: #A59B93;
+    color: #fff;
+    border: none;
+    border-radius: 100px; /* ボタンを角丸にする */
+    padding: 20px;
+    cursor: pointer;
+  }
+
+  .button2 {
+    position: relative;
+    top: 0rem;
+    left: 105px;
+    background-color: #A59B93;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 15px;
+    cursor: pointer;
+    transition: .3s;
+  }
+  
+  .button3 {
+    position: relative;
+    top: -92px;
+    left: 122px;
+    background-color: #A59B93;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 15px;
+    cursor: pointer;
+    transition: .3s;
+  }
+
+
+  /* カレンダー */
+  #calendar {
+    width: 100%;
+    height: 400px;
+    margin: 30px 55px 0 0; 
+    background-color: white; 
+  }
+
+  .month-name {
+    color: #A59B93;
+    margin: -60px 116px -25px 0px;
+  }
+
+  .month-name h2{
+    font-size: 30px !important;
+  }
+
+  .days {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 垂直方向の中央揃え */
+    justify-content: center; /* 水平方向の中央揃え */
+  }
+  
+
+  /* コース選択 */
+  .course-info textarea{
+    resize: none;
+    font-size: 30px;
+    width: 100%;
+    height: 60px;
+  }
+
+  .course-info p {
+    font-size: 30px;
+    width: 100%;
+    margin: 40px 0 30px 0 ;
+    color: #A59B93;
+  }
+
+  .course-info button{
+    position: relative;
+    top: -10px;
+    left: 35rem;
+    background-color: #A59B93;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px;
+    cursor: pointer;
+    transition: .3s;
+  }
+
+  /* 目標設定 */
+  .goal-container textarea{
+      margin: 46px 0 10px 0;
+      resize: none;
+      font-size: 30px;
+      width: 100%;
+      height: 150px;
+  }
+
+  .goal-container p {
+    font-size: 35px;
+    color: #A59B93;
+  }
+
+  .goal-container button{
+    position: relative;
+    top: -10px;
+    left: 27rem;
+    background-color: #A59B93;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px;
+    cursor: pointer;
+    transition: .3s;
+  }
+
+  .customer-info {
+    text-align: center;
+  }
+
+  .customer-info a {
+    font-size: 25px;
+    display: inline-block;
+    margin: 50px 0 40px 0 ;
+    color: #A59B93;
+  }
+
+  .unsubscribe {
+    text-align: center;
+  }
+
+  .unsubscribe a {
+    text-align: center;
+    margin: 0;
+    font-size: 25px;
+    color: #A59B93;
+  }
+
+    /* フッター */
+  .footer1 {
+    position: sticky;
+    margin-top: 20px;
+    width: 100%;
+    background-color: #F3D6BA;
+    text-align: center;
+  }
+
+  .footer1 img {
+    width: 100%;
   }
 }
-@media screen and (max-width: 768px) {
+
+
+@media only screen and (max-width: 767px){
+
+  /* ログイン中のユーザーの名前 */
+  .user-name {
+    overflow-wrap: break-word !important;
+    display: inline-block !important;
+    max-width: 100px; /* 必要に応じて適切な幅を指定してください */
+}
+
   .left,
   .right {
-    width: 100%;
-    flex-direction: column;
-    position: static; /* 追加：相対的な位置を持つようにする */
-  }
-}
-@media screen and (max-width: 768px) {
-  .avatar-container {
-    width: 50px; 
+    width: 100%; /* 画面幅いっぱいに広がるように設定 */
+    float: none; /* 不要なフロートを解除 */
+    position: static; /* 相対的な位置を持たないようにする */
   }
 
-  .days img {
-    width: 100px;
+
+  /* ヘッダー */
+  header {
+    padding: 0 0;
+    width: 100%;
   }
+
+  nav ul {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  nav ul li a {
+    font-size: 10px;
+    color: #A59B93;
+    text-decoration: none;
+  }
+
+
+
+  /* アイコン */
+
+  .profile h1 {
+    width: 100%;
+    color: #A59B93;
+    text-align: center;
+    margin: auto;
+  }
+
+  .profile {
+    display: flex; /* 親要素をフレックスコンテナにする */
+    flex-direction: column; /* 垂直方向にアイテムを配置 */
+    justify-content: center; /* 垂直方向に中央寄せ */
+    align-items: center; /* 水平方向に中央寄せ */
+  }
+
+  .avatar {
+    margin: auto;
+    width: 150px; /* アイコンの幅 */
+    height: 150px;
+    border-radius: 50%; /* アイコンを丸くする */
+    overflow: hidden; /* 要素外の部分を隠す */
+    background-color: #ffffff; /* デフォルトの背景色 */
+  }
+
+  .change-avatar {
+    position: relative; /* 相対位置指定 */
+    top: -9rem;
+    left: -6rem; /* 左方向の位置 */
+    background-color: #A59B93;
+    color: #fff;
+    border: none;
+    border-radius: 100px; /* ボタンを角丸にする */
+    padding: 20px;
+    cursor: pointer;
+  }
+
+  .button2 {
+    position: relative;
+    top: 1rem;
+    left: 0;
+    background-color: #A59B93;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 15px;
+    cursor: pointer;
+    transition: .3s;
+  }
+  
+  .button3 {
+    position: relative;
+    top: -9rem;
+    left: 60px;
+    background-color: #A59B93;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 15px;
+    cursor: pointer;
+    transition: .3s;
+  }
+
+
+  /* カレンダー */
+  #calendar {
+    width: 100%; /* カレンダーの最大幅を設定 */
+    height: 400px;
+    margin: auto; /* カレンダーを水平中央に配置 */
+    background-color: white; /* カレンダーの背景色を白に設定 */
+  }
+
+  .month-name {
+    color: #A59B93;
+    margin-left: auto; /* 左側の余白を自動計算 */
+    margin-right: auto; /* 右側の余白を自動計算 */
+  }
+
+  .month-name h2 {
+    font-size: 30px !important;
+    margin: 25px 50px 50px 50px;
+  }
+
+  .days {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 垂直方向の中央揃え */
+    justify-content: center; /* 水平方向の中央揃え */
+  }
+  
+
+  /* コース選択 */
+  .course-info textarea{
+    margin: -8px 12px 20px 0;
+    resize: none;
+    font-size: 18px;
+    width: 100%;
+    height: 50px;
+  }
+
+  .course-info p {
+    font-size: 25px;
+    width: 100%;
+    margin: 60px 0 20px 0 ;
+    color: #A59B93;
+  }
+
+  .course-info button{
+    position: relative;
+    top: -10px;
+    left: 35rem;
+    background-color: #A59B93;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px;
+    cursor: pointer;
+    transition: .3s;
+  }
+
+  /* 目標設定 */
+  .goal-container textarea{
+      margin: 0px -65px 20px 0;
+      resize: none;
+      font-size: 30px;
+      width: 100%;
+      height: 150px;
+  }
+
+  .goal-container p {
+    font-size: 30px;
+    color: #A59B93;
+  }
+
+  .goal-container button{
+    position: relative;
+    top: -10px;
+    left: 27rem;
+    background-color: #A59B93;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px;
+    cursor: pointer;
+    transition: .3s;
+  }
+
+  .customer-info {
+    text-align: center;
+  }
+
+  .customer-info a {
+    font-size: 20px;
+    display: inline-block;
+    margin: 20px 0 40px 0 ;
+    color: #A59B93;
+  }
+
+  .unsubscribe {
+    text-align: center;
+  }
+
+  .unsubscribe a {
+    text-align: center;
+    margin: 0;
+    font-size: 20px;
+    color: #A59B93;
+  }
+
+    /* フッター */
+  .footer1 {
+    position:sticky; /* fixed から relative に変更 */
+    margin-top: 20px; /* 上部のコンテンツとの間に隙間を作成 */
+    width: 100%;
+    background-color: #F3D6BA;
+    text-align: center;
+  }
+
+  .footer1 img {
+    width: 100%;
+  }
+
 }
+
 
