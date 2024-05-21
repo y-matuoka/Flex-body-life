@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Course');
     }
+     //Userモデルとfavoriteモデルが紐づいている(大山)
+     public function favorite()
+     {
+         return $this->hasMany('App\Favorite');
+     }
 }

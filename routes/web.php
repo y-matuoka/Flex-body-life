@@ -32,12 +32,10 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('/courses/index', 'CourseController@index')->name('course.index');
     Route::post('/courses/index', 'CourseController@store')->name('course.store');
 
-    
     Route::get('/courses/{id}/edit', 'CourseController@edit')->name('course.edit');
     Route::post('/courses/{id}/edit', 'CourseController@update')->name('course.update');
     Route::get('/courses/{id}/updated', 'CourseController@show')->name('courses.updated');
 
-  
 });
 Route::get('goal_setting/index', function(){
     return view('goal_setting.index');
@@ -75,7 +73,13 @@ Route::get('/training/index', function(){
 Route::get('goal_setting/update', function(){
     return view('goal_setting.update');
 });
+
 // 5/15　musclepageからmypageに行くためのルーティング
 Route::get('mypage', function () {
     return view('mypage');
 })->name('mypage');
+
+// 5/20 favorite画面を見るために記載しました
+Route::get('/auth/favorite', 'FavoriteController@index')->name('favorites.show');
+
+Route::post('/auth/favorite', 'FavoriteController@remove')->name('favorites.remove');

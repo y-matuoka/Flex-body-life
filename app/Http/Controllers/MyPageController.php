@@ -11,3 +11,4 @@ class MyPageController extends Controller
         return view('mypage');
     }
 }
+
