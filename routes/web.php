@@ -16,10 +16,20 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MypageUpdateController;
+use App\Http\Controllers\DeleteController;
+
+
+
+// アカウント削除(倫理削除)
+Route::middleware(['auth'])->group(function () {
+Route::get('/user/delete', 'DeleteController@show')->name('user.delete');
+Route::post('/user/delete', 'DeleteController@delete')->name('user.delete.process');
+});
 
 // ホーム画面
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register')->name('register.post');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 
