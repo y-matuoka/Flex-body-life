@@ -31,6 +31,10 @@
                         <h1 class="museomoderno-title">登録情報変更</h1>
                     </div>
 
+                    <a href="/mypage">
+                        <img class="img1" src="{{ asset('images/back.png') }}" alt="buck">
+                    </a>
+
                     <!-- ユーザー情報の変更フォーム -->
                     <form method="POST" action="{{ route('update.profile') }}">
                         @csrf

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class DeleteController extends Controller
 {
@@ -17,6 +18,14 @@ class DeleteController extends Controller
     public function delete(Request $request)
     {
         $user = Auth::user();
+
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $password = $request->input('password');
+
+        if ($user->name !== $name || $user->email !== $email || !Hash::check($password, $user->password)) {
+            return redirect()->back()->with('error', '名前、メールアドレス、またはパスワードが正しくありません。');
+        }
 
         $user->delete();
 

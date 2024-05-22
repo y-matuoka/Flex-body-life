@@ -9,10 +9,10 @@
 <div class="container">
   <h1 class="museomoderno-title">退会手続き</h1>
   <a href="/mypage">
-    <img class="img1" src="/images/back.png" alt="buck">
-  </a>
+    <img class="img1" src="{{ asset('images/back.png') }}" alt="buck">
+</a>
   <form method="POST" action="{{ route('user.delete') }}">
-      @csrf
+    @csrf
       <div class="form-group">
           <label for="name" class="museomoderno-title">名前</label>
           <input type="name" class="form-control" id="name" name="name" required>
