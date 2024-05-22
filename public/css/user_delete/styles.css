@@ -1,0 +1,121 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css');
+
+/* cssをいちから書くよりは楽だけどブートストラップについて調べるほうが手間がかかる可能性がある */
+/* class名がダブっているとブートストラップのクラス名が反映されてしまうので注意！ */
+/* 各ページで書くもののみを記載（文字とかフォント　ヘッダー） */
+
+  .body {
+    background-color: #F3D6BA;
+    font-family: "MuseoModerno", sans-serif;
+    font-style: normal;
+  }
+
+  html, body {
+    background-color: #F3D6BA;}
+    /* example.css */
+
+  .museomoderno-title {
+    font-family: "MuseoModerno", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold; /* タイトルなので太字 */
+    font-style: normal;
+  }
+
+  .container h1 {
+    color:  #A59B93;
+    text-align: center;
+  }
+
+  .img1 {
+    transition: transform 0.3s ease;
+    margin: -100px 0 0 -50px;
+    max-width: 5%;
+  }
+
+
+  /* フォーム */
+  .form-control {
+    text-align: left !important; /* テキストを左寄せにする */
+  }
+
+  .form-group label {
+    font-size: 20px;
+    color: #A59B93;
+  }
+
+  .form-group {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .form-group label,
+  .form-group input {
+    text-align: center;
+  }
+
+  .form-group label {
+    margin: 40px 0 5px 0;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+
+  .btn1 {
+    padding: 10px;
+    margin: 60px auto 20px; /* 画面下部に配置 */
+    background-color: #A59B93;
+    color: #fff;
+    border-color: #A59B93;
+    display: block;
+    width: 100px; /* ボタンの横幅 */
+  }
+
+  button:hover{
+    background: #57504b !important;
+  }
+
+  .img1:hover {
+    transform: scale(1.1);
+  }
+
+
+@media only screen and (max-width: 768px) {
+
+  .form-group {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .img1 {
+    transition: transform 0.3s ease;
+    margin: -100px 0 0 10px;
+    max-width: 5%;
+  }
+
+  .btn1 {
+    padding: 10px;
+    margin: 100px auto 20px; /* 画面下部に配置 */
+    background-color: #A59B93;
+    color: #fff;
+    border-color: #A59B93;
+    display: block;
+    width: 150px; 
+  }
+}
+
+@media only screen and (max-width: 767px){
+
+  .container h1 {
+    font-size: 30px;
+  }
+
+  .img1 {
+    margin: -100px 0 0 10px;
+    max-width: 10%;
+  }
+}

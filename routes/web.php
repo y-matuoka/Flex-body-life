@@ -16,10 +16,20 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MypageUpdateController;
+use App\Http\Controllers\DeleteController;
+
+
+
+// アカウント削除(倫理削除)
+Route::middleware(['auth'])->group(function () {
+Route::get('/user/delete', 'DeleteController@show')->name('user.delete');
+Route::post('/user/delete', 'DeleteController@delete')->name('user.delete.process');
+});
 
 // ホーム画面
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register')->name('register.post');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 
@@ -34,7 +44,8 @@ Route::post('/delete-avatar', 'MyPageController@deleteAvatar')->name('delete.ava
 // Fullcalendar
 Route::get('/calendar', function () {return view('calendar');});
 
-Route::get('/mypage/{user}', 'MyPageController@index')->name('mypage');
+// 機能させるとcssが効かない
+// Route::get('/mypage/{user}', 'MyPageController@index')->name('mypage');
 
 // マイページ更新ページ
 Route::get('/mypage/update', 'MypageUpdateController@show')->name('mypage.update');
@@ -55,9 +66,11 @@ Route::group(['middleware' => 'auth'],function(){
     //コース選択
     Route::get('/courses/index', 'CourseController@index')->name('course.index');
     Route::post('/courses/index', 'CourseController@store')->name('course.store');
-    //コース選択変更
+    
+  //コース選択変更
     Route::get('/courses/{id}/edit', 'CourseController@edit')->name('course.edit');
     Route::post('/courses/{id}/edit', 'CourseController@update')->name('course.update');
+
 
     //トレーニング表示・完了
     Route::get('/training/index', 'TrainingController@index')->name('training.index');
@@ -73,6 +86,21 @@ Route::group(['middleware' => 'auth'],function(){
     Route::post('/likeMuscle/{Muscle}', 'FavoriteController@likeMuscle')->name('favorite.muscle');
     //ストレッチ
     Route::post('/likeStretch/{Stretch}', 'FavoriteController@likeStretch')->name('favorite.stretch');
+
+    //コース変更完了しました画面
+    // Route::get('/courses/{id}/updated', 'CourseController@show')->name('courses.updated');
+
+// 5/17rimainderモック確認ビューの作成です
+Route::get('auth/{user}/reminder','ReminderController@index' )->name('reminder');
+
+
+});
+
+
+
+Route::get('training/index', function(){
+    return view('training.index');
+
 });
 
 // 5/8追加views作成時に画面で確認したい為、記述しました。
@@ -102,16 +130,31 @@ Route::get('/auth/stretch', function () {
 
 
 
+
 // 5/15musclepageからmypageに行くためのルーティング
 
-Route::get('mypage', function () {
-    return view('mypage');
-})->name('mypage');
 
+
+Route::get('/training/index', function(){
+    return view('training/index');
+})->name('training.index');
+
+//目標設定更新ページ。ビューをみるために記載しました
+Route::get('goal_setting/update', function(){
+    return view('goal_setting.update');
+});
+
+
+
+
+// 5/20 favorite画面を見るために記載しました
+Route::get('/auth/favorite', 'FavoriteController@index')->name('favorites.show');
+
+Route::post('/auth/favorite', 'FavoriteController@remove')->name('favorites.remove');
 // 5/15　musclepageからmypageに行くためのルーティング
 // Route::get('mypage', function () {
 //     return view('mypage');
 // })->name('mypage');
 
-// 5/17rimainderモック確認ビューの作成です
-Route::get('auth/{user}/reminder','ReminderController@index' )->name('reminder');
+
+// Auth::routes();

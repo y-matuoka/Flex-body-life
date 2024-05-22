@@ -6,10 +6,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -47,6 +48,7 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Course');
     }
+
     public function favorites()
     {
         return $this->hasMany('App\Favorite');
@@ -139,4 +141,11 @@ class User extends Authenticatable
     //     }   else {
     //     }
     // }
+
+     //Userモデルとfavoriteモデルが紐づいている(大山)
+     public function favorite()
+     {
+         return $this->hasMany('App\Favorite');
+     }
+
 }
