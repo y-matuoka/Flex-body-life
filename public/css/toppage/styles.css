@@ -43,6 +43,11 @@ img{
 
 }
 
+.alert-success{
+  font-size: 20px !important;
+  text-align: center !important;
+}
+
 @media (max-width: 768px) {
   .container {
     text-align: center; /* 画像とボタンを中央に配置 */
