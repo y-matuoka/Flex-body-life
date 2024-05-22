@@ -15,32 +15,31 @@ class MypageUpdateController extends Controller
 
     // プロフィール更新の処理
     public function updateProfile(Request $request)
-    {
-        $user = Auth::user();
+{
+    $user = Auth::user();
 
-        // バリデーション
-        $request->validate([
-            'name' => 'nullable|string|max:255',
-            'email' => 'nullable|string|email|max:255|unique:users,email,' . $user->id,
-            'password' => 'nullable|string|min:8|confirmed',
-        ]);
+    // バリデーション
+    $request->validate([
+        'name' => 'nullable|string|max:255',
+        'email' => 'nullable|string|email|max:255|unique:users,email,' . $user->id,
+        'password' => 'nullable|string|min:8',
+    ]);
 
-        // ユーザー情報の更新
-        if ($request->filled('name')) {
-            $user->name = $request->name;
-        }
+    // ユーザー情報の更新
+    if ($request->filled('name')) {
+        $user->name = $request->name;
+    }
 
-        if ($request->filled('email')) {
-            $user->email = $request->email;
-        }
+    if ($request->filled('email')) {
+        $user->email = $request->email;
+    }
 
-        // パスワードの更新は、入力があった場合のみ
-        if ($request->filled('password')) {
-            $user->password = Hash::make($request->password);
-        }
+    // パスワードの更新は、入力があった場合のみ
+    if ($request->filled('password')) {
+        $user->password = Hash::make($request->password);
+    }
 
-        $user->save();
-
+    $user->save();
         // 成功メッセージとともにマイページにリダイレクト
         return redirect()->route('mypage')->with('success', 'プロフィールを更新しました。');
     }
