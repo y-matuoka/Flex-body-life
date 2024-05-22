@@ -57,7 +57,7 @@
 <div class="contents">
 <div class="name">
 <h3>
-          {{auth::user()->name}}さん
+          {{Auth::user()->name}}さん
         </h3>
        </div>
 

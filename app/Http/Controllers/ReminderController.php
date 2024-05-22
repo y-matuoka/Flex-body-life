@@ -9,7 +9,7 @@ class ReminderController extends Controller
 {
     public function index(User $user){
 
-        $courses = $user->courses()->get(); 
+        $courses = $user->courses()->get();
         return view('auth.reminder',compact('user','courses'));
     }
 

@@ -34,7 +34,8 @@ Route::post('/delete-avatar', 'MyPageController@deleteAvatar')->name('delete.ava
 // Fullcalendar
 Route::get('/calendar', function () {return view('calendar');});
 
-Route::get('/mypage/{user}', 'MyPageController@index')->name('mypage');
+// 機能させるとcssが効かない
+// Route::get('/mypage/{user}', 'MyPageController@index')->name('mypage');
 
 // マイページ更新ページ
 Route::get('/mypage/update', 'MypageUpdateController@show')->name('mypage.update');
@@ -62,7 +63,14 @@ Route::group(['middleware' => 'auth'],function(){
 
     //コース変更完了しました画面
     // Route::get('/courses/{id}/updated', 'CourseController@show')->name('courses.updated');
+
+// 5/17rimainderモック確認ビューの作成です
+Route::get('auth/{user}/reminder','ReminderController@index' )->name('reminder');
+
+
 });
+
+
 
 Route::get('training/index', function(){
     return view('training.index');
@@ -125,5 +133,5 @@ Route::post('/auth/favorite', 'FavoriteController@remove')->name('favorites.remo
 //     return view('mypage');
 // })->name('mypage');
 
-// 5/17rimainderモック確認ビューの作成です
-Route::get('auth/{user}/reminder','ReminderController@index' )->name('reminder');
+
+// Auth::routes();
