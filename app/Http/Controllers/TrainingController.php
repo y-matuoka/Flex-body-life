@@ -22,9 +22,8 @@ class TrainingController extends Controller
 
        $user = Auth::user();
        $userCourse = $user->courses()->first();
-        //dd($userCourse);
 
-        //training_level(登録日19日0,1日目20日,1,２日目21,2,初級)(3日目２２,4日目２３,5日目２４,1中級)(6日目２５,7日目２６,上級)
+        //training_level(登録日0,1日目1,2日目2,初級)(3日目3,4日目4,5日目5,1中級)(6日目6,7日目7,上級)
         $currentDate = Carbon::now();
 
         $startDate = $userCourse->created_at;
@@ -58,6 +57,7 @@ class TrainingController extends Controller
         //dd($training);
         return view('training.index',[
             'training' => $training,
+            'userCourse' => $userCourse,
         ]);
     }
 
@@ -66,9 +66,38 @@ class TrainingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function complete()
+    public function complete(Request $request)
     {
-        return redirect()->route('mypage');
+        $user = Auth::user();
+        $userCourse = $user->courses()->first();
+
+        if($userCourse){
+            if($request->has('complete-btn')){
+                //ボタンが押されているか。押されてたら１、その他０
+                $userCourse->completed = 1;
+                //ボタンが押されたら＋１。
+                $userCourse->status_count += 1;
+            } else {
+                $userCourse->completed = 0;
+            }
+        }
+        
+
+        //status_countを1週間後にリセット 
+        //greaterThanOrEqualToメソッド日付が同じかそれ以降かチェック
+        if (Carbon::now()->greaterThanOrEqualTo($userCourse->Achievement_date) || $userCourse->status_count >= 8) {
+            $userCourse->status_count = 0;
+            // Achievement_dateを1週間後に更新
+            $userCourse->Achievement_date = Carbon::parse($userCourse->Achievement_date)->addWeek();
+        }
+
+        //dd($userCourse);
+
+        $user->courses()->save($userCourse);
+     
+        return redirect()->route('mypage',[
+            'user' => $user,
+        ]);
     }
 
 }

@@ -19,8 +19,9 @@ class GoalSettingController extends Controller
     {
        $user = Auth::user();
 
-        $goalSetting = GoalSetting::where('user_id', $user->id)->first();
-        
+       $goalSetting = $user->goalSettings()->first();
+
+      
         return view('goal_setting.index',['goalSetting' => $goalSetting]);
     }
 

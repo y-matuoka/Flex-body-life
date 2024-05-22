@@ -13,6 +13,6 @@ class TrainingMix extends Model
     }
 
     public function isLikedBy($user): bool{
-        return Favorite::where('user_id', $user->id)->where('training_mix_id', $this->id)->first() !==null;
+        return $this->favorites()->where('user_id', $user->id)->exists();
     }
 }

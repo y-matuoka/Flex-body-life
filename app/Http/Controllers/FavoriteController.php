@@ -10,9 +10,23 @@ use App\TrainingStretch;
 
 class FavoriteController extends Controller
 {
-    public function store($trainingMix)
+    public function likeMix($trainingMix)
     {
-        Auth::user()->likeMix($trainingMix);
-        return 'OK!';
+        $user = Auth::user();
+        $user->likeMix($trainingMix);
+     
+
+        return response()->json(['status' => 'liked']);
+
+    }
+    public function likeMuscle($Muscle)
+    {
+        Auth::user()->likeMix($Muscle);
+        return response()->json(['status' => 'liked']);
+    }
+    public function likeStretch($Stretch)
+    {
+        Auth::user()->likeMix($Stretch);
+        return response()->json(['status' => 'liked']);
     }
 }

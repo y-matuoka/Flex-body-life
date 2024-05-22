@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'image',
     ];
 
     /**
@@ -47,39 +47,45 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Course');
     }
+    public function favorites()
+    {
+        return $this->hasMany('App\Favorite');
+    }
 
     //お気に入りの多対多のリレーション
     public function favoriteTrainingMix(): BelongsToMany
     {
-        return $this->belongsToMany('App\Models\TrainingMix','Favorites','user_id','training_mix_id')->withTimestamps();
+        return $this->belongsToMany('App\TrainingMix','Favorites','user_id','training_mix_id')->withTimestamps();
     }
 
     public function favoriteMuscle(): BelongsToMany
     {
-        return $this->belongsToMany('App\Models\TrainingMuscle','Favorites','user_id','training_muscle_id')->withTimestamps();
+        return $this->belongsToMany('App\TrainingMuscle','Favorites','user_id','training_muscle_id')->withTimestamps();
     }
 
     public function favoriteTrainingStretch(): BelongsToMany
     {
-        return $this->belongsToMany('App\Models\TrainingStretch','Favorites','user_id','training_muscle_id')->withTimestamps();
+        return $this->belongsToMany('App\TrainingStretch','Favorites','user_id','training_muscle_id')->withTimestamps();
     }
+
 
     //お気に入りしたかどうかを判別する。
     public function isLikeMix($trainingMix): bool
     {
-        return $this->favorites()->where('training_mix_id', $trainingMix)->exists();
+        return $this->favoriteTrainingMix()->where('training_mix_id', $trainingMix)->exists();
     }
 
     public function isLikeMuscle($Muscle): bool
     {
-        return $this->favorites()->where('training_muscle_id', $Muscle)->exists();
+        return $this->favoriteMuscle()->where('training_muscle_id', $Muscle)->exists();
     }
 
     public function isLikeStretch($Stretch): bool
     {
-        return $this->favorites()->where('stretch_id', $Stretch)->exists();
+        return $this->favoriteTrainingStretch()->where('training_stretch_id', $Stretch)->exists();
     }
 
+    
     //既にlikeしたかどうかを確認したあと、いいねする（重複を避ける)
     public function likeMix($trainingMix)
     {
