@@ -31,7 +31,8 @@
                   </div>
                 @endif
 								<div class="m-sm-4">
-									<form action="{{ route('goal.edit', ["id" => $id]) }}" method="POST">
+									{{-- {{route('goal.', ['goal'=>$goal_id])}} --}}
+									<form action="{{ route('goal.edit',['id' => $id]) }}" method="POST">
 										@csrf
 										<div class="form-group" id="form-group">
 											<textarea class="form" id="textarea" name="goal_content" placeholder="{{ $goalSetting->goal_content }}" rows="5" cols="40"></textarea>

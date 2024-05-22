@@ -19,8 +19,9 @@ class GoalSettingController extends Controller
     {
        $user = Auth::user();
 
-        $goalSetting = GoalSetting::where('user_id', $user->id)->first();
-        
+       $goalSetting = $user->goalSettings()->first();
+
+      
         return view('goal_setting.index',['goalSetting' => $goalSetting]);
     }
 
@@ -42,7 +43,7 @@ class GoalSettingController extends Controller
         $user->goalSettings()->save($goalSetting);
 
         // ストレッチコースに遷移するように記述を変更する
-        return view('courses.index');
+        return redirect()->route('course.index');
     }
 
     /**
@@ -56,7 +57,7 @@ class GoalSettingController extends Controller
         $goalSetting = GoalSetting::where('user_id', $id)->first();
         // dd($goalSetting);
 
-        return view('goal_setting.edit',[
+        return view('goal_setting/edit',[
             'goalSetting' => $goalSetting,
             'id' => $id,
         ]);

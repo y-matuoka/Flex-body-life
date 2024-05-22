@@ -58,7 +58,7 @@ Route::post('/mypage/update', 'MypageUpdateController@updateProfile')->name('upd
 //目標設定ページ
 Route::group(['middleware' => 'auth'],function(){
     //目標設定
-    Route::get('/goal_setting//index', 'GoalSettingController@index')->name('goal.index');
+    Route::get('/goal_setting/index', 'GoalSettingController@index')->name('goal.index');
     Route::post('/goal_setting/index',  'GoalSettingController@store')->name('goal.store');
      //目標設定変更
     Route::get('/goal_setting/{id}/edit', 'GoalSettingController@edit')->name('goal.edit');
@@ -70,6 +70,22 @@ Route::group(['middleware' => 'auth'],function(){
   //コース選択変更
     Route::get('/courses/{id}/edit', 'CourseController@edit')->name('course.edit');
     Route::post('/courses/{id}/edit', 'CourseController@update')->name('course.update');
+
+
+    //トレーニング表示・完了
+    Route::get('/training/index', 'TrainingController@index')->name('training.index');
+    Route::post('/training/index', 'TrainingController@complete')->name('training.complete');
+
+    //コース変更完了しました画面
+    // Route::get('/courses/{id}/updated', 'CourseController@show')->name('courses.updated');
+
+    //お気に入り機能
+    //Mixコースのお気に入り
+    Route::post('/likeMix/{trainingMix}', 'FavoriteController@likeMix')->name('favorite.mix');
+    //筋トレ
+    Route::post('/likeMuscle/{Muscle}', 'FavoriteController@likeMuscle')->name('favorite.muscle');
+    //ストレッチ
+    Route::post('/likeStretch/{Stretch}', 'FavoriteController@likeStretch')->name('favorite.stretch');
 
     //コース変更完了しました画面
     // Route::get('/courses/{id}/updated', 'CourseController@show')->name('courses.updated');
@@ -84,16 +100,9 @@ Route::get('auth/{user}/reminder','ReminderController@index' )->name('reminder')
 
 Route::get('training/index', function(){
     return view('training.index');
+
 });
 
-
-
-
-
-
-Route::get('goal_setting/index', function(){
-    return view('goal_setting.index');
-});
 // 5/8追加views作成時に画面で確認したい為、記述しました。
 Route::get('/auth/trainingmenu', function(){
     return view('auth.trainingmenu');
@@ -122,6 +131,9 @@ Route::get('/auth/stretch', function () {
 
 
 
+// 5/15musclepageからmypageに行くためのルーティング
+
+
 
 Route::get('/training/index', function(){
     return view('training/index');
@@ -131,6 +143,7 @@ Route::get('/training/index', function(){
 Route::get('goal_setting/update', function(){
     return view('goal_setting.update');
 });
+
 
 
 

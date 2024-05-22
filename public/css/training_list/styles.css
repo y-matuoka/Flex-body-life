@@ -3,10 +3,14 @@
 /* cssをいちから書くよりは楽だけどブートストラップについて調べるほうが手間がかかる可能性がある */
 /* class名がダブっているとブートストラップのクラス名が反映されてしまうので注意！ */
 /* 各ページで書くもののみを記載（文字とかフォント　ヘッダー） */
-
-/* body, .container {
+/* 
+body, .container {
   overflow: hidden;
 } */
+.container {
+  height: 80px;
+  margin-top: 10px;
+}
 .panel-heading {
   display: flex;
   justify-content: space-between;
@@ -18,11 +22,11 @@
 }
 .container-fluid {
   max-height: 100vh;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
 }
 .container-fluid-2 {
   max-height: 100vh;
-  margin-bottom: 3rem;
+  margin-bottom: 1.25rem;
 }
 main{
   background-color: #F3D6BA;
@@ -33,9 +37,9 @@ img {
 }
 .text-center {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  margin-top: 3.5rem;
+  margin-top: 10px;
 }
 .logo-1  {
   max-width: 45px;
@@ -49,16 +53,17 @@ img {
   text-align: center;
   width: 55%;
   height: auto;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 .row {
   display: flex;
   flex-direction: column;
+  margin-top: none;
 }
 .training-text {
-  max-width: 50%;
-  height: 160px;
-  margin:  0 auto 4rem auto;
+  max-width: 40%;
+  height: 140px;
+  margin:  0 auto 1.5rem auto;
   border: 1px solid #A59B93;
   font-size: 2rem;
 }
@@ -70,25 +75,46 @@ img {
   width: 70%;
 }
 .btn-1 {
-  width: 22%;
-  height: 65px;
+  width: 15%;
+  height: 60px;
   background-color: #A59B93;
   border-radius: 5px;
   border: #A59B93;
   color: #ffff;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-family: MuseoModerno, sans-serif;;
+}
+.btn-2 {
+  width: 100%;
+  height: 60px;
+  background-color: #A59B93;
+  border-radius: 5px;
+  border: #A59B93;
+  color: #ffff;
+  font-size: 1.8rem;
+  font-family: MuseoModerno, sans-serif;;
+}
+form {
+  width: 15%;
+  height: 60px;
 }
 /* 576px以下 */
 @media (max-width: 576px){
-  main {
+  /* main {
     margin-top: 3.5rem;
-  }
+  } */
   .btn-1 {
     width: 110px;
     height: 50px;
     font-size: 1.7rem;
     margin-right: 10px;
+  }
+  .btn-2 {
+    height: 50px;
+    font-size: 1.7rem;
+  }
+  form {
+    width: 110px;
   }
   .btn-1:last-child {
     margin-right: 0;
@@ -104,6 +130,16 @@ img {
     width: 75%;/* レスポンシブデバイス用の幅 */
     height: auto; /* 高さは自動調整 */
 }
+.training-text {
+  max-width: 60%;
+  height: 100px;
+  margin:  0 auto 4rem auto;
+  border: 1px solid #A59B93;
+  font-size: 2rem;
+}
+/* body, .container {
+  overflow: hidden;
+} */
 
 
    @media (min-width: 577px) and (max-width: 768px) {
