@@ -66,3 +66,4 @@ class MyPageController extends Controller
       return redirect()->back()->with('success', 'プロフィール画像が削除されました。');
     }
 }
+

@@ -55,10 +55,10 @@ Route::group(['middleware' => 'auth'],function(){
     //コース選択
     Route::get('/courses/index', 'CourseController@index')->name('course.index');
     Route::post('/courses/index', 'CourseController@store')->name('course.store');
-    //コース選択変更
+    
+  //コース選択変更
     Route::get('/courses/{id}/edit', 'CourseController@edit')->name('course.edit');
     Route::post('/courses/{id}/edit', 'CourseController@update')->name('course.update');
-
 
     //コース変更完了しました画面
     // Route::get('/courses/{id}/updated', 'CourseController@show')->name('courses.updated');
@@ -114,12 +114,12 @@ Route::get('goal_setting/update', function(){
     return view('goal_setting.update');
 });
 
-// 5/15musclepageからmypageに行くためのルーティング
 
-Route::get('mypage', function () {
-    return view('mypage');
-})->name('mypage');
 
+// 5/20 favorite画面を見るために記載しました
+Route::get('/auth/favorite', 'FavoriteController@index')->name('favorites.show');
+
+Route::post('/auth/favorite', 'FavoriteController@remove')->name('favorites.remove');
 // 5/15　musclepageからmypageに行くためのルーティング
 // Route::get('mypage', function () {
 //     return view('mypage');
