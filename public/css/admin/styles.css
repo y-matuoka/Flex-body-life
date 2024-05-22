@@ -1,0 +1,79 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css');
+
+/* cssをいちから書くよりは楽だけどブートストラップについて調べるほうが手間がかかる可能性がある */
+/* class名がダブっているとブートストラップのクラス名が反映されてしまうので注意！ */
+/* 各ページで書くもののみを記載（文字とかフォント　ヘッダー） */
+
+
+.body{
+  background-color: #F3D6BA;
+  
+}
+img {
+  max-width: 100%;
+}
+.return img{
+  width: 3%;
+}
+.text-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #A59B93;
+}
+.text-center img{
+  width: 12%;
+  height: 12%;
+}
+
+.usertable {
+  background-color: #fff;
+}
+.userinfo_head {
+  border: 2.5px solid #A59B93
+}
+.userinfo_body {
+  border-bottom: 1px ridge #A59B93;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 20px;
+}
+
+
+.btn {
+  background-color: #A59B93;
+  border-color: #A59B93;
+}
+
+.flex-log {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .content {
+    width: 100%;
+  }
+  .form-group {
+    margin-bottom: 10px;
+  }
+  .usertable table {
+    width: 100%;
+    overflow-x: auto;
+  }
+  .usertable > table {
+    background-color: #fff;
+  }
+  .pagination {
+    justify-content: center;
+  }
+}

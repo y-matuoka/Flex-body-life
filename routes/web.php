@@ -73,6 +73,12 @@ Route::group(['middleware' => 'auth'],function(){
     Route::post('/likeMuscle/{Muscle}', 'FavoriteController@likeMuscle')->name('favorite.muscle');
     //ストレッチ
     Route::post('/likeStretch/{Stretch}', 'FavoriteController@likeStretch')->name('favorite.stretch');
+
+    //管理者画面
+    Route::get('/admin_user', function(){
+        return view('admin_user');
+    })->name('admin.user');
+
 });
 
 // 5/8追加views作成時に画面で確認したい為、記述しました。
