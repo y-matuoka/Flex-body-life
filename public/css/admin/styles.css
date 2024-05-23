@@ -22,32 +22,32 @@ img {
   align-items: center;
   color: #A59B93;
 }
-.text-center img{
-  width: 12%;
-  height: 12%;
+.page__ttl{
+  text-align: center;
 }
 
-.usertable {
+.table {
   background-color: #fff;
 }
-.userinfo_head {
-  border: 2.5px solid #A59B93
+.submit {
+  height: 50px;
+  width: 120px;
 }
-.userinfo_body {
-  border-bottom: 1px ridge #A59B93;
+.submit-btn {
+  width: 50px;
+  height: 40px;
 }
-.flex {
+.btn-flex {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   margin: 0 20px;
 }
 
-
-.btn {
-  background-color: #A59B93;
-  border-color: #A59B93;
+.create {
+  margin-bottom: 50px;
 }
+
 
 .flex-log {
   display: flex;
@@ -55,25 +55,33 @@ img {
   align-items: center;
   padding-bottom: 20px;
 }
-
+.admin {
+  text-decoration: none;
+  color: black;
+}
 
 
 
 @media (max-width: 768px) {
-  .content {
-    width: 100%;
+  .page__ttl {
+    margin-bottom: 40px;
+
+  }
+  .create {
+    margin-bottom: 30px;
   }
   .form-group {
     margin-bottom: 10px;
   }
-  .usertable table {
-    width: 100%;
-    overflow-x: auto;
-  }
-  .usertable > table {
-    background-color: #fff;
-  }
+
   .pagination {
     justify-content: center;
   }
+  @media (max-width: 430px) {
+    .page__ttl {
+      margin-left: 20px;
+  
+    }
+ 
+}
 }

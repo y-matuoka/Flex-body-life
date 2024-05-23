@@ -8,21 +8,31 @@
 @endsection
 
 @section('content')
+@if (Auth::check() && Auth::user()->authority === 99)
+<div class="wrap">
+  <h1 class="page__ttl">管理画面</h1>
 
-<div class="content">
-  <h1 class="text-center">管理画面</h1>
-  <form action="" method="POST" class="form-group form-search">
-    @csrf
-    <div class="form-group">
-      <input type="submit" value="新規登録画面" class="btn btn-primary">
+  @if (session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
     </div>
-  </form>
-  <p class="text">更新または削除を行うユーザーを選択してください。</p>
-  <div class="usertable">
-    <form action="" method="POST">
-      @csrf
-      <table class="table">
-        <tr class="userinfo_head">
+  @endif
+
+  @if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+  @endif
+
+  <form action="{{ route('admin.edit') }}" method="post">
+    @csrf
+    <div class="create">
+      <a class="new-create btn-primary" href="{{ route('register') }}">新規登録画面へ</a>
+    </div>
+    <p>更新または削除を行うユーザーを選択してください。</p>
+    <table class="table">
+      <tbody>
+        <tr>
           <th></th>
           <th>id</th>
           <th>ユーザー名</th>
@@ -31,44 +41,42 @@
           <th>権限</th>
           <th>削除フラグ</th>
         </tr>
-
-        <tr class="userinfo_body">
-          <td><input type="radio"></td>
-          <td></td>
-          <td><input type="text"></td>
-          <td><input type="email"></td>
-          <td><input type="file"></td>
-          <td><input type="text"></td>
-          <td><input type="text"></td>
+        @foreach ($users as $user)
+        <tr>
+          <td>
+            <input type="radio" name="id" value="{{ $user->id }}">
+          </td>
+          <td>{{ $user->id }}</td>
+          <td>
+            <input type="text" name="name" value="{{ $user->name }}">
+          </td>
+          <td>
+            <input type="text" name="email" value="{{ $user->email }}">
+          </td>
+          <td>
+            <input type="text" name="image" value="{{ $user->image }}">
+          </td>
+          <td>
+            <input type="text" name="authority" value="{{ $user->authority }}">
+          </td>
+          <td>
+            <input type="text" name="delflag" value="{{ $user->deleted_at }}">
+          </td>
         </tr>
-
-      </table>
-      <div class="flex">
-        <div class="update-btn">
-          <button type="submit" class="btn btn-primary">更新</button>
-        </div>
-        <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+        @endforeach
+      </tbody>
+    </table>
+    <div class="btn-flex">
+      <div class="submit">
+        <button type="submit" name="update" class="submit-btn btn-primary">更新</button>
+        <button type="submit" name="delete" class="submit-btn btn-primary">削除</button>
       </div>
-    </form>
-
-  </div>
-
+    </div>
+  </form>
 </div>
-
+@else
+<div class="alert alert-danger text-center">
+  <a href="{{ route('home') }}" class="admin">権限がありません</a>
+</div>
+@endif
 @endsection
