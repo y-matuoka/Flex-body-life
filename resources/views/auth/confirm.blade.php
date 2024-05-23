@@ -8,10 +8,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="card">
                 <h1 class="header1">CONFIRM</h1>
-                <h2 class="card-header">お問い合わせ内容確認</h2>
-
+                
+                <div class="card">
+                    <h2 class="card-header">お問い合わせ内容確認</h2>
                 <div class="card-body">
                     <form method="POST" action="{{ route('inquiry.send') }}">
                         @csrf
@@ -28,7 +28,7 @@
 
                             <div class="firm">
                                 <label for="inquiry" class="label2">お問い合わせ内容:</label>
-                                <div class="col-md-9">
+                                <div class="col-md-8">
                                     {{ $inquiry['contact'] }}
                                 </div>
                             </div>

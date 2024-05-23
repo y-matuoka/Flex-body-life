@@ -12,8 +12,8 @@
 }
 
 html, body {
-  background-color: #F3D6BA;}
-  /* example.css */
+  background-color: #F3D6BA;
+}
 
 .museomoderno-title {
   font-family: "MuseoModerno", sans-serif;
@@ -38,47 +38,51 @@ html, body {
 }
 
 label {
-  font-size: 20px;
+  font-size: 15px;
   color: #A59B93;
   text-align: left;
 }
 
-
 .firm {
     display: flex;
-    align-items: center; /* 垂直方向の中央揃え（オプション） */
+    align-items: center;
 }
 
 .label2 {
-    margin-right: 10px; /* label と div の間のスペース（必要に応じて調整） */
+    margin-right: 10px;
 }
 
 .col-md-9 {
-    flex: 1; /* divが利用可能なスペースを取る */
+    flex: 1;
 }
 
 .mail {
   display: flex;
-  align-items: center; /* 垂直方向の中央揃え（オプション） */
+  align-items: center;
 }
 
 .label1 {
-  margin-right: 10px; /* label と div の間のスペース（必要に応じて調整） */
+  margin-right: 10px;
 }
 
 .col-md-9 {
-  flex: 1; /* divが利用可能なスペースを取る */
+  flex: 1;
+}
+
+.col-md-8{
+  margin-top: 30px;
 }
 
 .container {
-  max-width: 800px;
-  margin: 20px auto;
+  max-width: 1000px;
+  margin: 20px 0 0 0;
 }
 
 .card {
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: #fff;
+  height: 450px;
 }
 
 .header1 {
@@ -88,7 +92,7 @@ label {
 
 .card-header {
   text-align: center;
-  font-size: 1.5em;
+  font-size: 2em;
   margin-bottom: 20px;
 }
 
@@ -97,13 +101,14 @@ label {
   padding: 20px;
   border-radius: 10px;
   background-color: #f9f9f9;
-  margin-bottom: 20px; /* 上部と下部の余白 */
+  margin-bottom: 20px;
+  min-height: 300px;
 }
 
 .mail, .firm {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .label1, .label2 {
@@ -111,17 +116,46 @@ label {
   width: 150px; /* ラベルの幅を統一 */
 }
 
-.col-md-9 {
-  flex: 1;
-}
-
 .form-group {
   display: flex;
   justify-content: space-between;
 }
 
-.btn-info, .btn-primary {
-  width: 100%;
+.btn-primary {
+  width: 50%;
   padding: 10px;
   border-radius: 5px;
+}
+
+.btn-info{
+  width: 30%;
+}
+
+@media only screen and (max-width: 768px){
+
+  .btn-primary {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .btn-info{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px){
+
+  .mail, .firm {
+    flex-direction: column;
+  }
+
+  .label1, .label2 {
+    margin-bottom: 10px;
+    width: auto;
+  }
+
+  .label2{
+    margin: 15px 0 -20px 0;
+  }
 }

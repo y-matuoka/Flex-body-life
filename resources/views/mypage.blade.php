@@ -66,7 +66,7 @@
           <p class="museomoderno-title">My Training Course</p>
           <div class="textarea-container">
             <textarea id="course-text" class="museomoderno-title" placeholder=""></textarea>
-          <a href="{{ route('course.edit', ["id" => Auth::user()->id]) }}" class="btt1">Change</a>
+          <a href="{{ route('course.edit', ["id" => Auth::user()->id]) }}" class="">Change</a>
           </div>
         </div>
 
