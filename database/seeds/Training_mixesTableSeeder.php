@@ -30,6 +30,14 @@ class Training_mixesTableSeeder extends Seeder
             'training_level' => 1,//中級
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
+        ],
+        [
+            'training_name' => 'ミックス3',
+            'description' => 'ミックステスト',
+            'training_image' => 'squat.jpg',
+            'training_level' => 1,//中級
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]
     ];
 

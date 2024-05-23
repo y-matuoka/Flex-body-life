@@ -28,8 +28,12 @@
 
                     <!-- ヘッダー部分 -->
                     <div class="header">
-                        <h1>登録情報変更</h1>
+                        <h1 class="museomoderno-title">登録情報変更</h1>
                     </div>
+
+                    <a href="/mypage">
+                        <img class="img1" src="{{ asset('images/back.png') }}" alt="buck">
+                    </a>
 
                     <!-- ユーザー情報の変更フォーム -->
                     <form method="POST" action="{{ route('update.profile') }}">
@@ -37,7 +41,7 @@
 
                         <!-- 名前の変更 -->
                         <div class="form-group ">
-                            <label for="name">
+                            <label for="name" class="museomoderno-title">
                                 名前<img src="{{ asset('images/user_name.png') }}" alt="user_icon" class="icon">
                             </label>
                             <input id="name" type="text" class="form-control" name="name" value="{{ old('name', Auth::user()->name) }}" required autofocus autocomplete="off">
@@ -45,7 +49,7 @@
 
                         <!-- メールアドレスの変更 -->
                         <div class="form-group ">
-                            <label for="email">
+                            <label for="email" class="museomoderno-title">
                                 メールアドレス<img src="{{ asset('images/mail.png') }}" alt="user_icon" class="icon">
                             </label>
                             <input id="email" type="email" class="form-control" name="email" value="{{ old('email', Auth::user()->email) }}" required autocomplete="off">
@@ -53,7 +57,7 @@
 
                         <!-- パスワードの変更 -->
                         <div class="form-group">
-                            <label for="password">
+                            <label for="password" class="museomoderno-title">
                                 パスワード<img src="{{ asset('images/key.png') }}" alt="user_icon" class="icon">
                             </label>
                             <input id="password" type="password" class="form-control" name="password" autocomplete="new-password">
@@ -61,7 +65,7 @@
 
                         <!-- 送信ボタン -->
                         <div class="form-group mt-3 text-center">
-                            <button type="submit" class="custom-size">
+                            <button type="submit" class="custom-size" class="museomoderno-title">
                                 変更
                             </button>
 

@@ -35,6 +35,12 @@ body {
   margin: 20px 0 0 30px ;
 }
 
+.img1 {
+  transition: transform 0.3s ease;
+  margin: -12rem 0 0 -30rem;
+  max-width: 10%;
+}
+
 .header h1 {
   font-size: 50px !important;
 }
@@ -107,7 +113,7 @@ body {
   min-height: 100vh;
 }
 
-/* タブレットやスマートフォン向けのスタイル */
+
 @media only screen and (max-width: 768px) {
   .mypage-update-inner {
     justify-content: center;
@@ -136,6 +142,11 @@ body {
     bottom: 0; /* 下部に配置 */
     width: 100%; /* 幅を100%に設定 */
   }
+
+  .img1 {
+    margin: -45rem 0px 0px -10px;
+    max-width: 15%;
+  }
 }
 
 @media only screen and (max-width: 767px){
@@ -147,5 +158,9 @@ body {
     width: 100%; /* 幅を100%に設定 */
     right: 0;
     left: 0;
+  }
+  .img1 {
+    margin: -45rem 0px 0px -10px;
+    max-width: 15%;
   }
 }
