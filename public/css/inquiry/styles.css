@@ -1,0 +1,133 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css');
+
+/* cssをいちから書くよりは楽だけどブートストラップについて調べるほうが手間がかかる可能性がある */
+/* class名がダブっているとブートストラップのクラス名が反映されてしまうので注意！ */
+/* 各ページで書くもののみを記載（文字とかフォント　ヘッダー） */
+
+  .body {
+    background-color: #F3D6BA;
+    font-family: "MuseoModerno", sans-serif !important;
+    font-style: normal;
+  }
+
+  html, body {
+    background-color: #F3D6BA;}
+    /* example.css */
+
+  .museomoderno-title {
+    font-family: "MuseoModerno", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold; /* タイトルなので太字 */
+    font-style: normal;
+  }
+  
+
+  .card-header {
+    font-weight: bold;
+    color:  #A59B93;
+    text-align: center;
+    font-size: 40px;
+    margin: 20px auto;
+  }
+
+  label {
+    font-size: 20px;
+    color: #A59B93;
+    text-align: left;
+  }
+
+  .form-group1{
+    text-align: center;
+    width: 100%;
+  }
+
+  .form-control1{
+    width: 50%;
+    font-size: 20px;
+    margin: 0 0 30px;
+    font-family: "MuseoModerno", sans-serif;
+  }
+
+  .form-control2{
+    width: 50%;
+    height: 220px;
+    font-size: 20px;
+    margin: 0 0 30px;
+    resize: none;
+    font-family: "MuseoModerno", sans-serif;
+  }
+
+  .col-md-9 {
+    width: 100% !important;
+  }
+
+  .card {
+    text-align: center;
+  }
+
+  strong{
+    color: black;
+    background-color: rgb(255, 125, 125);
+  }
+
+  .btn{
+    color: #fff !important;
+    background-color: #A59B93 !important;
+    border-color: none;
+    margin: 0 0 20px 0 !important;
+  }
+
+  button:hover{
+    background: #57504b !important;
+  }
+
+  .img1:hover {
+    transform: scale(1.1);
+  }
+
+  img {
+    width: 8%;
+  }
+
+  .footer1 {
+    justify-content: center;
+    background-color: #F3D6BA;
+    width: 100%;
+  }
+
+@media only screen and (max-width: 767px){
+
+  label {
+    font-size: 18px;
+    color: #A59B93;
+    margin: 40px 0 0 0;
+  }
+
+  .form-control1{
+    width: 100%;
+    font-size: 20px;
+    margin: 0 0 30px;
+    font-family: "MuseoModerno", sans-serif;
+  }
+
+  .form-control2{
+    width: 100%;
+    height: 220px;
+    font-size: 15px;
+    margin: 0 0 30px;
+    resize: none;
+    font-family: "MuseoModerno", sans-serif;
+  }
+
+  .footer1 {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  img {
+    width: 15%;
+  }
+}

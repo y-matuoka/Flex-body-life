@@ -1,0 +1,127 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css');
+
+/* cssをいちから書くよりは楽だけどブートストラップについて調べるほうが手間がかかる可能性がある */
+/* class名がダブっているとブートストラップのクラス名が反映されてしまうので注意！ */
+/* 各ページで書くもののみを記載（文字とかフォント　ヘッダー） */
+
+.body {
+  background-color: #F3D6BA;
+  font-family: "MuseoModerno", sans-serif;
+  font-style: normal;
+}
+
+html, body {
+  background-color: #F3D6BA;}
+  /* example.css */
+
+.museomoderno-title {
+  font-family: "MuseoModerno", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold; /* タイトルなので太字 */
+  font-style: normal;
+}
+
+.header1 {
+  text-align: center;
+  color: #A59B93;
+  font-family: "MuseoModerno", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.card-header {
+  font-weight: bold;
+  color:  #A59B93;
+  text-align: center;
+  font-size: 40px;
+  margin: 20px auto;
+}
+
+label {
+  font-size: 20px;
+  color: #A59B93;
+  text-align: left;
+}
+
+
+.firm {
+    display: flex;
+    align-items: center; /* 垂直方向の中央揃え（オプション） */
+}
+
+.label2 {
+    margin-right: 10px; /* label と div の間のスペース（必要に応じて調整） */
+}
+
+.col-md-9 {
+    flex: 1; /* divが利用可能なスペースを取る */
+}
+
+.mail {
+  display: flex;
+  align-items: center; /* 垂直方向の中央揃え（オプション） */
+}
+
+.label1 {
+  margin-right: 10px; /* label と div の間のスペース（必要に応じて調整） */
+}
+
+.col-md-9 {
+  flex: 1; /* divが利用可能なスペースを取る */
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.header1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card-header {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.content-wrapper {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  margin-bottom: 20px; /* 上部と下部の余白 */
+}
+
+.mail, .firm {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.label1, .label2 {
+  margin-right: 10px;
+  width: 150px; /* ラベルの幅を統一 */
+}
+
+.col-md-9 {
+  flex: 1;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-info, .btn-primary {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+}

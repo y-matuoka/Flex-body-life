@@ -163,9 +163,13 @@ Route::post('/auth/favorite', 'FavoriteController@remove')->name('favorites.remo
 
 // フォーム画面
 // web.php
-Route::get('auth/inquiry', function () {
-    return view('auth/inquiry'); // inquiry.blade.phpを参照する
-})->name('inquiry.index');
+Route::get('/index', function () {
+    return view('index'); // index.blade.phpを参照する
+})->name('index');
+
+Route::get('/auth/inquiry', function () {
+    return view('auth.inquiry');
+})->name('inquiry');
 
 
 // 確認ページ
