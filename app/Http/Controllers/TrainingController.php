@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Course;
 use App\TrainingMix;
 use App\TrainingMuscle;
+use App\TrainingStretch;
 use Carbon\Carbon;
 
 class TrainingController extends Controller
@@ -19,18 +20,17 @@ class TrainingController extends Controller
      */
     public function index()
     {
-
+      
        $user = Auth::user();
+       
        $userCourse = $user->courses()->first();
-
+  
         //training_level(登録日0,1日目1,2日目2,初級)(3日目3,4日目4,5日目5,1中級)(6日目6,7日目7,上級)
         $currentDate = Carbon::now();
-
+        //コース選択に登録した日を取得
         $startDate = $userCourse->created_at;
 
         $date = $currentDate->diffInDays($startDate);
-
-        //dd($date);
 
         $level = 0;
 
@@ -48,16 +48,16 @@ class TrainingController extends Controller
         } else if ($userCourse->course === 2){
             $training = TrainingMuscle::where('training_level', $level)->inRandomOrder()->first();
         } else if ($userCourse->course === 3){
-            $training = TrainingMuscle::where('training_level', $level)->inRandomOrder()->first();
+            $training = TrainingStretch::where('training_level', $level)->inRandomOrder()->first();
         } else {
             $message = 'トレーニングが選択されていません。';
-            return redirect()->route('mypage')->with('error',$message);
+            return redirect()->route('course')->with('error',$message);
         }
        
-        //dd($training);
-        return view('training.index',[
+        dd($training);
+        return view('training/index',[
             'training' => $training,
-            'userCourse' => $userCourse,
+             'userCourse' => $userCourse,
         ]);
     }
 
@@ -78,6 +78,7 @@ class TrainingController extends Controller
                 //ボタンが押されたら＋１。
                 $userCourse->status_count += 1;
             } else {
+                //ボタンが押されなかったら
                 $userCourse->completed = 0;
             }
         }

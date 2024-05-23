@@ -9,8 +9,6 @@
 @section('content')
 <div class="container">
 <div class="container-fluid">
-   
-        {{-- <div class="col-md-offset-3 col-md-6 text-center" style=""> --}}
             <div class="center">
                 <h2 class="text-center training-menu">
                     <img src="{{ asset('images/腕右.png') }}" alt="" class="logo-1"> 
@@ -18,13 +16,13 @@
                     <img src="{{ asset('images/腕左.png') }}" alt="" class="logo-1">
                 </h2>
             </div>
-            
+
                 @if($errors->any())
                 <div class="alert alert-danger">
                     @foreach($errors->all() as $message)
                     <p>{{ $message }}</p>
                     @endforeach
-                
+
                 @endif
                 <form action="{{ route('login') }}" method="POST">
                     @csrf
