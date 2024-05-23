@@ -13,6 +13,8 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+use App\Http\Controllers\AdminUserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MypageUpdateController;
@@ -87,19 +89,9 @@ Route::group(['middleware' => 'auth'],function(){
     //ストレッチ
     Route::post('/likeStretch/{Stretch}', 'FavoriteController@likeStretch')->name('favorite.stretch');
 
-    //コース変更完了しました画面
-    // Route::get('/courses/{id}/updated', 'CourseController@show')->name('courses.updated');
-
-// 5/17rimainderモック確認ビューの作成です
-Route::get('auth/{user}/reminder','ReminderController@index' )->name('reminder');
-
-
-});
-
-
-
-Route::get('training/index', function(){
-    return view('training.index');
+    //管理者画面
+    Route::get('/admin_user', 'AdminUserController@index')->name('admin.user');
+    Route::post('/admin_user', 'AdminUserController@edit')->name('admin.edit');
 
 });
 
