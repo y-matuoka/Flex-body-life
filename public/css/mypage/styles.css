@@ -656,10 +656,10 @@ a:hover{
     color: #A59B93;
   }
 
-  .course-info button{
-    position: relative;
-    top: -10px;
-    left: 35rem;
+   .btn1{
+    position: relative !important;
+    top: -10px !important;
+    left: 35rem !important;
     background-color: #A59B93;
     color: #fff;
     border: none;
@@ -683,7 +683,7 @@ a:hover{
     color: #A59B93;
   }
 
-  .goal-container button{
+  .goal-container a .btn2{
     position: relative;
     top: -10px;
     left: 27rem;
