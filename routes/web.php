@@ -163,6 +163,11 @@ Route::get('/auth/inquiry', function () {
     return view('auth.inquiry');
 })->name('inquiry');
 
+Route::get('auth/inquiry/thanks', function () {
+    return view('auth.thanks');
+})->name('inquiry.thanks');
+
+
 
 // 確認ページ
 Route::post('auth/inquiry/confirm', 'InquiryController@confirm')->name('inquiry.confirm');

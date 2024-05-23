@@ -26,7 +26,7 @@ class InquiryController extends Controller
         $inquiry = $request->all();
         Mail::to('your_address@example.com')->send(new InquirySendmail($inquiry));
         $request->session()->regenerateToken();
-        return view('inquiry.thanks');
+        return redirect()->route('inquiry.thanks');
     }
 }
 
