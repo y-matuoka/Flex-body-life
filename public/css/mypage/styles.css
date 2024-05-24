@@ -112,7 +112,7 @@ textarea {
 }
 
 
-.course-info button{
+.course-info a{
   margin: 0 0 0 -68px;
   border: none;
   color: #ffffff;
@@ -123,7 +123,7 @@ textarea {
   transition: .3s;
 }
 
-.goal-container button{
+.goal-container a {
   margin: 0 0 0 10px;
   border: none;
   color: #ffffff;
@@ -435,7 +435,7 @@ a:hover{
     color: #A59B93;
   }
 
-  .course-info button{
+  .course-info a{
     position: relative;
     top: -10px;
     left: 35rem;
@@ -462,10 +462,10 @@ a:hover{
     color: #A59B93;
   }
 
-  .goal-container button{
+  .goal-container a{
     position: relative;
-    top: -10px;
-    left: 27rem;
+    top: 0px;
+    left: 275px;
     background-color: #A59B93;
     color: #fff;
     border: none;
@@ -656,17 +656,17 @@ a:hover{
     color: #A59B93;
   }
 
-  .course-info button{
-    position: relative;
-    top: -10px;
-    left: 35rem;
-    background-color: #A59B93;
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    padding: 10px;
-    cursor: pointer;
-    transition: .3s;
+  .textarea-container a {
+    position: relative !important;
+    top: -10px !important;
+    left: 35rem !important;
+    background-color: #A59B93 !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 50px !important;
+    padding: 10px !important;
+    cursor: pointer !important;
+    transition: .3s !important;
   }
 
   /* 目標設定 */
@@ -683,7 +683,7 @@ a:hover{
     color: #A59B93;
   }
 
-  .goal-container button{
+  .goal-container a{
     position: relative;
     top: -10px;
     left: 27rem;

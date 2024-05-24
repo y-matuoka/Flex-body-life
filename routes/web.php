@@ -150,4 +150,32 @@ Route::post('/auth/favorite', 'FavoriteController@remove')->name('favorites.remo
 // })->name('mypage');
 
 
+
 Auth::routes();
+
+// Auth::routes();
+
+// 5/22問い合わせフォーム
+
+// フォーム画面
+// web.php
+Route::get('/index', function () {
+    return view('index'); // index.blade.phpを参照する
+})->name('index');
+
+Route::get('/auth/inquiry', function () {
+    return view('auth.inquiry');
+})->name('inquiry');
+
+Route::get('auth/inquiry/thanks', function () {
+    return view('auth.thanks');
+})->name('inquiry.thanks');
+
+
+
+// 確認ページ
+Route::post('auth/inquiry/confirm', 'InquiryController@confirm')->name('inquiry.confirm');
+
+// 送信完了
+Route::post('auth/inquiry/thanks', 'InquiryController@send')->name('inquiry.send');
+
