@@ -65,21 +65,21 @@ Route::group(['middleware' => 'auth'],function(){
      //目標設定変更
     Route::get('/goal_setting/{id}/edit', 'GoalSettingController@edit')->name('goal.edit');
     Route::post('/goal_setting/{id}/edit',  'GoalSettingController@update')->name('goal.update');
+    
     //コース選択
     Route::get('/courses/index', 'CourseController@index')->name('course.index');
     Route::post('/courses/index', 'CourseController@store')->name('course.store');
     
-    //コース選択変更
-    Route::get('/courses/{id}/edit', 'CourseController@edit')->name('course.edit');
-    Route::post('/courses/{id}/edit', 'CourseController@update')->name('course.update');
-
-
     //トレーニング表示・完了
     Route::get('/training/index', 'TrainingController@index')->name('training.index');
     Route::post('/training/index', 'TrainingController@complete')->name('training.complete');
 
+    //コース選択変更
+    Route::get('/courses/{id}/edit', 'CourseController@edit')->name('course.edit');
+    Route::post('/courses/{id}/edit', 'CourseController@update')->name('course.update');
+
     //コース変更完了しました画面
-    // Route::get('/courses/{id}/updated', 'CourseController@show')->name('courses.updated');
+    Route::get('/courses/{id}/updated', 'CourseController@show')->name('courses.updated');
 
     //お気に入り機能
     //Mixコースのお気に入り
@@ -124,17 +124,6 @@ Route::get('/auth/stretch', function () {
 
 
 // 5/15musclepageからmypageに行くためのルーティング
-
-
-
-Route::get('/training/index', function(){
-    return view('training/index');
-})->name('training.index');
-
-//目標設定更新ページ。ビューをみるために記載しました
-Route::get('goal_setting/update', function(){
-    return view('goal_setting.update');
-});
 
 
 

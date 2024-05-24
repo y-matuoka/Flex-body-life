@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Course;
 use Illuminate\Support\Facades\Auth;
+use App\Course;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\Log;
 class CourseController extends Controller
 {
     /**
@@ -17,6 +17,11 @@ class CourseController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+        if (!$user) {
+            return redirect()->route('login');
+        }
+        
         return view('courses.index');
     }
 
@@ -40,9 +45,9 @@ class CourseController extends Controller
     {
         $user = Auth::user();
         $courses = new Course;
-        
+       // dd($user);
         $courses->user_id = $user->id;
-        
+    
         //$button1を押していたらtrue
         if($request->has('button1') ){
             // トレーニングmixを1
@@ -66,6 +71,7 @@ class CourseController extends Controller
         
         //user->courses()->save($courses);
         $courses->save();
+    
         //dd($courses);
         // トレーニング表示画面に遷移
         return redirect()->route('training.index');
@@ -136,8 +142,10 @@ class CourseController extends Controller
         }
 
         $courses->save();
-
-        return redirect()->route('mypage');
+        //dd($courses);
+        return redirect()->route('courses.updated',[
+            'id' => $courses->user_id,
+        ]);
  
     }
 
@@ -147,22 +155,21 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function show(int $id)
-    // {
-    //     //$courses = Course::find($id);
-    //     $courses = Course::where('user_id', $id)->first();
-    //     // dd($courses);
+    public function show(int $id)
+    {
+        //$courses = Course::find($id);
+        $courses = Course::where('user_id', $id)->first();
+        //dd($courses);
 
-    //     $courseSelect = [
-    //         1 => 'トレーニングMIX',
-    //         2 => '筋トレ',
-    //         3 => 'ストレッチ',
-    //     ];
-        
-    //     return view('courses/updated',[
-    //         'id' => $id,
-    //          'courses' => $courses->id,
-    //         'courseSelect' => $courseSelect,
-    //     ]);
-    // }
+        $courseSelect = [
+            1 => 'トレーニングMIX',
+            2 => '筋トレ',
+            3 => 'ストレッチ',
+        ];
+        //dd($courseSelect);
+        return view('courses/updated',[
+             'courses' => $courses,
+            'courseSelect' => $courseSelect,
+        ]);
+    }
 }

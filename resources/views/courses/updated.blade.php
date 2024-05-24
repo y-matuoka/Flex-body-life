@@ -1,3 +1,4 @@
+@extends('layout')
 @section('styles')
 <link rel="stylesheet" href="/css/courses_setting/styles.css">
 @endsection
@@ -22,12 +23,12 @@
                 @endif
                 <div class="m-sm-4">
                   <div class="course_comp">
-                    コースに変更が完了しました！
+                    {{ $courseSelect[$courses->course] }}コースに変更が完了しました！
                   </div>
                 </div>
                 <div class="text-center mt-3">
                   {{-- マイページへのリンクに変える --}}
-                  <a href="mypage" class="btn btn-lg btn-light">マイページへ</a>
+                  <a href="{{ route('mypage')}}" class="btn btn-lg btn-light">マイページへ</a>
                 </div>
               </div>
             </div>
