@@ -22,7 +22,7 @@ class InquirySendmail extends Mailable
     public function __construct($inquiry)
     {
         $this->email = $inquiry['email'];
-        $this->inquiry = $inquiry['inquiry'];
+        $this->inquiry = $inquiry['contact'];
     }
 
     /**
@@ -38,7 +38,7 @@ class InquirySendmail extends Mailable
             ->view('inquiry.mail')
             ->with([
                 'email' => $this->email,
-                'inquiry' => $this->inquiry,
+                'contact' => $this->inquiry,
             ]);
     }
 }

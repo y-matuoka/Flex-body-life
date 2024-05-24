@@ -20,7 +20,7 @@
         <ul>
           <li class="museomoderno-title"><a href="#">メニュー</a></li>
           <li class="museomoderno-title"><a href="#">お気に入り</a></li>
-          <li class="museomoderno-title"><a href="#">問い合わせ</a></li>
+          <li class="museomoderno-title"><a href="{{ url('auth/inquiry') }}">問い合わせ</a></li>
           <li class="museomoderno-title"><a href="#">ログアウト</a></li>
           <li class="museomoderno-title user-name" style="margin-left:auto;">
             {{ Auth::user()->name }}
@@ -69,10 +69,6 @@
 
             {{-- aタグに変更 --}}
             <a href="{{ route('course.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
-            <button onclick="window.location.href='{{ url('courses/index') }}';" class="museomoderno-title">Change</button>
-
-          <a href="{{ route('course.edit', ["id" => Auth::user()->id]) }}" class="">Change</a>
-
           </div>
         </div>
   {{-- rimainderで追記８日目に表示される/大山 --}}
@@ -87,10 +83,6 @@
           <textarea class="goal-text"></textarea>
 
           <a href="{{ route('goal.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
-          <button onclick="window.location.href='{{ url('goal_setting/index') }}';" class="museomoderno-title">Change</button>
-
-          <a href="{{ route('goal.edit', ["id" => Auth::user()->id]) }}" class="btn2">Change</a>
-
         </div>
 
         <div class="customer-info">
