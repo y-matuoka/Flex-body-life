@@ -75,7 +75,13 @@
 
           </div>
         </div>
-
+  {{-- rimainderで追記８日目に表示される/大山 --}}
+  @if($latestAchievementDate && now()->diffInDays($latestAchievementDate) == 0)
+  <div class="reminder" style="font-size: 25px; color: tomato; font-weight: bold;font-family: MuseoModerno,sans-serif;">
+    <a href="{{ route('reminder', Auth::user()) }}" style="color: tomato;">!!◆◇お知らせ◆◇!!</a>
+  </div>
+  @endif
+  
         <div class="goal-container">
           <p class="museomoderno-title">目標</p>
           <textarea class="goal-text"></textarea>

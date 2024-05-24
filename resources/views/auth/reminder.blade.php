@@ -12,7 +12,6 @@
         display: flex;
         align-items: center;
         margin: 3vh;
-       
     }
     .image-left, .image-right {
         flex: 1;
@@ -22,9 +21,6 @@
         flex: 2;
         text-align: center;
     }
-    body, .container {
-        overflow: hidden;
-    }
     .row {
         margin: 0;
         padding: 0;
@@ -32,21 +28,18 @@
     .panel-heading h1 {
         margin: 0;
     }
-
-    .contents{
-        height: 100vh;
+    .contents {
         margin-top: 17vh;
-
+        overflow-y: auto; /* 縦スクロールを有効にする */
+        overflow-x: hidden; /* 横スクロールを無効にする */
     }
     h3 {
         text-align: center;
         color: #A59B93;
         font-family: "MuseoModerno", sans-serif; /* フォントファミリーを設定 */
     }
-
-    .logo{
+    .logo {
         margin-top: 10vh;
-
     }
     p {
         text-align: center;
@@ -68,16 +61,16 @@
     <p>
        {{ $course->created_at->format('Y-m-d') }} から {{ $course->Achievement_date}} までで {{ $course->status_count }}回
         @if($course->course == 2)
-            ストレッチ
-        @elseif($course->course == 1)
             筋トレ
-        @else
+        @elseif($course->course == 1)
             ミックス
+        @else
+            ストレッチ
         @endif
         コースの完了ボタンを完了しました。
     </p>
 </div>
-{{-- 1.2コース内容確認 --}}
+{{-- 1.2コース内容確認➤1:ミックス2:筋トレ　他:ストレッチ --}}
 
 <div class="container">
     
@@ -91,28 +84,30 @@
                 @php
                     $oneWeekLater = \Carbon\Carbon::parse($course->created_at)->addWeek();
                 @endphp
+                {{-- 頑張りましょう --}}
                 @if($course->status_count < 3)
                     <div class="image-center">
                         <img src="{{ asset('images/reminder3.png') }}" alt="reminder3" style="max-width: 450px; height: 60vh;">
                         <p>1週間後の日時: {{ $oneWeekLater->format('Y-m-d H:i:s') }}</p>
                     </div>
-                @elseif($course->status_count < 6)
+                    {{-- あとちょっと --}}
+                @elseif($course->status_count < 7)
                     <div class="image-center">
-                        <img src="{{ asset('images/reminder1.png') }}" alt="reminder1" style="max-width: 450px; height: 60vh;">
+                        <img src="{{ asset('images/reminder2.png') }}" alt="reminder2" style="max-width: 450px; height: 60vh;">
                         <p>1週間後の日時: {{ $oneWeekLater->format('Y-m-d H:i:s') }}</p>
                     </div>
                 @else
                     <!-- パーフェクト -->
                     <div class="image-center">
-                        <img src="{{ asset('images/reminder1.png') }}" alt="reminder1" style="max-width: 450px; height: 60vh;">
+                        <img src="{{ asset('images/reminder1.png') }}" alt="reminder3" style="max-width: 450px; height: 60vh;">
                         <p>1週間後の日時: {{ $oneWeekLater->format('Y-m-d H:i:s') }}</p>
                     </div>
                 @endif
             @endforeach
        
 
-{{-- 野口さんに完了ボタンをどうに記述するかを確認してカウント数を数えるようにするか考える --}}
-{{-- １週間のデータの格納の仕方 --}}
+{{-- 野口さんに完了ボタンをどうに記述するかを確認してカウント数を数えるようにするか考える ➤テーブル確認ok--}}
+{{-- １週間のデータの格納の仕方 ➤テーブルok--}}
 
 
 
@@ -121,14 +116,19 @@
         </div>
     </div>
 </div>
-
-        {{-- ロゴ画像 --}}
-        <div class="row mt-2">
-            <div class="col-md-offset-3 col-md-6 text-center mt-2 logo">
-                <img src="{{ asset('images/flex-logo.png') }}" alt="flex-logo" style="max-width: 70px; height: auto;">
-
-            </div>
-        </div>
-
+<div class="text-center">
+    <a href="{{ route('mypage') }}">
+    <button type="submit" class="btn" style="background-color: #A59B93; color: white; font-size: 25px;font-family: MuseoModerno, sans-serif;">
+    My Page
+    </button></a>
+</div>
+<br>
+<footer>
+<div class="row mt-2">
+    <div class="col-md-offset-3 col-md-6 text-center mt-2">
+        <img src="{{ asset('images/flex-logo.png') }}" alt="" style="max-width: 80px; height: auto;">
+    </div>
+</div>
+</footer>
 </div>
 @endsection

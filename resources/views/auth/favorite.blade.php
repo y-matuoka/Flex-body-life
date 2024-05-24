@@ -43,6 +43,17 @@
     width: 100%
 }
 
+footer {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-image {
+        max-width: 80px;
+        height: auto;
+    }
 
 </style>
 
@@ -110,8 +121,21 @@
                                     </div>
                                 </div>
                             </div>
-
                 @endforeach
+                <div class="text-center">
+                    <a href="{{ route('mypage') }}">
+                    <button type="submit" class="btn" style="background-color: #A59B93; color: white; font-size: 25px;font-family: MuseoModerno, sans-serif;">
+                    My Page
+                    </button></a>
+                </div>
+                <br>
+                <footer>
+                <div class="row mt-2">
+                    <div class="col-md-offset-3 col-md-6 text-center mt-2">
+                        <img src="{{ asset('images/flex-logo.png') }}" alt="" class="footer-image">
+                    </div>
+                </div>
+                </footer>
                 @endif
                 @endsection
 
