@@ -66,17 +66,31 @@
           <p class="museomoderno-title">My Training Course</p>
           <div class="textarea-container">
             <textarea id="course-text" class="museomoderno-title" placeholder=""></textarea>
+
             {{-- aタグに変更 --}}
             <a href="{{ route('course.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
             <button onclick="window.location.href='{{ url('courses/index') }}';" class="museomoderno-title">Change</button>
+
+          <a href="{{ route('course.edit', ["id" => Auth::user()->id]) }}" class="">Change</a>
+
           </div>
         </div>
-
+  {{-- rimainderで追記８日目に表示される/大山 --}}
+  @if($latestAchievementDate && now()->diffInDays($latestAchievementDate) == 0)
+  <div class="reminder" style="font-size: 25px; color: tomato; font-weight: bold;font-family: MuseoModerno,sans-serif;">
+    <a href="{{ route('reminder', Auth::user()) }}" style="color: tomato;">!!◆◇お知らせ◆◇!!</a>
+  </div>
+  @endif
+  
         <div class="goal-container">
           <p class="museomoderno-title">目標</p>
           <textarea class="goal-text"></textarea>
+
           <a href="{{ route('goal.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
           <button onclick="window.location.href='{{ url('goal_setting/index') }}';" class="museomoderno-title">Change</button>
+
+          <a href="{{ route('goal.edit', ["id" => Auth::user()->id]) }}" class="btn2">Change</a>
+
         </div>
 
         <div class="customer-info">

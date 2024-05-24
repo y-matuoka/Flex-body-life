@@ -1,0 +1,161 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css');
+
+/* cssをいちから書くよりは楽だけどブートストラップについて調べるほうが手間がかかる可能性がある */
+/* class名がダブっているとブートストラップのクラス名が反映されてしまうので注意！ */
+/* 各ページで書くもののみを記載（文字とかフォント　ヘッダー） */
+
+.body {
+  background-color: #F3D6BA;
+  font-family: "MuseoModerno", sans-serif;
+  font-style: normal;
+}
+
+html, body {
+  background-color: #F3D6BA;
+}
+
+.museomoderno-title {
+  font-family: "MuseoModerno", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold; /* タイトルなので太字 */
+  font-style: normal;
+}
+
+.header1 {
+  text-align: center;
+  color: #A59B93;
+  font-family: "MuseoModerno", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.card-header {
+  font-weight: bold;
+  color:  #A59B93;
+  text-align: center;
+  font-size: 40px;
+  margin: 20px auto;
+}
+
+label {
+  font-size: 15px;
+  color: #A59B93;
+  text-align: left;
+}
+
+.firm {
+    display: flex;
+    align-items: center;
+}
+
+.label2 {
+    margin-right: 10px;
+}
+
+.col-md-9 {
+    flex: 1;
+}
+
+.mail {
+  display: flex;
+  align-items: center;
+}
+
+.label1 {
+  margin-right: 10px;
+}
+
+.col-md-9 {
+  flex: 1;
+}
+
+.col-md-8{
+  margin-top: 30px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 20px 0 0 0;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  height: 450px;
+}
+
+.header1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card-header {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.content-wrapper {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+  min-height: 300px;
+}
+
+.mail, .firm {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.label1, .label2 {
+  margin-right: 10px;
+  width: 150px; /* ラベルの幅を統一 */
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-primary {
+  width: 50%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.btn-info{
+  width: 30%;
+}
+
+@media only screen and (max-width: 768px){
+
+  .btn-primary {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .btn-info{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px){
+
+  .mail, .firm {
+    flex-direction: column;
+  }
+
+  .label1, .label2 {
+    margin-bottom: 10px;
+    width: auto;
+  }
+
+  .label2{
+    margin: 15px 0 -20px 0;
+  }
+}
