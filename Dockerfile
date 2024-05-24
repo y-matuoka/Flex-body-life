@@ -49,6 +49,7 @@ RUN composer install
 
 # APP_KEYの表示
 # ここを修正（不要の為、コメントアウト）RUN php artisan key:generate --show
+
 # ここを追記（マイグレーションの実行）
 # --force オプションで、対話無しで実行
 RUN php artisan migrate --force
