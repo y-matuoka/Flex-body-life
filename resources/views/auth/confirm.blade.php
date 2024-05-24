@@ -13,10 +13,10 @@
                 <div class="card">
                     <h2 class="card-header">お問い合わせ内容確認</h2>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('inquiry.send') }}">
+                    <form method="post" action="{{ route('inquiry.send') }}">
                         @csrf
                         <input type="hidden" name="email" value="{{ $inquiry['email'] }}">
-                        <input type="hidden" name="inquiry" value="{{ $inquiry['inquiry'] }}">
+                        <input type="hidden" name="contact" value="{{ $inquiry['contact'] }}">
 
                         <div class="content-wrapper">
                             <div class="mail">
