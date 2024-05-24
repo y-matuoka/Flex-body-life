@@ -21,7 +21,7 @@
           <li class="museomoderno-title"><a href="#">メニュー</a></li>
           <li class="museomoderno-title"><a href="#">お気に入り</a></li>
           <li class="museomoderno-title"><a href="{{ url('auth/inquiry') }}">問い合わせ</a></li>
-          <li class="museomoderno-title"><a href="#">ログアウト</a></li>
+          <li class="museomoderno-title"><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a></li>
           <li class="museomoderno-title user-name" style="margin-left:auto;">
             {{ Auth::user()->name }}
           </li>
@@ -85,14 +85,14 @@
         <div class="unsubscribe">
           <a href="{{ url('user/delete') }}" class="museomoderno-title">退会</a>
         </div>
-  </div>
-</main>
+      </div>
+  </main>
 
-<footer class="footer1">
-  <div class="footer2 text-center">
-      <img src="{{ asset('images/flex-logo.png') }}" alt="ロゴ">
-  </div>
-</footer>
+  <footer class="footer1">
+    <div class="footer2 text-center">
+        <img src="{{ asset('images/flex-logo.png') }}" alt="ロゴ">
+    </div>
+  </footer>
 </div>
 
 <!-- FullCalendarのJavaScript -->
@@ -104,22 +104,26 @@
   });
 
   document.addEventListener('DOMContentLoaded', function () {
-  var calendarEl = document.getElementById('calendar');
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
-    locale: 'en', // カレンダーの表記を英語に設定
-    headerToolbar: false, // ヘッダーツールバーを非表示にする
-    displayEventTime: false, // 年月表記を非表示にする
-  });
-  calendar.render();
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      locale: 'en', // カレンダーの表記を英語に設定
+      headerToolbar: false, // ヘッダーツールバーを非表示にする
+      displayEventTime: false, // 年月表記を非表示にする
+    });
+    calendar.render();
 
-  // 現在の月を表示
-  var currentDate = new Date();
-  var options = { month: 'long' };
-  var currentMonth = currentDate.toLocaleString('en', options);
-  document.getElementById('current-month').innerText = currentMonth;
-});
+    // 現在の月を表示
+    var currentDate = new Date();
+    var options = { month: 'long' };
+    var currentMonth = currentDate.toLocaleString('en', options);
+    document.getElementById('current-month').innerText = currentMonth;
+  });
 </script>
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
 
 </body>
 </html>
