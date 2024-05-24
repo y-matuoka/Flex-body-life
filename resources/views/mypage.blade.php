@@ -66,14 +66,25 @@
           <p class="museomoderno-title">My Training Course</p>
           <div class="textarea-container">
             <textarea id="course-text" class="museomoderno-title" placeholder=""></textarea>
+
+            {{-- aタグに変更 --}}
+            <a href="{{ route('course.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
+            <button onclick="window.location.href='{{ url('courses/index') }}';" class="museomoderno-title">Change</button>
+
           <a href="{{ route('course.edit', ["id" => Auth::user()->id]) }}" class="">Change</a>
+
           </div>
         </div>
 
         <div class="goal-container">
           <p class="museomoderno-title">目標</p>
           <textarea class="goal-text"></textarea>
+
+          <a href="{{ route('goal.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
+          <button onclick="window.location.href='{{ url('goal_setting/index') }}';" class="museomoderno-title">Change</button>
+
           <a href="{{ route('goal.edit', ["id" => Auth::user()->id]) }}" class="btn2">Change</a>
+
         </div>
 
         <div class="customer-info">

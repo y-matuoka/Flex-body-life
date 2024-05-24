@@ -20,8 +20,6 @@
                   </div>
                 @endif
                 <div class="m-sm-4">
-                  {{-- action属性を追記必ず --}}
-                  {{-- {{route('register')}} --}}
                   <form action="{{ route('register') }}" method="POST">
                     @csrf
                     <div class="form-group">

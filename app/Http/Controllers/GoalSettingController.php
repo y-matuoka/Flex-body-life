@@ -19,6 +19,7 @@ class GoalSettingController extends Controller
     {
        $user = Auth::user();
 
+       
        $goalSetting = $user->goalSettings()->first();
 
       
@@ -35,14 +36,16 @@ class GoalSettingController extends Controller
     {
         // ログインしているユーザー
         $user = Auth::user();
+       
 
         $goalSetting = new GoalSetting();
+
         $goalSetting->user_id = $user->id;
         $goalSetting->goal_content = $request->goal_content;
 
-        $user->goalSettings()->save($goalSetting);
-
-        // ストレッチコースに遷移するように記述を変更する
+        $goalSetting->save();
+        // dd($goalSetting);
+        // コース選択に遷移するように記述を変更する
         return redirect()->route('course.index');
     }
 
@@ -86,17 +89,6 @@ class GoalSettingController extends Controller
     
        
         //
-        return view('mypage');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect()->route('mypage');
     }
 }

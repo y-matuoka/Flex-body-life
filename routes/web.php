@@ -69,7 +69,7 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('/courses/index', 'CourseController@index')->name('course.index');
     Route::post('/courses/index', 'CourseController@store')->name('course.store');
     
-  //コース選択変更
+    //コース選択変更
     Route::get('/courses/{id}/edit', 'CourseController@edit')->name('course.edit');
     Route::post('/courses/{id}/edit', 'CourseController@update')->name('course.update');
 
@@ -139,6 +139,7 @@ Route::get('goal_setting/update', function(){
 
 
 
+
 // 5/20 favorite画面を見るために記載しました
 Route::get('/auth/favorite', 'FavoriteController@index')->name('favorites.show');
 
@@ -148,6 +149,9 @@ Route::post('/auth/favorite', 'FavoriteController@remove')->name('favorites.remo
 //     return view('mypage');
 // })->name('mypage');
 
+
+
+Auth::routes();
 
 // Auth::routes();
 
@@ -174,3 +178,4 @@ Route::post('auth/inquiry/confirm', 'InquiryController@confirm')->name('inquiry.
 
 // 送信完了
 Route::post('auth/inquiry/thanks', 'InquiryController@send')->name('inquiry.send');
+

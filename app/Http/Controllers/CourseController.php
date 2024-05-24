@@ -40,6 +40,7 @@ class CourseController extends Controller
     {
         $user = Auth::user();
         $courses = new Course;
+        
         $courses->user_id = $user->id;
         
         //$button1を押していたらtrue
@@ -62,14 +63,13 @@ class CourseController extends Controller
             $message = 'トレーニングを選択してください。';
             return redirect()->back()->with('error',$message);
         }
-
-        $user->courses()->save($courses);
-       
+        
+        //user->courses()->save($courses);
+        $courses->save();
+        //dd($courses);
         // トレーニング表示画面に遷移
-        return redirect()->route('training.index',[
-            'id' => $user->id,
-            'courses' => $courses,
-        ]);
+        return redirect()->route('training.index');
+
     }
 
    
@@ -85,7 +85,11 @@ class CourseController extends Controller
      
         // $courses = Course::find($id);
         $courses = Course::where('user_id', $id)->first();
-         //dd($courses);
+        
+        //登録していなかったらコース選択に戻る
+        if(!isset($courses->course)){
+            return redirect()->route('home');
+        }
 
         return view('courses/edit', [
             'courses' => $courses,
@@ -133,19 +137,8 @@ class CourseController extends Controller
 
         $courses->save();
 
-
-        // dd($courses);
-
-        // return view('courses/updated',[
-        //     'id' => $id,
-        //     'courses'=>$courses,
-        // ]);
-
-        return view('/mypage');
-        // return redirect(route('courses.updated',[
-        //     'id' => $id,
-        //     // 'courses'=>$courses,
-        // ]));
+        return redirect()->route('mypage');
+ 
     }
 
  /**
