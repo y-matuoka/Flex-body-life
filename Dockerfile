@@ -1,5 +1,5 @@
-# 公式のPHP 8.0.0イメージにApache web serverがプリインストールされたベースイメージを設定
-FROM php:8.0.0-apache
+# 公式のPHP 8.0.2イメージにApache web serverがプリインストールされたベースイメージを設定
+FROM php:8.0.2-apache
 
 # コンテナに必要なパッケージ(zip、unzip、git)をインストール
 RUN apt-get update && apt-get install -y \
@@ -18,7 +18,7 @@ RUN sed -i 's#/var/www/html#/var/www/html/public#g' /etc/apache2/sites-available
 
 # Laravelのルーティング機能を使用できる様、ApacheのURLリライト機能を有効化
 RUN cd /etc/apache2/mods-enabled \
-&& ln -s ../mods-available/rewrite.load
+  && ln -s ../mods-available/rewrite.load
 
 # php.ini-productionをphp.iniにリネーム（サーバー環境に適したPHPの設定を、PHP設定ファイルとして使用）
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
@@ -35,7 +35,10 @@ RUN cd /usr/bin && curl -s http://getcomposer.org/installer | php && ln -s /usr/
 # プロジェクトファイルの所有者を、rootユーザーからApacheのデフォルトユーザーに変更
 RUN chown -Rf www-data:www-data ./
 
-# venderの作成
+# 拡張機能のインストール
+RUN docker-php-ext-install bcmath
+
+# vendorの作成
 RUN composer install
 
 # APP_KEYの表示
