@@ -32,7 +32,7 @@ class MyPageController extends Controller
         // 最新のachievement_dateを取得
         $latestAchievementDate = null;
         if (Auth::check()) {
-            $latestAchievementDate = Auth::user()->courses()->orderByDesc('achievement_date')->value('achievement_date');
+            $latestAchievementDate = Auth::user()->courses()->orderByDesc('Achievement_date')->value('Achievement_date');
             $latestAchievementDate = $latestAchievementDate ? Carbon::parse($latestAchievementDate) : null;
         }
 
