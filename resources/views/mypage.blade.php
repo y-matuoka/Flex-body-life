@@ -86,7 +86,7 @@
           <a href="{{ url('mypage/update') }}" class="museomoderno-title">お客様情報変更</a>
         </div>
         <div class="unsubscribe">
-          <a href="#" class="museomoderno-title">退会</a>
+          <a href="{{ url('user/delete') }}" class="museomoderno-title">退会</a>
         </div>
       </div>
   </main>
