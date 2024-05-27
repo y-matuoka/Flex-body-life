@@ -83,11 +83,11 @@ Route::group(['middleware' => 'auth'],function(){
 
     //お気に入り機能
     //Mixコースのお気に入り
-    Route::post('/likeMix/{trainingMix}', 'FavoriteController@likeMix')->name('favorite.mix');
+    Route::get('/likeMix/{trainingMix}', 'FavoriteController@likeMix')->name('favorite.mix');
     //筋トレ
-    Route::post('/likeMuscle/{Muscle}', 'FavoriteController@likeMuscle')->name('favorite.muscle');
+    Route::get('/likeMuscle/{Muscle}', 'FavoriteController@likeMuscle')->name('favorite.muscle');
     //ストレッチ
-    Route::post('/likeStretch/{Stretch}', 'FavoriteController@likeStretch')->name('favorite.stretch');
+    Route::get('/likeStretch/{Stretch}', 'FavoriteController@likeStretch')->name('favorite.stretch');
 
     // reminderで追加
 Route::get('auth/{user}/reminder','ReminderController@index' )->name('reminder');
@@ -142,9 +142,13 @@ Route::get('goal_setting/update', function(){
 
 
 // 5/20 favorite画面を見るために記載しました
-Route::get('/auth/favorite', 'FavoriteController@index')->name('favorites.show');
+// Route::get('/auth/favorite', 'FavoriteController@show')->name('favorites.show');
 
-Route::post('/auth/favorite', 'FavoriteController@remove')->name('favorites.remove');
+// Route::post('/auth/favorite', 'FavoriteController@remove')->name('favorites.remove');
+Route::get('/auth/favorites', 'FavoriteController@show')->name('favorites.show');
+Route::post('/auth/favorites/remove', 'FavoriteController@remove')->name('favorites.remove');
+
+
 // 5/15　musclepageからmypageに行くためのルーティング
 // Route::get('mypage', function () {
 //     return view('mypage');
