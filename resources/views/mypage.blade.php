@@ -18,8 +18,8 @@
     <header>
       <nav>
         <ul>
-          <li class="museomoderno-title"><a href="#">メニュー</a></li>
-          <li class="museomoderno-title"><a href="#">お気に入り</a></li>
+          <li class="museomoderno-title"><a href="{{ url('auth/trainingmenu') }}">メニュー</a></li>
+          <li class="museomoderno-title"><a href="{{ url('auth/favorites') }}">お気に入り</a></li>
           <li class="museomoderno-title"><a href="{{ url('auth/inquiry') }}">問い合わせ</a></li>
           <li class="museomoderno-title"><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a></li>
           <li class="museomoderno-title user-name" style="margin-left:auto;">
@@ -77,8 +77,7 @@
   @endif
         <div class="goal-container">
           <p class="museomoderno-title">目標</p>
-          <textarea class="goal-text"></textarea>
-
+           <textarea class="goal-text" readonly>{{ $user->goal }}</textarea>
           <a href="{{ route('goal.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
         </div>
 
