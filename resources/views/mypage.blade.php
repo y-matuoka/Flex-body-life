@@ -66,7 +66,7 @@
           <p class="museomoderno-title">My Training Course</p>
           <div class="textarea-container">
             <textarea id="course-text" class="museomoderno-title" placeholder=""></textarea>
-            <button onclick="window.location.href='{{ url('courses/index') }}';" class="museomoderno-title">Change</button>
+            <a href="{{ route('course.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
           </div>
         </div>
   {{-- rimainderで追記８日目に表示される/大山★ここを追記する --}}
@@ -86,7 +86,7 @@
           <a href="{{ url('mypage/update') }}" class="museomoderno-title">お客様情報変更</a>
         </div>
         <div class="unsubscribe">
-          <a href="#" class="museomoderno-title">退会</a>
+          <a href="{{ url('user/delete') }}" class="museomoderno-title">退会</a>
         </div>
       </div>
   </main>
