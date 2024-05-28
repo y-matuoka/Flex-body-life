@@ -31,7 +31,7 @@ class LoginController extends Controller
     {
         // ユーザーIDを取得してリダイレクト先URLを作成
         $user = Auth::user();
-        return "/mypage";
+        return "/training/index";
     }
 
   //     protected $redirectTo = 'mypage';
