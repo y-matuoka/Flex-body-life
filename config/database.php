@@ -15,8 +15,13 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
-    //'default' => env('DB_CONNECTION', 'pgsql'),
+
+
+    //ローカルで動かす場合はコメントアウト解除
+    // pushするときはデプロイでサーバーに反映されないのでコメントアウトしてください
+//    'default' => env('DB_CONNECTION', 'mysql'),
+
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
