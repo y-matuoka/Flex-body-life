@@ -83,11 +83,11 @@ Route::group(['middleware' => 'auth'],function(){
 
     //お気に入り機能
     //Mixコースのお気に入り
-    Route::get('/likeMix/{trainingMix}', 'FavoriteController@likeMix')->name('favorite.mix');
+    Route::post('/likeMix/{trainingMix}', 'FavoriteController@likeMix')->name('favorite.mix');
     //筋トレ
-    Route::get('/likeMuscle/{Muscle}', 'FavoriteController@likeMuscle')->name('favorite.muscle');
+    Route::post('/likeMuscle/{Muscle}', 'FavoriteController@likeMuscle')->name('favorite.muscle');
     //ストレッチ
-    Route::get('/likeStretch/{Stretch}', 'FavoriteController@likeStretch')->name('favorite.stretch');
+    Route::post('/likeStretch/{Stretch}', 'FavoriteController@likeStretch')->name('favorite.stretch');
 
     // reminderで追加
 Route::get('auth/{user}/reminder','ReminderController@index' )->name('reminder');
