@@ -24,8 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
             url: url,
             type: 'POST',
             success: function(data) {
-                console.log(data);
-                alert('お気に入りに追加しました');
+                console.log(data,'お気に入りに追加しました');
             },
             error: function(xhr, status, error) {
                 console.error(error);

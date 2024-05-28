@@ -49,10 +49,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Course');
     }
 
-    public function favorites()
-    {
-        return $this->hasMany('App\Favorite');
-    }
+    // public function favorites()
+    // {
+    //     return $this->hasMany('App\Favorite');
+    // }
 
     //お気に入りの多対多のリレーション
     public function favoriteTrainingMix(): BelongsToMany
@@ -67,7 +67,7 @@ class User extends Authenticatable
 
     public function favoriteTrainingStretch(): BelongsToMany
     {
-        return $this->belongsToMany('App\TrainingStretch','Favorites','user_id','training_muscle_id')->withTimestamps();
+        return $this->belongsToMany('App\TrainingStretch','Favorites','user_id','stretch_id')->withTimestamps();
     }
 
 
@@ -84,7 +84,7 @@ class User extends Authenticatable
 
     public function isLikeStretch($Stretch): bool
     {
-        return $this->favoriteTrainingStretch()->where('training_stretch_id', $Stretch)->exists();
+        return $this->favoriteTrainingStretch()->where('stretch_id', $Stretch)->exists();
     }
 
     
@@ -115,32 +115,7 @@ class User extends Authenticatable
             $this->favoriteTrainingStretch()->attach($Stretch);
         }
     }
-//isLikeを使って、既にlikeしたか確認。もししていたら解除する
-    // public function unlikeMix($trainingMix)
-    // {
-    //     if($this->isLikeMix($trainingMix)){
-    //         //既にいいねしていたら消す
-    //         $this->favoriteTrainingMix()->attach($trainingMix);
-    //     }   else {
-    //     }
-    // }
 
-    // public function unlikeMuscle($Muscle)
-    // {
-    //     if($this->isLikeMuscle($Muscle)){
-    //         //既にいいねしていたら消す
-    //         $this->favoriteMuscle()->attach($Muscle);
-    //     }   else {
-    //     }
-    // }
-    // public function unlikeStretch($Stretch)
-    // {
-    //     if($this->isLikeStretch($Stretch)){
-    //         //既にいいねしていたら消す
-    //         $this->favoriteTrainingStretch()->attach($Stretch);
-    //     }   else {
-    //     }
-    // }
 
      //Userモデルとfavoriteモデルが紐づいている(大山)
      public function favorite()

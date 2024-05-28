@@ -36,5 +36,6 @@
 <footer>
   {{-- 一旦空 --}}
 </footer>
+@yield('scripts')
 </body>
 </html>
