@@ -58,7 +58,7 @@ class GoalSettingController extends Controller
     public function edit(int $id)
     {
         $goalSetting = GoalSetting::where('user_id', $id)->first();
-        // dd($goalSetting);
+        //dd($goalSetting);
 
         return view('goal_setting/edit',[
             'goalSetting' => $goalSetting,

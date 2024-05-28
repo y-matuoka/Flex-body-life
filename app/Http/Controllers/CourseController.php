@@ -21,8 +21,11 @@ class CourseController extends Controller
         if (!$user) {
             return redirect()->route('login');
         }
-        
-        return view('courses.index');
+        $courses = $user->courses()->first();
+        //dd($courses);
+        return view('courses.index',[
+            'courses' => $courses,
+        ]);
     }
 
     /**

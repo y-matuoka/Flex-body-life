@@ -71,7 +71,9 @@ class TrainingController extends Controller
     {
         $user = Auth::user();
         $userCourse = $user->courses()->first();
-        
+        //dd($userCourse);
+
+        //1日1回だけなのか
         if($userCourse){
             if($request->has('complete-btn')){
                 //ボタンが押されているか。押されてたら１、その他０

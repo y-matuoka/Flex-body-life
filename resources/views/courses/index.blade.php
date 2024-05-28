@@ -16,39 +16,34 @@
             <div class="col-md-offset-3 col-md-6">
                 <div class="panel-heading text-center">
                     <div class="side-image">
-                        <img src="{{ asset('images/right.png') }}" alt="">
+                        <img src="{{ asset('images/right.png') }}" alt="right">
                     </div>
                     <h2 class="h2">
                         コース選択
                     </h2>
                     <div class="side-image">
-                        <img src="{{ asset('images/left.png') }}" alt="">
+                        <img src="{{ asset('images/left.png') }}" alt="left">
                     </div>
                 </div>
-                <h5 class="text-center training-menu">お気に入り登録の案内文</h5>
+                <h5 class="text-center training-menu">トレーニング選択後、お気に入り登録も行えます！</h5>
 
                 <div class="panel-body">
-                    @if($errors->any())
-                        <div class="alert alert-danger">
-                            @foreach($errors->all() as $message)
-                                <p>{{ $message }}</p>
-                            @endforeach
-                        </div>
+                    @if (session('error'))
+                        <p class="text-danger mt-3">
+                            {{ session('error') }}
+                        </p>
                     @endif
-
-                    <form action="{{ route('login') }}" method="POST">
-                        @csrf
-                    </form>
                 </div>
             </div>
         </div>
-        @if (session('error'))
-            <p class="text-danger mt-3">
-                {{ session('error') }}
-            </p>
-        @endif
-        
+       
         {{-- 筋トレ,ストレッチ,Mixボタン --}}
+        @if(isset($courses->course))
+        <div class="m-sm-4 text-center">
+            <a class="registered" href="{{ url('/mypage')}} ">すでにコースは登録されています。マイページへ！</a>
+            <a class="registered" href="{{ url('/training/index')}} ">すでにコースは登録されています。トレーニングへ！</a>
+        </div>
+        @else
         <div class="main">
             <form action="{{ route('course.store') }}" method="POST">
             @csrf
@@ -73,5 +68,6 @@
                 <img src="{{ asset("images/flex-logo.png") }}" class="img-fluid-3" alt="logo">
             </div>
         </div>
+        @endif
     </div>
 @endsection

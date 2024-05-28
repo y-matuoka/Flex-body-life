@@ -96,6 +96,11 @@ form{
 .img-fluid-3 {
   height: 40px;
 }
+.registered {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 2rem;
+}
 
 /*  */
 @media screen and (max-width: 834px){

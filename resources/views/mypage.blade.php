@@ -15,13 +15,14 @@
 <body>
 
 <div class="wrapper">
+  
     <header>
       <nav>
         <ul>
-          <li class="museomoderno-title"><a href="#">メニュー</a></li>
-          <li class="museomoderno-title"><a href="#">お気に入り</a></li>
-          <li class="museomoderno-title"><a href="#">問い合わせ</a></li>
-          <li class="museomoderno-title"><a href="#">ログアウト</a></li>
+          <li class="museomoderno-title"><a href="{{ url('auth/trainingmenu') }}">メニュー</a></li>
+          <li class="museomoderno-title"><a href="{{ url('auth/favorites') }}">お気に入り</a></li>
+          <li class="museomoderno-title"><a href="{{ url('auth/inquiry') }}">問い合わせ</a></li>
+          <li class="museomoderno-title"><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a></li>
           <li class="museomoderno-title user-name" style="margin-left:auto;">
             {{ Auth::user()->name }}
           </li>
@@ -65,32 +66,20 @@
         <div class="course-info">
           <p class="museomoderno-title">My Training Course</p>
           <div class="textarea-container">
-            <textarea id="course-text" class="museomoderno-title" placeholder=""></textarea>
-
-            {{-- aタグに変更 --}}
+            <textarea id="course-text" class="museomoderno-title" placeholder="{{ $courseSelect[$course->course] }}"></textarea>
             <a href="{{ route('course.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
-            <button onclick="window.location.href='{{ url('courses/index') }}';" class="museomoderno-title">Change</button>
-
-          <a href="{{ route('course.edit', ["id" => Auth::user()->id]) }}" class="">Change</a>
-
           </div>
         </div>
-  {{-- rimainderで追記８日目に表示される/大山 --}}
+  {{-- rimainderで追記８日目に表示される/大山★ここを追記する --}}
   @if($latestAchievementDate && now()->diffInDays($latestAchievementDate) == 0)
   <div class="reminder" style="font-size: 25px; color: tomato; font-weight: bold;font-family: MuseoModerno,sans-serif;">
     <a href="{{ route('reminder', Auth::user()) }}" style="color: tomato;">!!◆◇お知らせ◆◇!!</a>
   </div>
   @endif
-  
         <div class="goal-container">
           <p class="museomoderno-title">目標</p>
-          <textarea class="goal-text"></textarea>
-
+           <textarea class="goal-text" readonly placeholder="{{ $goalSetting->goal_content }}"></textarea>
           <a href="{{ route('goal.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
-          <button onclick="window.location.href='{{ url('goal_setting/index') }}';" class="museomoderno-title">Change</button>
-
-          <a href="{{ route('goal.edit', ["id" => Auth::user()->id]) }}" class="btn2">Change</a>
-
         </div>
 
         <div class="customer-info">
@@ -99,14 +88,14 @@
         <div class="unsubscribe">
           <a href="{{ url('user/delete') }}" class="museomoderno-title">退会</a>
         </div>
-  </div>
-</main>
+      </div>
+  </main>
 
-<footer class="footer1">
-  <div class="footer2 text-center">
-      <img src="{{ asset('images/flex-logo.png') }}" alt="ロゴ">
-  </div>
-</footer>
+  <footer class="footer1">
+    <div class="footer2 text-center">
+        <img src="{{ asset('images/flex-logo.png') }}" alt="ロゴ">
+    </div>
+  </footer>
 </div>
 
 <!-- FullCalendarのJavaScript -->
@@ -118,22 +107,26 @@
   });
 
   document.addEventListener('DOMContentLoaded', function () {
-  var calendarEl = document.getElementById('calendar');
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
-    locale: 'en', // カレンダーの表記を英語に設定
-    headerToolbar: false, // ヘッダーツールバーを非表示にする
-    displayEventTime: false, // 年月表記を非表示にする
-  });
-  calendar.render();
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      locale: 'en', // カレンダーの表記を英語に設定
+      headerToolbar: false, // ヘッダーツールバーを非表示にする
+      displayEventTime: false, // 年月表記を非表示にする
+    });
+    calendar.render();
 
-  // 現在の月を表示
-  var currentDate = new Date();
-  var options = { month: 'long' };
-  var currentMonth = currentDate.toLocaleString('en', options);
-  document.getElementById('current-month').innerText = currentMonth;
-});
+    // 現在の月を表示
+    var currentDate = new Date();
+    var options = { month: 'long' };
+    var currentMonth = currentDate.toLocaleString('en', options);
+    document.getElementById('current-month').innerText = currentMonth;
+  });
 </script>
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
 
 </body>
 </html>

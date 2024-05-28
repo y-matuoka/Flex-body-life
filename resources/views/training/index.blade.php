@@ -26,10 +26,6 @@
                 @endforeach
             </div>
         @endif
-
-        <form action="{{ route('login') }}" method="POST">
-            @csrf
-        </form>
     </div>
 
     <div class="row justify-content-center mt-5">
@@ -47,10 +43,10 @@
 
     {{-- お気に入り機能 --}}
     <div class="buttons">
-        <button type="submit" name="favorite" class="btn-1" data-type="{{ $userCourse->course }}" data-id="{{ $training->id }}">お気に入り</button>
+        <button type="submit" name="favorite" class="btn-1" data-type="{{ $userCourse->course }}" data-id="{{ $training->id }}" >お気に入り</button>
         <form action="{{ route('training.complete') }}" method="post">
             @csrf
-            <button type="submit" name="complete-btn" class="btn-2">完了</button>
+            <button type="submit" name="complete-btn" class="btn-2" onmousedown="party.confetti(this)">完了</button>
         </form>
     </div>
         <div class="col-md-offset-3 col-md-6 text-center">
@@ -61,4 +57,6 @@
 @section('scripts')
     <script src="{{ asset('js/button.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="{{ asset('js/party.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
 @endsection

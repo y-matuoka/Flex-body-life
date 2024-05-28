@@ -89,6 +89,9 @@ Route::group(['middleware' => 'auth'],function(){
     //ストレッチ
     Route::post('/likeStretch/{Stretch}', 'FavoriteController@likeStretch')->name('favorite.stretch');
 
+    // reminderで追加
+Route::get('auth/{user}/reminder','ReminderController@index' )->name('reminder');
+
     //管理者画面
     Route::get('/admin_user', 'AdminUserController@index')->name('admin.user');
     Route::post('/admin_user', 'AdminUserController@edit')->name('admin.edit');
@@ -121,8 +124,6 @@ Route::get('/auth/stretch', function () {
 })->name('auth.stretch');
 
 
-
-
 // 5/15musclepageからmypageに行くためのルーティング
 
 
@@ -130,9 +131,13 @@ Route::get('/auth/stretch', function () {
 
 
 // 5/20 favorite画面を見るために記載しました
-Route::get('/auth/favorite', 'FavoriteController@index')->name('favorites.show');
+// Route::get('/auth/favorite', 'FavoriteController@show')->name('favorites.show');
 
-Route::post('/auth/favorite', 'FavoriteController@remove')->name('favorites.remove');
+// Route::post('/auth/favorite', 'FavoriteController@remove')->name('favorites.remove');
+Route::get('/auth/favorites', 'FavoriteController@show')->name('favorites.show');
+Route::post('/auth/favorites/remove', 'FavoriteController@remove')->name('favorites.remove');
+
+
 // 5/15　musclepageからmypageに行くためのルーティング
 // Route::get('mypage', function () {
 //     return view('mypage');

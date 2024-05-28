@@ -25,21 +25,32 @@ class MyPageController extends Controller
             }
             $user = new User(['id' => $tempUserId]);
         }
-
         // セッションからアバターのパスを取得
         $avatarPath = session('avatar_path', 'images/noimageicon.png');
 
         // 最新のachievement_dateを取得
         $latestAchievementDate = null;
         if (Auth::check()) {
-            $latestAchievementDate = Auth::user()->courses()->orderByDesc('achievement_date')->value('achievement_date');
+            $latestAchievementDate = Auth::user()->courses()->orderByDesc('Achievement_date')->value('Achievement_date');
             $latestAchievementDate = $latestAchievementDate ? Carbon::parse($latestAchievementDate) : null;
         }
+
+        $goalSetting = $user->goalSettings()->first();
+        $course = $user->courses()->first();
+        //dd($goalSetting);
+        $courseSelect = [
+            1 => 'トレーニングMIXコース',
+            2 => '筋トレコース',
+            3 => 'ストレッチコース',
+        ];
 
         return view('mypage', [
             'user' => $user,
             'avatarPath' => $avatarPath,
-            'latestAchievementDate' => $latestAchievementDate
+            'latestAchievementDate' => $latestAchievementDate,
+            'goalSetting' => $goalSetting,
+            'course' => $course,
+            'courseSelect' => $courseSelect,
         ]);
     }
 

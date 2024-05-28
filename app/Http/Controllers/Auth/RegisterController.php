@@ -34,7 +34,7 @@ class RegisterController extends Controller
     {
         // ユーザーIDを取得してリダイレクト先URLを作成
         $user = Auth::user();
-        return "/mypage";
+        return "/goal_setting/index";
     }
 
     /**
