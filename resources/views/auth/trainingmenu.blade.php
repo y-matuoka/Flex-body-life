@@ -58,10 +58,9 @@
    {{-- men と woman 画像 --}}
 <div class="row-mt-5">
   <div class="col-md-4 text-center left-image">
-      <img src="{{ asset('images/men.png') }}" alt="" style="max-width: 200px; height: auto;">
+      <img src="{{ asset('images/men.png') }}" alt="" style="max-width: 180px; height: auto;">
   </div>
   <div class="col-md-4 text-center">
-    <br>
     <br>
     <br>
     <br>
@@ -69,7 +68,7 @@
 <div class="col-md-4 col-md-offset-4 text-center">
   <a href="javascript:history.back()">
 {{-- マイページに飛ぶようにする(現在home) --}}
-      <img src="{{ asset('images/back.png') }}" alt="" style="max-width: 200px; height: auto;">
+      <img src="{{ asset('images/back.png') }}" alt="" style="max-width: 60px; height: auto;">
   </a>
 </div>
   </div>
@@ -78,12 +77,10 @@
   </div>
 </div>
 </div>
-<br>
-<br>
 {{-- ロゴ --}}
 <div class="row mt-2">
   <div class="col-md-offset-3 col-md-6 text-center mt-2">
-      <img src="{{ asset('images/flex-logo.png') }}" alt="" style="max-width: 80px; height: auto;">
+      <img src="{{ asset('images/flex-logo.png') }}" alt="" style="max-width: 70px; height: auto;">
   </div>
 </div>
     </div>

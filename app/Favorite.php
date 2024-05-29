@@ -13,20 +13,21 @@ class Favorite extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function trainingStretch()
-    {
-        return $this->belongsTo(TrainingStretch::class);
-    }
 
-    public function trainingMuscle()
-    {
-        return $this->belongsTo(TrainingMuscle::class);
-    }
+    // public function trainingStretch()
+    // {
+    //     return $this->belongsTo(TrainingStretch::class);
+    // }
 
-    public function trainingMix()
-    {
-        return $this->belongsTo(TrainingMix::class);
-    }
+    // public function trainingMuscle()
+    // {
+    //     return $this->belongsTo(TrainingMuscle::class);
+    // }
+    // public function trainingMix()
+    // {
+    //     return $this->belongsTo(TrainingMix::class);
+    // }
+
 
     public function stretch()
     {

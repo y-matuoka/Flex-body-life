@@ -15,9 +15,7 @@
         margin: 0;
         font-size: 24px;
     }
-    .container-fluid {
-        max-height: 100vh;
-    }
+
 
     /* レスポンシブ対応 */
     @media (max-width: 768px) {
@@ -44,9 +42,8 @@
         <div class="col-md-offset-3 col-md-6 text-center"> <!-- 修正 -->
             <div class="panel-heading text-center" style="color: #A59B93;">
             </div>
-
             <div class="center">
-                <h2 class="text-center training-menu">
+                <h2 class="text-center training-menu"style="font-size: 40px; color: #A59B93">
                     <img src="{{ asset('images/腕右.png') }}" alt="" style="max-width: 45px; height: auto;"> 腹筋方法
                     <img src="{{ asset('images/腕左.png') }}" alt="" style="max-width: 45px; height: auto;">
                 </h2>
@@ -69,14 +66,13 @@
 <div class="container-fluid">
     <div class="row justify-content-center mt-5"> <!-- 修正 -->
         <div class="col-md-12 text-center">
-            <img src="{{ asset('images/腹筋2.png') }}" alt="" class="responsive-img">
+            <img src="{{ asset('images/腹筋2.png') }}" alt="" style="max-width: 400px; height: auto;">
         </div>
     </div>
 </div>
 
 </div>
 </div>
-<br>
 <h4 class="text-center training-menu">
     仰向けに寝て、足に床をつける。指先を頭の後ろに置いて、頭の付け根を支えます。
     <br>

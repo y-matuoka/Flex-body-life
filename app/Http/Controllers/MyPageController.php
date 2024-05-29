@@ -27,14 +27,6 @@ class MyPageController extends Controller
             $user = new User(['id' => $tempUserId]);
         }
 
-        $userCourses = [];
-        foreach ($user->Courses as $course) {
-            $userCourses[] = [
-                'id' => $course->id,
-                'name' => $this->getCourseName($course->course) // コース名を取得する関数を呼び出す
-            ];
-        }
-
         // セッションからアバターのパスを取得
         $avatarPath = session('avatar_path', 'images/noimageicon.png');
 
@@ -45,13 +37,25 @@ class MyPageController extends Controller
             $latestAchievementDate = $latestAchievementDate ? Carbon::parse($latestAchievementDate) : null;
         }
 
+        $goalSetting = $user->goalSettings()->first();
+        $course = $user->courses()->first();
+        //dd($goalSetting);
+        $courseSelect = [
+            1 => 'トレーニングMIXコース',
+            2 => '筋トレコース',
+            3 => 'ストレッチコース',
+        ];
+
         // dd($user->Courses);
         return view('mypage', [
             'user' => $user,
             'userCourses' => $user->Courses,
             'userGoalSetting' => $user->goalSettings,
             'avatarPath' => $avatarPath,
-            'latestAchievementDate' => $latestAchievementDate
+            'latestAchievementDate' => $latestAchievementDate,
+            'goalSetting' => $goalSetting,
+            'course' => $course,
+            'courseSelect' => $courseSelect,
         ]);
     }
 

@@ -35,18 +35,21 @@ class FavoriteController extends Controller
         $user = Auth::user();
         $user->likeMix($trainingMix);
      
-
         return response()->json(['status' => 'liked']);
 
     }
     public function likeMuscle($Muscle)
     {
-        Auth::user()->likeMix($Muscle);
+        $user = Auth::user();
+        $user->likeMuscle($Muscle);
+
         return response()->json(['status' => 'liked']);
     }
     public function likeStretch($Stretch)
     {
-        Auth::user()->likeMix($Stretch);
+        $user = Auth::user();
+        $user->likeStretch($Stretch);
+        
         return response()->json(['status' => 'liked']);
 
     }

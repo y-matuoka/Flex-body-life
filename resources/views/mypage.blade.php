@@ -15,6 +15,7 @@
 <body>
 
 <div class="wrapper">
+  
     <header>
       <nav>
         <ul>
@@ -65,9 +66,7 @@
         <div class="course-info">
           <p class="museomoderno-title">My Training Course</p>
           <div class="textarea-container">
-            <textarea id="course-text" class="museomoderno-title">
-              {{ $user->course }}
-            </textarea>
+            <textarea id="course-text" class="museomoderno-title" placeholder="{{ $courseSelect[$course->course] }}"></textarea>
             <a href="{{ route('course.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
           </div>
         </div>
@@ -80,9 +79,7 @@
   @endif
         <div class="goal-container">
           <p class="museomoderno-title">目標</p>
-           <textarea class="goal-text">
-            {{ $userGoalSetting->goal_content }}
-          </textarea>
+           <textarea class="goal-text" readonly>{{ $user->goal }}</textarea>
           <a href="{{ route('goal.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
         </div>
 

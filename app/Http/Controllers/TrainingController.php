@@ -20,20 +20,21 @@ class TrainingController extends Controller
      */
     public function index()
     {
-      
+        
        $user = Auth::user();
-       
+
        $userCourse = $user->courses()->first();
-  
+
         //training_level(登録日0,1日目1,2日目2,初級)(3日目3,4日目4,5日目5,1中級)(6日目6,7日目7,上級)
         $currentDate = Carbon::now();
         //コース選択に登録した日を取得
         $startDate = $userCourse->created_at;
-
+        //登録日と現在の時刻の差
         $date = $currentDate->diffInDays($startDate);
-
+        //dd($date);
+        //レベル0にする。
         $level = 0;
-
+        //0~2はレベル0,3~5はレベル1,6~7はレベル2
         if($date >= 0 && $date < 2){
             $level = 0;
         } else if ($date >= 3 && $date < 5){
@@ -54,7 +55,7 @@ class TrainingController extends Controller
             return redirect()->route('course')->with('error',$message);
         }
        
-        dd($training);
+        //dd($training);
         return view('training/index',[
             'training' => $training,
              'userCourse' => $userCourse,
@@ -70,7 +71,9 @@ class TrainingController extends Controller
     {
         $user = Auth::user();
         $userCourse = $user->courses()->first();
+        //dd($userCourse);
 
+        //1日1回だけなのか
         if($userCourse){
             if($request->has('complete-btn')){
                 //ボタンが押されているか。押されてたら１、その他０
@@ -84,11 +87,12 @@ class TrainingController extends Controller
         }
         
 
-        //status_countを1週間後にリセット 
+        //status_countを1週間後にリセット
         //greaterThanOrEqualToメソッド日付が同じかそれ以降かチェック
         if (Carbon::now()->greaterThanOrEqualTo($userCourse->Achievement_date) || $userCourse->status_count >= 8) {
             $userCourse->status_count = 0;
             // Achievement_dateを1週間後に更新
+            // $userCourse->Achievement_date = Carbon::parse($userCourse->Achievement_date)->addWeek();
             $userCourse->Achievement_date = Carbon::parse($userCourse->Achievement_date)->addWeek();
         }
 
@@ -96,9 +100,7 @@ class TrainingController extends Controller
 
         $user->courses()->save($userCourse);
      
-        return redirect()->route('mypage',[
-            'user' => $user,
-        ]);
+        return redirect()->route('mypage');
     }
 
 }
