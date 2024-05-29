@@ -10,7 +10,7 @@
   <h1 class="museomoderno-title">退会手続き</h1>
   <a href="/mypage">
     <img class="img1" src="{{ asset('images/back.png') }}" alt="buck">
-</a>
+  </a>
   <form method="POST" action="{{ route('user.delete') }}">
     @csrf
       <div class="form-group">
@@ -27,7 +27,19 @@
       <label for="password" class="museomoderno-title">パスワード</label>
       <input type="password" class="form-control" id="password" name="password" required>
       </div>
-      <button type="submit" class="btn1 museomoderno-title">退会へ</button>
+      <button type="submit" class="btn1 museomoderno-title" onclick="return confirmDelete()">退会へ</button>
+
   </form>
+
+  <script>
+    function confirmDelete() {
+      if (confirm("本当に削除してよろしいですか？")) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  </script>
+  
 </div>
 @endsection
