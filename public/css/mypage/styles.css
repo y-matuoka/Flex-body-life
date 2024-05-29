@@ -99,21 +99,6 @@ textarea {
   text-align: center !important;
 }
 
-
-/* 変更ボタン */
-.change-button {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background-color: #A59B93;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-
 .course-info a{
   margin: 0 0 0 -68px;
   border: none;

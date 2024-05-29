@@ -46,11 +46,11 @@
           </form>
           <form id="avatar-form" action="{{ route('upload.avatar') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <input type="file" id="avatar-input" name="avatar" accept="image/*" style="display:none;">
+           <input type="file" id="avatar-input" name="avatar" accept="image/*" style="display:none;">
             <label for="avatar-input" class="change-avatar" aria-label="アバター変更">
               <img src="{{ asset('images/camera.png') }}" alt="アイコン変更">
             </label>
-            <input class="button3" type="submit" value="変更">
+            <input class="button3" type="submit" value="更新">
           </form>
         </div>
 
