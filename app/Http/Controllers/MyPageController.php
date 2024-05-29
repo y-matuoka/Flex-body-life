@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
 use App\User;
+use App\Course;
 use Carbon\Carbon;
 
 class MyPageController extends Controller
@@ -26,6 +27,14 @@ class MyPageController extends Controller
             $user = new User(['id' => $tempUserId]);
         }
 
+        $userCourses = [];
+        foreach ($user->Courses as $course) {
+            $userCourses[] = [
+                'id' => $course->id,
+                'name' => $this->getCourseName($course->course) // コース名を取得する関数を呼び出す
+            ];
+        }
+
         // セッションからアバターのパスを取得
         $avatarPath = session('avatar_path', 'images/noimageicon.png');
 
@@ -36,8 +45,11 @@ class MyPageController extends Controller
             $latestAchievementDate = $latestAchievementDate ? Carbon::parse($latestAchievementDate) : null;
         }
 
+        // dd($user->Courses);
         return view('mypage', [
             'user' => $user,
+            'userCourses' => $user->Courses,
+            'userGoalSetting' => $user->goalSettings,
             'avatarPath' => $avatarPath,
             'latestAchievementDate' => $latestAchievementDate
         ]);
@@ -77,4 +89,15 @@ class MyPageController extends Controller
 
         return redirect()->back()->with('success', 'プロフィール画像が削除されました。');
     }
+}
+
+private function getCourseName($courseId)
+{
+    // コースIDに対応するコース名を返すロジックを記述する
+    $courseNames = [
+        1 => 'MIX',
+        2 => '筋トレ',
+        3 => 'ストレッチ',
+    ];
+    return $courseNames[$courseId] ?? '';
 }
