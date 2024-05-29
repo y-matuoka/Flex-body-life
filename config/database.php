@@ -21,6 +21,7 @@ return [
     // pushするときはデプロイでサーバーに反映されないのでコメントアウトしてください
 //    'default' => env('DB_CONNECTION', 'mysql'),
 
+// pushするときはデプロイでサーバーに反映されないのでコメントアウト解除してください
     'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*

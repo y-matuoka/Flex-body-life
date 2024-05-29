@@ -15,7 +15,7 @@ class FavoriteController extends Controller
     public function show()
     {
         $user = Auth::user();
-        $favorites = $user->favorites()->with(['stretch', 'muscle', 'mix'])->get();
+        $favorites = $user->favorite()->with(['stretch', 'muscle', 'mix'])->get();
 
         return view('auth.favorite', ['favorites' => $favorites]);
     }
@@ -34,7 +34,6 @@ class FavoriteController extends Controller
     {
         $user = Auth::user();
         $user->likeMix($trainingMix);
-     
         return response()->json(['status' => 'liked']);
 
     }
