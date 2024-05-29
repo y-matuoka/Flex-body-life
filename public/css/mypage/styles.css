@@ -91,6 +91,8 @@ textarea {
   resize: none;
   font-size: 16px;
   padding: 10px;
+  resize: vertical;
+  overflow-y: auto;
 }
 
 .goal-container .textarea-wrapper textarea {
@@ -188,7 +190,7 @@ button:hover{
 
 /* 入力フィールド */
 .course-info textarea{
-  color: #A59B93;
+  color: #A59B93 !important;
   margin: 20px 12px 20px 0;
   resize: none;
   font-size: 18px;
@@ -197,12 +199,16 @@ button:hover{
 }
 
 .goal-container textarea{
-  color: #A59B93;
+  color: #817b76;
   margin: 0px -65px 20px 0;
   resize: none;
-  font-size: 30px;
+  font-size: 20px;
   width: 550px;
   height: 150px;
+  font-family: "MuseoModerno", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold; /* タイトルなので太字 */
+  font-style: normal;
 }
 
 /* カレンダー */

@@ -79,7 +79,7 @@
   @endif
         <div class="goal-container">
           <p class="museomoderno-title">目標</p>
-           <textarea class="goal-text" readonly>{{ $user->goal }}</textarea>
+           <textarea class="goal-text" readonly>{{ $userGoalSetting->goal_content }}</textarea>
           <a href="{{ route('goal.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
         </div>
 

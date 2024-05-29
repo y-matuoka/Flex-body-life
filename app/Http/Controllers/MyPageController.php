@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
 use App\User;
-use App\Course;
 use Carbon\Carbon;
 
 class MyPageController extends Controller
@@ -26,7 +25,6 @@ class MyPageController extends Controller
             }
             $user = new User(['id' => $tempUserId]);
         }
-
         // セッションからアバターのパスを取得
         $avatarPath = session('avatar_path', 'images/noimageicon.png');
 
@@ -46,6 +44,15 @@ class MyPageController extends Controller
             3 => 'ストレッチコース',
         ];
 
+        $goalSetting = $user->goalSettings()->first();
+        $course = $user->courses()->first();
+        //dd($goalSetting);
+        $courseSelect = [
+            1 => 'トレーニングMIXコース',
+            2 => '筋トレコース',
+            3 => 'ストレッチコース',
+        ];
+
         // dd($user->Courses);
         return view('mypage', [
             'user' => $user,
@@ -53,12 +60,10 @@ class MyPageController extends Controller
             'userGoalSetting' => $user->goalSettings,
             'avatarPath' => $avatarPath,
             'latestAchievementDate' => $latestAchievementDate,
-            'goalSetting' => $goalSetting,
             'course' => $course,
             'courseSelect' => $courseSelect,
         ]);
     }
-
     // プロフィール画像のアップロードと保存
     public function uploadAvatar(Request $request)
     {
@@ -95,13 +100,3 @@ class MyPageController extends Controller
     }
 }
 
-private function getCourseName($courseId)
-{
-    // コースIDに対応するコース名を返すロジックを記述する
-    $courseNames = [
-        1 => 'MIX',
-        2 => '筋トレ',
-        3 => 'ストレッチ',
-    ];
-    return $courseNames[$courseId] ?? '';
-}
