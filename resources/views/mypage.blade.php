@@ -70,6 +70,7 @@
             <a href="{{ route('course.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
           </div>
         </div>
+        
   {{-- rimainderで追記８日目に表示される/大山★ここを追記する --}}
   @if($latestAchievementDate && now()->diffInDays($latestAchievementDate) == 0)
   <div class="reminder" style="font-size: 25px; color: tomato; font-weight: bold;font-family: MuseoModerno,sans-serif;">
@@ -78,7 +79,7 @@
   @endif
         <div class="goal-container">
           <p class="museomoderno-title">目標</p>
-           <textarea class="goal-text" readonly placeholder="{{ $goalSetting->goal_content }}"></textarea>
+           <textarea class="goal-text" readonly>{{ $userGoalSetting->goal_content }}</textarea>
           <a href="{{ route('goal.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
         </div>
 

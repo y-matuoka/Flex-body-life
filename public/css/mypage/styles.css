@@ -85,30 +85,32 @@ main div li {
 }
 
 textarea {
-  width: 100%; /* テキストエリアを親要素の幅いっぱいに広げる */
-  max-width: 500px; /* 最大幅を設定（必要に応じて調整）*/
-  height: auto; /* 高さを自動的に調整 */
-  resize: none; /* テキストエリアのリサイズを禁止 */
-  font-size: 16px; /* 適切なフォントサイズを設定 */
-  padding: 10px; /* 適切な余白を設定 */
+  width: 100%;
+  max-width: 500px; 
+  height: auto;
+  resize: none;
+  font-size: 16px;
+  padding: 10px;
+  resize: vertical;
+  overflow-y: auto;
 }
 
-/* テキストエリアとボタンのラッパー */
-.textarea-container {
-  position: relative; /* 相対的な位置指定 */
+.goal-container .textarea-wrapper textarea {
+  text-align: center !important;
 }
+
 
 /* 変更ボタン */
 .change-button {
-  position: absolute; /* 絶対的な位置指定 */
-  bottom: 10px; /* テキストエリアの下からの距離 */
-  right: 10px; /* テキストエリアの右からの距離 */
-  background-color: #A59B93; /* ボタンの背景色 */
-  color: #fff; /* ボタンのテキスト色 */
-  border: none; /* ボーダーなし */
-  border-radius: 5px; /* 角丸 */
-  padding: 5px 10px; /* ボタンの内側の余白 */
-  cursor: pointer; /* カーソルをポインターに変更 */
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #A59B93;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
 
@@ -188,6 +190,7 @@ button:hover{
 
 /* 入力フィールド */
 .course-info textarea{
+  color: #A59B93 !important;
   margin: 20px 12px 20px 0;
   resize: none;
   font-size: 18px;
@@ -196,15 +199,16 @@ button:hover{
 }
 
 .goal-container textarea{
+  color: #817b76;
   margin: 0px -65px 20px 0;
   resize: none;
-  font-size: 30px;
+  font-size: 20px;
   width: 550px;
   height: 150px;
-}
-
-.goal-container h2{
-  color: #A59B93;
+  font-family: "MuseoModerno", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold; /* タイトルなので太字 */
+  font-style: normal;
 }
 
 /* カレンダー */
@@ -422,6 +426,7 @@ a:hover{
 
   /* コース選択 */
   .course-info textarea{
+    color: #A59B93;
     resize: none;
     font-size: 30px;
     width: 100%;
@@ -450,6 +455,7 @@ a:hover{
 
   /* 目標設定 */
   .goal-container textarea{
+    color: #A59B93;
       margin: 46px 0 10px 0;
       resize: none;
       font-size: 30px;
@@ -642,6 +648,7 @@ a:hover{
 
   /* コース選択 */
   .course-info textarea{
+    color: #A59B93;
     margin: -8px 12px 20px 0;
     resize: none;
     font-size: 18px;
@@ -671,6 +678,7 @@ a:hover{
 
   /* 目標設定 */
   .goal-container textarea{
+    color: #A59B93;
       margin: 0px -65px 20px 0;
       resize: none;
       font-size: 30px;
