@@ -44,15 +44,6 @@ class MyPageController extends Controller
             3 => 'ストレッチコース',
         ];
 
-        $goalSetting = $user->goalSettings()->first();
-        $course = $user->courses()->first();
-        //dd($goalSetting);
-        $courseSelect = [
-            1 => 'トレーニングMIXコース',
-            2 => '筋トレコース',
-            3 => 'ストレッチコース',
-        ];
-
         // dd($user->Courses);
         return view('mypage', [
             'user' => $user,

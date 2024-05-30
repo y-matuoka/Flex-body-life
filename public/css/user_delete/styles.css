@@ -82,7 +82,19 @@
   .img1:hover {
     transform: scale(1.1);
   }
-
+  
+  @keyframes fuwafuwa {
+    0% {
+      transform:translate(0, 0) rotate(-7deg);
+    }
+    50% {
+      transform:translate(0, -7px) rotate(0deg);
+    }
+    100% {
+      transform:translate(0, 0) rotate(7deg);
+    }
+  }
+  
 
 @media only screen and (max-width: 768px) {
 
@@ -92,9 +104,10 @@
   }
 
   .img1 {
+    animation: fuwafuwa 3s ease-in-out infinite alternate;
     transition: transform 0.3s ease;
     margin: -100px 0 0 10px;
-    max-width: 5%;
+    max-width: 10%;
   }
 
   .btn1 {
@@ -115,6 +128,7 @@
   }
 
   .img1 {
+    animation: fuwafuwa 3s ease-in-out infinite alternate;
     margin: -100px 0 0 10px;
     max-width: 10%;
   }

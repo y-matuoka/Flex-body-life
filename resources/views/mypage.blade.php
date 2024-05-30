@@ -46,11 +46,11 @@
           </form>
           <form id="avatar-form" action="{{ route('upload.avatar') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <input type="file" id="avatar-input" name="avatar" accept="image/*" style="display:none;">
+           <input type="file" id="avatar-input" name="avatar" accept="image/*" style="display:none;">
             <label for="avatar-input" class="change-avatar" aria-label="アバター変更">
               <img src="{{ asset('images/camera.png') }}" alt="アイコン変更">
             </label>
-            <input class="button3" type="submit" value="変更">
+            <input class="button3" type="submit" value="-m更新">
           </form>
         </div>
 
@@ -106,8 +106,15 @@
 
 <script>
   document.getElementById('avatar-input').addEventListener('change', function() {
-    document.getElementById('avatar-form').submit();
-  });
+  const file = this.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('avatar-img').src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+});
 
   document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
@@ -126,6 +133,7 @@
     document.getElementById('current-month').innerText = currentMonth;
   });
 </script>
+
 
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     @csrf
