@@ -41,7 +41,7 @@
     {{-- お気に入り機能 --}}
     <div class="buttons">
         <button type="submit" name="favorite" class="btn-1" data-type="{{ $userCourse->course }}" data-id="{{ $training->id }}" >お気に入り</button>
-        <form action="{{ route('training.complete') }}" method="post">
+        <form action="{{ route('training.complete') }}" method="post" id="completeForm">
             @csrf
             <button id="btn1" type="submit" name="complete-btn" class="btn-2" onmousedown="party.confetti(this)">完了</button>
         </form>

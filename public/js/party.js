@@ -22,8 +22,3 @@ document.querySelector('.btn-2').addEventListener('click', function(e){
     count: party.variation.range(20, 40),
   });
 });
-
-$("#btn1").click(function(){
-  $('#btn1').prop('disabled', true);
-  $('form').submit();
-});

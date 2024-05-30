@@ -83,7 +83,7 @@ class TrainingController extends Controller
         
 
         //1日1回だけstatus_countを押せるようにする
-        
+        //dd($request->has('complete-btn'));
             if($userCourse && $request->has('complete-btn')){
                 //ボタンが押されているか。押されてたら１
                 $userCourse->completed = 1;
