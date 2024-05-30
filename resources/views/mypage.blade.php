@@ -63,6 +63,11 @@
       </div>
       
       <div class="right">
+        @if (session('success'))
+        <div class="alert alert-success" role="alert" onclick="this.style.display='none'">
+          {{ session('success') }}
+        </div>
+      @endif
         <div class="course-info">
           <p class="museomoderno-title">My Training Course</p>
           <div class="textarea-container">
