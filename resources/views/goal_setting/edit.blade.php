@@ -16,9 +16,9 @@
 			<div class="col-12 col-md-offset-3 col-md-6">
 					<div class="d-table-cell align-middle">
 						<div class="text-center mt-4">
-							<img src="{{ asset("images/star.png") }}" class="img-fluid-3" alt="star">
-								<h2 class="h2" id="h2">目標設定更新</h2>
-							<img src="{{ asset("images/megahon.png") }}" class="img-fluid-3" alt="megaphone">
+							<img src="{{ asset("images/huusen2.png") }}" class="img-fluid-3" alt="star">
+								<h2 class="h2" id="h2">目標更新</h2>
+							<img src="{{ asset("images/虹.png") }}" class="img-fluid-3" alt="megaphone">
 						</div>
 
 						<div class="card">

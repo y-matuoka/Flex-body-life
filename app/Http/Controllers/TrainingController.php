@@ -11,6 +11,8 @@ use App\TrainingMuscle;
 use App\TrainingStretch;
 use Carbon\Carbon;
 
+use function PHPUnit\Framework\isNull;
+
 class TrainingController extends Controller
 {
     /**
@@ -20,11 +22,15 @@ class TrainingController extends Controller
      */
     public function index()
     {
-        
        $user = Auth::user();
 
        $userCourse = $user->courses()->first();
 
+        if(!isset($userCourse)){
+            $message = 'コースが登録されていませんでした。コース選択をしましょう！';
+            return redirect()->route('course.index')->with('error',$message);
+        }
+       
         //training_level(登録日0,1日目1,2日目2,初級)(3日目3,4日目4,5日目5,1中級)(6日目6,7日目7,上級)
         $currentDate = Carbon::now();
         //コース選択に登録した日を取得
@@ -51,9 +57,10 @@ class TrainingController extends Controller
         } else if ($userCourse->course === 3){
             $training = TrainingStretch::where('training_level', $level)->inRandomOrder()->first();
         } else {
-            $message = 'トレーニングが選択されていません。';
+            $message = 'コースが選択されていません。';
             return redirect()->route('course')->with('error',$message);
         }
+        
        
         //dd($training);
         return view('training/index',[
@@ -72,20 +79,18 @@ class TrainingController extends Controller
         $user = Auth::user();
         $userCourse = $user->courses()->first();
         //dd($userCourse);
+       
+        
 
-        //1日1回だけなのか
-        if($userCourse){
-            if($request->has('complete-btn')){
-                //ボタンが押されているか。押されてたら１、その他０
+        //1日1回だけstatus_countを押せるようにする
+        
+            if($userCourse && $request->has('complete-btn')){
+                //ボタンが押されているか。押されてたら１
                 $userCourse->completed = 1;
                 //ボタンが押されたら＋１。
                 $userCourse->status_count += 1;
-            } else {
-                //ボタンが押されなかったら
-                $userCourse->completed = 0;
-            }
-        }
-        
+            } 
+
 
         //status_countを1週間後にリセット
         //greaterThanOrEqualToメソッド日付が同じかそれ以降かチェック
@@ -99,7 +104,10 @@ class TrainingController extends Controller
         //dd($userCourse);
 
         $user->courses()->save($userCourse);
-     
+
+        //二重送信防止
+        $request->session()->regenerateToken();
+
         return redirect()->route('mypage');
     }
 

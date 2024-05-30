@@ -101,6 +101,12 @@ form{
   font-weight: bold;
   margin-top: 2rem;
 }
+.panel-body {
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: 600;
+  padding: 10px;
+}
 
 /*  */
 @media screen and (max-width: 834px){

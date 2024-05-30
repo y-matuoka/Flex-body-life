@@ -53,8 +53,6 @@ Route::get('/calendar', function () {return view('calendar');});
 Route::get('/mypage/update', 'MypageUpdateController@show')->name('mypage.update');
 Route::post('/mypage/update', 'MypageUpdateController@updateProfile')->name('update.profile');
 
-// ログイン状態時にアクセス
-
 
 
 //目標設定ページ
@@ -90,7 +88,7 @@ Route::group(['middleware' => 'auth'],function(){
     Route::post('/likeStretch/{Stretch}', 'FavoriteController@likeStretch')->name('favorite.stretch');
 
     // reminderで追加
-Route::get('auth/{user}/reminder','ReminderController@index' )->name('reminder');
+    Route::get('auth/{user}/reminder','ReminderController@index' )->name('reminder');
 
     //管理者画面
     Route::get('/admin_user', 'AdminUserController@index')->name('admin.user');
@@ -147,7 +145,6 @@ Route::post('/auth/favorites/remove', 'FavoriteController@remove')->name('favori
 
 Auth::routes();
 
-// Auth::routes();
 
 // 5/22問い合わせフォーム
 
