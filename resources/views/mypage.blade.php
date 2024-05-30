@@ -50,7 +50,7 @@
             <label for="avatar-input" class="change-avatar" aria-label="アバター変更">
               <img src="{{ asset('images/camera.png') }}" alt="アイコン変更">
             </label>
-            <input class="button3" type="submit" value="更新">
+            <input class="button3" type="submit" value="-m更新">
           </form>
         </div>
 
