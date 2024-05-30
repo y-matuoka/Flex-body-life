@@ -44,16 +44,17 @@ class MyPageController extends Controller
             3 => 'ストレッチコース',
         ];
 
+        // dd($user->Courses);
         return view('mypage', [
             'user' => $user,
+            'userCourses' => $user->Courses,
+            'userGoalSetting' => $user->goalSettings,
             'avatarPath' => $avatarPath,
             'latestAchievementDate' => $latestAchievementDate,
-            'goalSetting' => $goalSetting,
             'course' => $course,
             'courseSelect' => $courseSelect,
         ]);
     }
-
     // プロフィール画像のアップロードと保存
     public function uploadAvatar(Request $request)
     {
@@ -89,3 +90,4 @@ class MyPageController extends Controller
         return redirect()->back()->with('success', 'プロフィール画像が削除されました。');
     }
 }
+

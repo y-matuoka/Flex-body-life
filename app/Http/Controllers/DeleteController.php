@@ -19,18 +19,17 @@ class DeleteController extends Controller
     {
         $user = Auth::user();
 
-        $name = $request->input('name');
-        $email = $request->input('email');
-        $password = $request->input('password');
+    $name = $request->input('name');
+    $email = $request->input('email');
+    $password = $request->input('password');
 
-        if ($user->name !== $name || $user->email !== $email || !Hash::check($password, $user->password)) {
-            return redirect()->back()->with('error', '名前、メールアドレス、またはパスワードが正しくありません。');
-        }
-
-        $user->delete();
-
-        Auth::logout();
-
-        return redirect()->route('home')->with('success', 'アカウントが削除されました。');
+    if ($user->name !== $name || $user->email !== $email || !Hash::check($password, $user->password)) {
+        return redirect()->back()->with('error', '名前、メールアドレス、またはパスワードが正しくありません。');
     }
-}
+
+    $user->delete();
+    Auth::logout();
+    return redirect()->route('home')->with('success', 'アカウントが削除されました。');
+    }
+ }
+

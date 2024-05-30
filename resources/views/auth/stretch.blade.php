@@ -4,7 +4,10 @@
 <style>
     body, .container {
         overflow: hidden;
+        margin: 0;
+        padding: 0;
     }
+
 
     .panel-heading {
         display: flex;
@@ -17,6 +20,7 @@
     }
     .container-fluid {
         max-height: 100vh;
+        padding-top: 0; /* 追加 */
     }
 
     /* レスポンシブ対応 */
@@ -51,10 +55,11 @@
         <div class="col-md-offset-3 col-md-6 text-center"> <!-- 修正 -->
             <div class="panel-heading text-center" style="color: #A59B93;">
             </div>
-
             <div class="center">
-                <h2 class="text-center training-menu">
-                    <img src="{{ asset('images/体操右.png') }}" alt="" style="max-width: 45px; height: auto;"> ストレッチ方法
+                <h2 class="text-center training-menu" style="font-size: 40px">
+                    <h1 class="text-center training-menu" style="font-size: 40px; color: #A59B93">
+                    <img src="{{ asset('images/体操右.png') }}" alt="" style="max-width: 45px; height: auto;">
+                    ストレッチ方法
                     <img src="{{ asset('images/体操左.png') }}" alt="" style="max-width: 45px; height: auto;">
                 </h2>
             </div>
@@ -76,14 +81,13 @@
 <div class="container-fluid">
     <div class="row justify-content-center mt-5"> <!-- 修正 -->
         <div class="col-md-12 text-center">
-            <img src="{{ asset('images/stretch.png') }}" alt="" class="responsive-img">
+            <img src="{{ asset('images/stretch.png') }}"  alt="" style="max-width: 500px; height: auto;">
         </div>
     </div>
 </div>
 
 </div>
 </div>
-<br>
 <h4 class="text-center training-menu">
     仰向けに寝て両手を伸ばし、両手は横に置き、頭と肩をマットから浮かせます。
     <br>

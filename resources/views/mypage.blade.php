@@ -49,11 +49,11 @@
           </form>
           <form id="avatar-form" action="{{ route('upload.avatar') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <input type="file" id="avatar-input" name="avatar" accept="image/*" style="display:none;">
+           <input type="file" id="avatar-input" name="avatar" accept="image/*" style="display:none;">
             <label for="avatar-input" class="change-avatar" aria-label="アバター変更">
               <img src="{{ asset('images/camera.png') }}" alt="アイコン変更">
             </label>
-            <input class="button3" type="submit" value="変更">
+            <input class="button3" type="submit" value="更新">
           </form>
         </div>
 
@@ -73,15 +73,27 @@
             <a href="{{ route('course.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
           </div>
         </div>
+
         {{-- rimainderで追記８日目に表示される/大山★ここを追記する --}}
         @if($latestAchievementDate && now()->diffInDays($latestAchievementDate) == 0)
         <div class="reminder" style="font-size: 25px; color: tomato; font-weight: bold;font-family: MuseoModerno,sans-serif;">
           <a href="{{ route('reminder', Auth::user()) }}" style="color: tomato;">!!◆◇お知らせ◆◇!!</a>
         </div>
         @endif
+
+        
+  {{-- rimainderで追記８日目に表示される/大山★ここを追記する --}}
+  @if($latestAchievementDate && now()->diffInDays($latestAchievementDate) == 0)
+  <div class="reminder" style="font-size: 25px; color: tomato; font-weight: bold;font-family: MuseoModerno,sans-serif;">
+    <img src="{{ asset('images/お知らせ.gif') }}" alt="肉1" style="max-width: 60px; height: auto;">
+    <a href="{{ route('reminder', Auth::user()) }}" style="color: tomato;">お知らせ</a>
+    <img src="{{ asset('images/お知らせ.gif') }}" alt="肉1" style="max-width: 60px; height: auto; transform: scaleX(-1);">
+  </div>
+  @endif
+
         <div class="goal-container">
           <p class="museomoderno-title">目標</p>
-           <textarea class="goal-text" readonly placeholder="{{ $goalSetting->goal_content }}"></textarea>
+           <textarea class="goal-text" readonly>{{ $userGoalSetting->goal_content }}</textarea>
           <a href="{{ route('goal.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
         </div>
 
@@ -106,8 +118,15 @@
 
 <script>
   document.getElementById('avatar-input').addEventListener('change', function() {
-    document.getElementById('avatar-form').submit();
-  });
+  const file = this.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('avatar-img').src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+});
 
   document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
@@ -126,6 +145,7 @@
     document.getElementById('current-month').innerText = currentMonth;
   });
 </script>
+
 
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     @csrf

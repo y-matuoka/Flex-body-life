@@ -16,10 +16,7 @@
         margin: 0;
         font-size: 24px;
     }
-    .container-fluid {
-        max-height: 100vh; /* 画面の80%までスクロール可能にする */
-        overflow-y: scroll; /* 縦方向のスクロールバーを表示する */
-    }
+
 </style>
 @endsection
 @section('content')
@@ -30,9 +27,9 @@
             </div>
 
             <div class="center">
-<h1 class="text-center training-menu"><img src="{{ asset('images/腕右.png') }}" alt="" style="max-width: 45px; height: auto;">筋トレ方法一覧<img src="{{ asset('images/腕左.png') }}" alt="" style="max-width: 45px; height: auto;"></h1>
+                <h2 class="text-center training-menu" style="color: #A59B93;"><img src="{{ asset('images/腕右.png') }}" alt="" style="max-width: 45px; height: auto;">筋トレ方法一覧<img src="{{ asset('images/腕左.png') }}" alt="" style="max-width: 45px; height: auto;"></h2>
 
-                <h4 class="text-center training-menu"><img src="{{ asset('images/right.png') }}" alt="" style="max-width: 45px; height: auto;">   表示したいトレーニング方法のアイコンをクリックしてください  <img src="{{ asset('images/left.png') }}" alt="" style="max-width: 45px; height: auto;"></h4>
+                <h5 class="text-center training-menu"><img src="{{ asset('images/right.png') }}" alt="" style="max-width: 30px; height: auto;">  表示したいトレーニング方法のアイコンをクリックしてください<img src="{{ asset('images/left.png') }}" alt="" style="max-width: 30px; height: auto;"></h5>
         </div>
             <div class="panel-body">
                 @if($errors->any())
@@ -53,21 +50,21 @@
         <div class="col-md-4 text-center">
             <p style="font-weight: bold; font-size: 28px;color: #A59B93">腹筋</p>
             <a href="{{ route('auth.muscle') }}">
-                <img src="{{ asset('images/腹筋.png') }}" alt="" style="max-width: 200px; height: auto;">
+                <img src="{{ asset('images/腹筋.png') }}" alt="" style="max-width: 160px; height: auto;">
             </a>
         </div>
     
         <div class="col-md-4 text-center">
             <p style="font-weight: bold; font-size: 28px;color: #A59B93">腕力</p>
             <a href="{{ route('auth.muscle') }}">
-                <img src="{{ asset('images/マッチョ (2).png') }}" alt="" style="max-width: 170px; height: auto;">
+                <img src="{{ asset('images/マッチョ (2).png') }}" alt="" style="max-width: 130px; height: auto;">
             </a>
         </div>
     
         <div class="col-md-4 text-center">
             <p style="font-weight: bold; font-size: 28px;color: #A59B93">バービー</p>
             <a href="{{ route('auth.muscle') }}">
-                <img src="{{ asset('images/クラウチングスタート.png') }}" alt="" style="max-width: 200px; height: auto;">
+                <img src="{{ asset('images/クラウチングスタート.png') }}" alt="" style="max-width: 160px; height: auto;">
             </a>
         </div>
     </div>    
@@ -76,12 +73,12 @@
 <div class="col-md-4 col-md-offset-4 text-center">
     <a href="javascript:history.back()">
   {{-- マイページに飛ぶようにする(現在home) --}}
-        <img src="{{ asset('images/back.png') }}" alt="" style="max-width: 200px; height: auto;">
+        <img src="{{ asset('images/back.png') }}" alt="" style="max-width: 60px; height: auto;">
     </a>
-    <br>
+  </div>
     <br>
   </div>
-
+  <br>
 {{-- ロゴ --}}
 <div class="row mt-2">
     <div class="col-md-offset-3 col-md-6 text-center mt-2">

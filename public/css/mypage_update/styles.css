@@ -41,6 +41,10 @@ body {
   max-width: 10%;
 }
 
+.img1:hover {
+  transform: scale(1.1);
+}
+
 .header h1 {
   font-size: 50px !important;
 }
@@ -113,6 +117,18 @@ body {
   min-height: 100vh;
 }
 
+@keyframes fuwafuwa {
+  0% {
+    transform:translate(0, 0) rotate(-7deg);
+  }
+  50% {
+    transform:translate(0, -7px) rotate(0deg);
+  }
+  100% {
+    transform:translate(0, 0) rotate(7deg);
+  }
+}
+
 
 @media only screen and (max-width: 768px) {
   .mypage-update-inner {
@@ -144,6 +160,8 @@ body {
   }
 
   .img1 {
+    animation: fuwafuwa 3s ease-in-out infinite alternate;
+    transition: transform 0.3s ease;
     margin: -45rem 0px 0px -10px;
     max-width: 15%;
   }
@@ -160,7 +178,10 @@ body {
     left: 0;
   }
   .img1 {
+    animation: fuwafuwa 3s ease-in-out infinite alternate;
     margin: -45rem 0px 0px -10px;
+    transition: transform 0.3s ease;
     max-width: 15%;
   }
+  
 }
