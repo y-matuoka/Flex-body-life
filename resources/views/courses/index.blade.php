@@ -25,7 +25,7 @@
                         <img src="{{ asset('images/left.png') }}" alt="left">
                     </div>
                 </div>
-                <h5 class="text-center training-menu">トレーニング選択後、お気に入り登録も行えます！</h5>
+                <h5 class="text-center training-menu">トレーニング表示画面でお気に入り登録も行えます！</h5>
 
                 <div class="panel-body">
                     @if (session('error'))

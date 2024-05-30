@@ -5,10 +5,7 @@
 
 @section('styles')
     <link rel="stylesheet" href="/css/training_list/styles.css">
-    <style>
-    </style>
 @endsection
-
 @section('content')
     <div class="container">
         <div class="center">
@@ -27,10 +24,10 @@
             </div>
         @endif
     </div>
-
+        
     <div class="row justify-content-center mt-5">
         <div class="text-center training-menu">
-            {{-- 各画像を表示 {{$training->training_image}} --}}
+            {{-- 各画像を表示 {{  <img src="{{ asset($training->training_image) }}" }} --}}
             <img src="{{ asset('images/腹筋2.png') }}" alt="" class="responsive-img">
         </div>
     </div>
@@ -46,7 +43,7 @@
         <button type="submit" name="favorite" class="btn-1" data-type="{{ $userCourse->course }}" data-id="{{ $training->id }}" >お気に入り</button>
         <form action="{{ route('training.complete') }}" method="post">
             @csrf
-            <button type="submit" name="complete-btn" class="btn-2" onmousedown="party.confetti(this)">完了</button>
+            <button id="btn1" type="submit" name="complete-btn" class="btn-2" onmousedown="party.confetti(this)">完了</button>
         </form>
     </div>
         <div class="col-md-offset-3 col-md-6 text-center">

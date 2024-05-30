@@ -2,14 +2,16 @@
 
 @section('styles')
 <link rel="stylesheet" href="/css/admin/styles.css">
-<style>
- 
-</style>
 @endsection
 
 @section('content')
 @if (Auth::check() && Auth::user()->authority === 99)
 <div class="wrap">
+  <div class="return">
+    <a href="{{ route('mypage') }}" onclick="history.back(); return false;">
+      <img src="{{ asset("images/return.png") }}" class="img-fluid-3" alt="back">
+    </a>
+  </div>
   <h1 class="page__ttl">管理画面</h1>
 
   @if (session('message'))
@@ -27,7 +29,7 @@
   <form action="{{ route('admin.edit') }}" method="post">
     @csrf
     <div class="create">
-      <a class="new-create btn-primary" href="{{ route('register') }}">新規登録画面へ</a>
+      <a class="new-create btn-primary" href="{{ route('register') }}">新規登録画面</a>
     </div>
     <p>更新または削除を行うユーザーを選択してください。</p>
     <table class="table">
@@ -73,6 +75,9 @@
       </div>
     </div>
   </form>
+  <div class="col-md-offset-3 col-md-6 text-center">
+    <img src="{{ asset('images/flex-logo.png') }}" alt="" style="max-width: 80px; height: auto;">
+  </div>
 </div>
 @else
 <div class="alert alert-danger text-center">

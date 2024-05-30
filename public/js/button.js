@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             error: function(xhr, status, error) {
                 console.error(error);
-                alert('お気に入りの追加に失敗しました');
+                console.log('お気に入りの追加に失敗しました');
             }
         });
     });
