@@ -14,9 +14,11 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
-
+        //ローカルで動かす場合はコメントアウト解除
+        // pushするときはデプロイでサーバーに反映されないのでコメントアウトしてください
     //'default' => env('DB_CONNECTION', 'mysql'),
 
+    // pushするときはデプロイでサーバーに反映されないのでコメントアウト解除してください
     'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
