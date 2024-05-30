@@ -104,8 +104,15 @@
 
 <script>
   document.getElementById('avatar-input').addEventListener('change', function() {
-    document.getElementById('avatar-form').submit();
-  });
+  const file = this.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('avatar-img').src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+});
 
   document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
@@ -124,6 +131,7 @@
     document.getElementById('current-month').innerText = currentMonth;
   });
 </script>
+
 
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     @csrf
