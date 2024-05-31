@@ -150,6 +150,7 @@ return [
 'email' => 'メールアドレス',
 'password' => 'パスワード',
 'token' => 'トークン',
+'field_name' => '目標',
     ],
 
 
