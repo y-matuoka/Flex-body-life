@@ -204,6 +204,32 @@ button:hover{
   background-color: white; /* カレンダーの背景色を白に設定 */
 }
 
+.fc-header-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.2rem !important;
+}
+
+.fc-toolbar-chunk:first-child {
+  order: -1;
+}
+
+.fc .fc-toolbar-title {
+  font-size: 16px; /* タイトルのフォントサイズを調整 */
+}
+
+.fc .fc-button {
+  font-size: 14px; /* ボタンのフォントサイズを調整 */
+  padding: 2px 5px !important; /* ボタンのパディングを調整 */
+}
+
+.fc .fc-button-prev, 
+.fc .fc-button-next {
+  height: 20px; /* ボタンの高さを調整 */
+  width: 20px; /* ボタンの幅を調整 */
+}
+
 .month-name {
   color: #A59B93;
   margin: -80px 0px 20px 200px;
