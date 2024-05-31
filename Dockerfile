@@ -45,7 +45,7 @@ RUN chown -Rf www-data:www-data ./
 RUN docker-php-ext-install bcmath
 
 # vendorの作成
-RUN composer install
+RUN composer update
 
 # APP_KEYの表示
 # ここを修正（不要の為、コメントアウト）RUN php artisan key:generate --show

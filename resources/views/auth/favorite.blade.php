@@ -46,8 +46,6 @@
 footer {
         margin-top: 2rem;
         display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
     .footer-image {
@@ -73,6 +71,24 @@ footer {
                 @if($favorites->isEmpty())
                 <div class="not">
                     <p>現在お気に入りはありません。</p>
+                    <br>
+                    <div class="text-center">
+                    <img src="{{ asset('images/階段.gif') }}" alt="階段" style="max-width: 120px; height: center;">
+                    <br>
+                    <br>
+                        <a href="{{ route('mypage') }}">
+                        <button type="submit" class="btn" style="background-color: #A59B93; color: white; font-size: 25px;font-family: MuseoModerno, sans-serif;">
+                        My Page
+                        </button></a>
+                        <br>
+                    </div>
+                    <footer style="display: flex; justify-content: center; align-items: center; margin-top: 2rem; margin-left: 10px;">
+                    <div class="row mt-2">
+                        <div class="col-md-offset-3 col-md-6 text-center mt-2">
+                            <img src="{{ asset('images/flex-logo.png') }}" alt="" class="footer-image">
+                        </div>
+                    </div>
+                    </footer>
                 @else
 
                     <div class="row">
@@ -129,7 +145,7 @@ footer {
                     </button></a>
                 </div>
                 <br>
-                <footer>
+                <footer style="display: flex; justify-content: center; align-items: center; margin-top: 2rem; margin-left: -50px;">
                 <div class="row mt-2">
                     <div class="col-md-offset-3 col-md-6 text-center mt-2">
                         <img src="{{ asset('images/flex-logo.png') }}" alt="" class="footer-image">

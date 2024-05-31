@@ -46,6 +46,7 @@ class FavoriteController extends Controller
     }
     public function likeStretch($Stretch)
     {
+        // dd('test');
         $user = Auth::user();
         $user->likeStretch($Stretch);
         
