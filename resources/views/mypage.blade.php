@@ -23,6 +23,9 @@
           <li class="museomoderno-title"><a href="{{ url('auth/favorites') }}">お気に入り</a></li>
           <li class="museomoderno-title"><a href="{{ url('auth/inquiry') }}">問い合わせ</a></li>
           <li class="museomoderno-title"><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a></li>
+          @if (Auth::check() && Auth::user()->authority === 99)
+          <li class="museomoderno-title"><a href="{{ url('/admin_user') }}">管理者画面</a></li>
+          @endif
           <li class="museomoderno-title user-name" style="margin-left:auto;">
             {{ Auth::user()->name }}
           </li>
@@ -63,6 +66,11 @@
       </div>
       
       <div class="right">
+        @if (session('success'))
+        <div class="alert alert-success" role="alert" onclick="this.style.display='none'">
+          {{ session('success') }}
+        </div>
+      @endif
         <div class="course-info">
           <p class="museomoderno-title">My Training Course</p>
           <div class="textarea-container">
@@ -70,6 +78,14 @@
             <a href="{{ route('course.edit', ["id" => Auth::user()->id]) }}" class="museomoderno-title">Change</a>
           </div>
         </div>
+
+        {{-- rimainderで追記８日目に表示される/大山★ここを追記する --}}
+        @if($latestAchievementDate && now()->diffInDays($latestAchievementDate) == 0)
+        <div class="reminder" style="font-size: 25px; color: tomato; font-weight: bold;font-family: MuseoModerno,sans-serif;">
+          <a href="{{ route('reminder', Auth::user()) }}" style="color: tomato;">!!◆◇お知らせ◆◇!!</a>
+        </div>
+        @endif
+
         
   {{-- rimainderで追記８日目に表示される/大山★ここを追記する --}}
   @if($latestAchievementDate && now()->diffInDays($latestAchievementDate) == 0)
@@ -79,6 +95,7 @@
     <img src="{{ asset('images/お知らせ.gif') }}" alt="肉1" style="max-width: 60px; height: auto; transform: scaleX(-1);">
   </div>
   @endif
+
         <div class="goal-container">
           <p class="museomoderno-title">目標</p>
            <textarea class="goal-text" readonly>{{ $userGoalSetting->goal_content }}</textarea>

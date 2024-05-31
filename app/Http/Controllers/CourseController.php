@@ -50,7 +50,10 @@ class CourseController extends Controller
         $courses = new Course;
        // dd($user);
         $courses->user_id = $user->id;
-    
+        
+        if(is_null($user)){
+            abort(404);
+        }
         //$button1を押していたらtrue
         if($request->has('button1') ){
             // トレーニングmixを1

@@ -41,6 +41,6 @@ class MypageUpdateController extends Controller
 
     $user->save();
         // 成功メッセージとともにマイページにリダイレクト
-        return redirect()->route('mypage')->with('success', 'プロフィールを更新しました。');
+        return redirect()->route('mypage')->with('success', '登録情報を更新しました！（メッセージをクリックで削除）');
     }
 }
