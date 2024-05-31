@@ -172,4 +172,3 @@ Route::post('auth/inquiry/confirm', 'InquiryController@confirm')->name('inquiry.
 
 // 送信完了
 Route::post('auth/inquiry/thanks', 'InquiryController@send')->name('inquiry.send');
-
