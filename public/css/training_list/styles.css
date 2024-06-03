@@ -3,16 +3,16 @@
 /* cssをいちから書くよりは楽だけどブートストラップについて調べるほうが手間がかかる可能性がある */
 /* class名がダブっているとブートストラップのクラス名が反映されてしまうので注意！ */
 /* 各ページで書くもののみを記載（文字とかフォント　ヘッダー） */
-/* 
-body, .container {
+
+ body, .container {
   overflow: hidden;
-} */
+}  
 body {
   margin: 0 auto;
 }
 .container {
-  height: 80px;
-  margin-top: 10px;
+  height: 50px;
+  margin-bottom: 20px;
 }
 main{
   background-color: #F3D6BA;
@@ -27,8 +27,11 @@ img {
   align-items: center;
   margin-top: 10px;
 }
+span {
+  width: 45%;
+}
 .logo-1  {
-  max-width: 45px;
+  max-width: 50px;
   height: auto;
 }
 .training-menu {
@@ -38,7 +41,7 @@ img {
 }
 .responsive-img {
   text-align: center;
-  width: 52%;
+  width: 47%;
   height: auto;
 }
 .row {
@@ -48,7 +51,7 @@ img {
   margin-bottom: 2rem;
 }
 .training-text {
-  max-width: 42%;
+  max-width: 38%;
   height: 140px;
   margin:  0 auto 1.5rem auto;
   border: 1px solid #A59B93;
@@ -63,10 +66,11 @@ img {
   justify-content: space-evenly;
   margin: 0 auto;
   width: 70%;
+  height: 60px;
 }
 .btn-1 {
   width: 15%;
-  height: 60px;
+  height: 50px;
   background-color: tomato;
   border: tomato;
   border-radius: 5px;
@@ -76,9 +80,12 @@ img {
 .btn-1:hover {
   background-color: #EB3228;
 }
-.btn-2 {
+form {
   width: 100%;
-  height: 60px;
+}
+.btn-2 {
+  width: 95%;
+  height: 50px;
   background-color: #A59B93;
   border: #A59B93;
   border-radius: 5px;
@@ -100,17 +107,17 @@ form {
     margin-top: 3.5rem;
   } */
   .btn-1 {
-    width: 110px;
-    height: 50px;
-    font-size: 1.7rem;
+    width: 90px;
+    height: 45px;
+    font-size: 1.3rem;
     margin-right: 10px;
   }
   .btn-2 {
-    height: 50px;
-    font-size: 1.7rem;
+    height: 45px;
+    font-size: 1.5rem;
   }
   form {
-    width: 110px;
+    width: 90px;
   }
   .btn-1:last-child {
     margin-right: 0;
@@ -130,19 +137,27 @@ form {
 .training-text {
   max-width: 60%;
   height: 100px;
-  margin:  0 auto 4rem auto;
+  margin:  0 auto 2.5rem auto;
   border: 1px solid #A59B93;
   font-size: 22px;
 }
-/* body, .container {
+body, .container {
   overflow: hidden;
-} */
-span {
-  width: 65%;
-  font-size: 19px;
 }
-
-
+span  {
+  width: 38%;
+  font-size: 24px;
+}
+.logo-1  {
+  max-width: 30px;
+  height: auto;
+}
+.content {
+  font-size: 1.6rem;
+}
+main {
+  margin-left: 30px;
+}
    @media (min-width: 577px) and (max-width: 768px) {
     .btn-1 {
       width: 20%;

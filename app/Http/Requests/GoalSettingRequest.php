@@ -24,7 +24,8 @@ class GoalSettingRequest extends FormRequest
     public function rules()
     {
         return [
-            'goal_content' => 'max:100',
+            'goal_content' => 'required|max:100',
+        
         ];
     }
     public function attributes()
@@ -33,4 +34,6 @@ class GoalSettingRequest extends FormRequest
         'goal_content' => '目標',
        ];
     }
+
+    
 }
