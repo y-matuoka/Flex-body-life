@@ -48,11 +48,11 @@ Route::get('/calendar', function () {return view('calendar');});
 Route::get('/mypage/update', 'MypageUpdateController@show')->name('mypage.update');
 Route::post('/mypage/update', 'MypageUpdateController@updateProfile')->name('update.profile');
 
-//目標設定ページ
-    //目標設定
+
+//目標設定
 Route::get('/goal_setting/index', 'GoalSettingController@index')->name('goal.index');
 Route::post('/goal_setting/index',  'GoalSettingController@store')->name('goal.store');
-    //目標設定変更
+//目標設定変更
 Route::get('/goal_setting/{id}/edit', 'GoalSettingController@edit')->name('goal.edit');
 Route::post('/goal_setting/{id}/edit',  'GoalSettingController@update')->name('goal.update');
 
@@ -139,6 +139,7 @@ Route::post('auth/inquiry/confirm', 'InquiryController@confirm')->name('inquiry.
 
 // 送信完了
 Route::post('auth/inquiry/thanks', 'InquiryController@send')->name('inquiry.send');
+
 
 });
 Auth::routes();

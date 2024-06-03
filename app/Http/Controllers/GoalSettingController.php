@@ -36,8 +36,6 @@ class GoalSettingController extends Controller
     {
         // ログインしているユーザー
         $user = Auth::user();
-       
-
         $goalSetting = new GoalSetting();
 
         $goalSetting->user_id = $user->id;
@@ -79,9 +77,9 @@ class GoalSettingController extends Controller
         //GoalSettingモデルのuser_idとログインしているユーザーのidがあっているか
         $goalSetting = GoalSetting::where('user_id', $id)->first();
         
-        if (!$request) {
-            abort(404);
-        }
+        // if (isset($request)) {
+        //     abort(404);
+        // }
         // dd($goalSetting);
 
         $goalSetting->goal_content = $request->goal_content;

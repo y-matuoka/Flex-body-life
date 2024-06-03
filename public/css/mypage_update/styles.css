@@ -14,16 +14,12 @@ body {
   background-color: #F3D6BA !important;
 }
 
-.mypage-update-inner {
-  padding: 20px;
-  width: 768px;
+.article {
+  width: 100%;
   margin: 0 auto;
+  text-align: center;
 }
 
-.article {
-  width: 80%;
-  margin: 0 auto;
-}
 
 .row {
   width: 100%;
@@ -32,13 +28,12 @@ body {
 .header {
   text-align: center;
   color: #A59B93;
-  margin: 20px 0 0 30px ;
 }
 
 .img1 {
   transition: transform 0.3s ease;
-  margin: -12rem 0 0 -30rem;
-  max-width: 10%;
+  margin: -12rem 0 0 -115rem;
+  max-width: 4%;
 }
 
 .img1:hover {
@@ -56,9 +51,32 @@ body {
     vertical-align: middle; /* ラベルと垂直に揃える */
 }
 
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-container{
+  margin-left: 42rem;
+  margin-right: 42rem;
+}
+
+.form-group {
+  margin: 30px auto; /* 左右の余白を自動で調整して中央に配置 */
+  text-align: left; /* 入力フィールドを中央に配置 */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+  display: block;
+  text-align: left;
+  margin: 0 auto;
+}
+
 .form-group {
   color: #A59B93;
-  margin: 30px;
   margin-bottom: 10px;
   font-size: 20px
 }
@@ -77,11 +95,11 @@ body {
 .form-group input#name,
 .form-group input#email,
 .form-group input#password  {
-  width: 120% ; /* 横幅を設定 */
-  max-width: 565px; /* 最大横幅を設定 */
-  height: 45px; /* 縦幅を設定 */
-  margin-bottom: 10px; /* 入力フィールドの下の余白を設定 */
-  box-sizing: border-box; /* ボックスのサイズを調整 */
+  width: 100% ;
+  max-width: 565px;
+  height: 45px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
 }
 
 .custom-size:hover {
@@ -91,13 +109,13 @@ body {
 .custom-size {
   background-color: #867e76;
   color: #fff;
-  margin: 0 0 0 23px;
   font-weight: bold;
   font-size: 16px; /* フォントサイズを指定 */
   padding: 5px 20px; /* パディングを指定 */
 }
 
 .footer1 {
+  display: flex;
   justify-content: center;
   background-color: #F3D6BA; /* フッターの背景色 */
   width: 100%; /* フッターの幅を100%に設定 */
@@ -107,7 +125,7 @@ body {
   display: flex;
   text-align: center; /* 中央揃え */
   max-width: 100px; /* ロゴの最大幅 */
-  margin: 50px 0px 0px 227px; /* 左右のマージンを自動で調整して中央に配置 */
+  margin: 50px 0 0 0;
 }
 
 /* 通常のスタイル */
@@ -117,7 +135,7 @@ body {
   min-height: 100vh;
 }
 
-@keyframes fuwafuwa {
+@keyframes  fuwafuwa {
   0% {
     transform:translate(0, 0) rotate(-7deg);
   }
@@ -131,57 +149,111 @@ body {
 
 
 @media only screen and (max-width: 768px) {
-  .mypage-update-inner {
-    justify-content: center;
-    padding: 50px 20px; /* 上下に50px、左右に20pxのパディングを追加 */
-    margin: 50px auto; /* 上下に50px、左右は自動で中央に配置 */
-  }
-  .form-group {
-    font-size: 40px !important;
-  }
-}
 
-
-@media only screen and (max-width: 768px) {
-  .header {
-    margin: 60px 0px 240px 30px !important; /* 左右のマージンを自動で調整して中央に配置 */
+  .article {
+    width: 100%;
+    margin: 0 auto;
     text-align: center;
   }
+   
+  .header {
+    width: 100%;
+  }
   .header h1 {
-    font-size: 65px !important; /* フォントサイズを調整 */
+    font-size: 60px !important; /* フォントサイズを調整 */
+    text-align: center;
+  }
 
+  .form-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .form-container{
+    margin-left: 15rem;
+    margin-right: 15rem;
+  }
+
+  .form-group {
+    color: #A59B93;
+    margin-bottom: 10px;
+    font-size: 25px
+  }
+
+  .form-group input#name,
+  .form-group input#email,
+  .form-group input#password  {
+    width: 100% ;
+    max-width: 565px;
+    height: 50px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    box-sizing: border-box;
+  }
+
+  .custom-size {
+    background-color: #867e76;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 30px 0 0 0 ;
+    padding: 10px 25px;
   }
 
   .footer1{
-    margin: 0; /* マージンをリセット */
     position: static;
-    bottom: 0; /* 下部に配置 */
     width: 100%; /* 幅を100%に設定 */
   }
 
   .img1 {
     animation: fuwafuwa 3s ease-in-out infinite alternate;
     transition: transform 0.3s ease;
-    margin: -45rem 0px 0px -10px;
-    max-width: 15%;
+    margin: -10rem 0px 0px -57rem;
+    max-width: 10%;
   }
 }
 
 @media only screen and (max-width: 767px){
+  .header h1 {
+    font-size: 40px !important; /* フォントサイズを調整 */
+    text-align: center;
+  }
+
+  .form-container{
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .form-group {
+    color: #A59B93;
+    margin-bottom: 10px;
+    font-size: 25px
+  }
+
+  .custom-size {
+    background-color: #867e76;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 30px 0 0 0 ;
+    padding: 10px 25px;
+  }
 
   .footer1{
-    margin: 50px 0px 0px 107px; /* マージンをリセット */
-    position: fixed;
-    bottom: 0; /* 下部に配置 */
-    width: 100%; /* 幅を100%に設定 */
-    right: 0;
-    left: 0;
+    position: static;
+    width: 100%;
   }
+
+  .footer1 img{
+    margin: 90px 0 0 0;
+  }
+
   .img1 {
     animation: fuwafuwa 3s ease-in-out infinite alternate;
-    margin: -45rem 0px 0px -10px;
+    margin: 5rem 0px 0px -10px;
     transition: transform 0.3s ease;
-    max-width: 15%;
+    max-width: 20%;
   }
-  
+
 }

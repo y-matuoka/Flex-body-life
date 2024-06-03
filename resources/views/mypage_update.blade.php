@@ -6,8 +6,7 @@
 
 @section('content')
 
-<div class="mypage-update-inner">
-    <div class="row">
+    <div class="form-wrapper">
         <div class="article">
             <div class="update-form">
                 <div class="body">
@@ -36,46 +35,45 @@
                     </a>
 
                     <!-- ユーザー情報の変更フォーム -->
-                    <form method="POST" action="{{ route('update.profile') }}">
-                        @csrf
+                    <div class="form-container">
+                        <form method="POST" action="{{ route('update.profile') }}">
+                            @csrf
 
-                        <!-- 名前の変更 -->
-                        <div class="form-group ">
-                            <label for="name" class="museomoderno-title">
-                                名前<img src="{{ asset('images/user_name.png') }}" alt="user_icon" class="icon">
-                            </label>
-                            <input id="name" type="text" class="form-control" name="name" value="{{ old('name', Auth::user()->name) }}" required autofocus autocomplete="off">
-                        </div>
+                            <!-- 名前の変更 -->
+                            <div class="form-group ">
+                                <label for="name" class="museomoderno-title">
+                                    名前<img src="{{ asset('images/user_name.png') }}" alt="user_icon" class="icon">
+                                </label>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name', Auth::user()->name) }}" required autofocus autocomplete="off">
+                            </div>
 
-                        <!-- メールアドレスの変更 -->
-                        <div class="form-group ">
-                            <label for="email" class="museomoderno-title">
-                                メールアドレス<img src="{{ asset('images/mail.png') }}" alt="user_icon" class="icon">
-                            </label>
-                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email', Auth::user()->email) }}" required autocomplete="off">
-                        </div>
+                            <!-- メールアドレスの変更 -->
+                            <div class="form-group ">
+                                <label for="email" class="museomoderno-title">
+                                    メールアドレス<img src="{{ asset('images/mail.png') }}" alt="user_icon" class="icon">
+                                </label>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email', Auth::user()->email) }}" required autocomplete="off">
+                            </div>
 
-                        <!-- パスワードの変更 -->
-                        <div class="form-group">
-                            <label for="password" class="museomoderno-title">
-                                パスワード<img src="{{ asset('images/key.png') }}" alt="user_icon" class="icon">
-                            </label>
-                            <input id="password" type="password" class="form-control" name="password" autocomplete="new-password">
-                        </div>
+                            <!-- パスワードの変更 -->
+                            <div class="form-group">
+                                <label for="password" class="museomoderno-title">
+                                    パスワード<img src="{{ asset('images/key.png') }}" alt="user_icon" class="icon">  必要ない場合未入力でも可
+                                </label>
+                                <input id="password" type="password" class="form-control" name="password" autocomplete="new-password">
+                            </div>
 
-                        <!-- 送信ボタン -->
-                        <div class="form-group mt-3 text-center">
-                            <button type="submit" class="custom-size" class="museomoderno-title">
-                                変更
-                            </button>
-
-                            <footer class="footer1">
-                                <div class="footer2 text-center">
-                                    <img src="{{ asset('images/flex-logo.png') }}" alt="ロゴ">
-                                </div>
-                            </footer>
-                        </div>
-                    </form>
+                            <!-- 送信ボタン -->
+                            <div class="form-group mt-3 text-center">
+                                <button type="submit" class="custom-size" class="museomoderno-title">
+                                    変更
+                                </button>
+                            </div>
+                        </form>
+                        <footer class="footer1">
+                            <img src="{{ asset('images/flex.png') }}" alt="ロゴ">
+                    </footer>
+                    </div>
                     <script>
                         document.addEventListener("DOMContentLoaded", function() {
                             // 名前フィールドの値をクリア
@@ -88,6 +86,4 @@
             </div>
         </div>
     </div>
-</div>
-
 @endsection

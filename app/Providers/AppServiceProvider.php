@@ -24,8 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //ローカルで動かす場合はコメントアウト
+
+       //ローカルで動かす場合はコメントアウト
         // pushするときはデプロイでサーバーに反映されないのでコメントアウト解除してください
-        URL::forceScheme('https');
+      URL::forceScheme('https');
+
     }
 }

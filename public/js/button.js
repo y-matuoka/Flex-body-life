@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Unknown type:', type);
         return;
     }
-    // alert(url);
+    alert(url);
     $.ajax({
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
