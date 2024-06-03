@@ -103,6 +103,7 @@ class User extends Authenticatable
         if($this->isLikeMuscle($Muscle)){
             //もし既にいいねしてたら何もしない
         }   else {
+            dd($this->favoriteMuscle()->attach($Muscle));
             $this->favoriteMuscle()->attach($Muscle);
         }
     }
