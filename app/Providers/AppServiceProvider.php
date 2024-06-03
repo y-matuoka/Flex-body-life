@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
 
        //ローカルで動かす場合はコメントアウト
         // pushするときはデプロイでサーバーに反映されないのでコメントアウト解除してください
-    //   URL::forceScheme('https');
+      URL::forceScheme('https');
 
     }
 }
