@@ -75,7 +75,7 @@ Route::get('/courses/{id}/updated', 'CourseController@show')->name('courses.upda
 //Mixコースのお気に入り
 Route::post('/likeMix/{trainingMix}', 'FavoriteController@likeMix')->name('favorite.mix');
 //筋トレ
-Route::post('/likeMuscle/{Muscle}', 'FavoriteController@likeMuscle')->name('favorite.muscle');
+Route::get('/likeMuscle/{Muscle}', 'FavoriteController@likeMuscle')->name('favorite.muscle');
 //ストレッチ
 Route::post('/likeStretch/{Stretch}', 'FavoriteController@likeStretch')->name('favorite.stretch');
 

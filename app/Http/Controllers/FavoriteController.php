@@ -49,7 +49,7 @@ class FavoriteController extends Controller
         // dd('test');
         $user = Auth::user();
         $user->likeStretch($Stretch);
-        
+
         return response()->json(['status' => 'liked']);
 
     }
