@@ -57,17 +57,17 @@ class User extends Authenticatable
     //お気に入りの多対多のリレーション
     public function favoriteTrainingMix(): BelongsToMany
     {
-        return $this->belongsToMany('App\TrainingMix','Favorites','user_id','training_mix_id')->withTimestamps();
+        return $this->belongsToMany('App\TrainingMix','favorites','user_id','training_mix_id')->withTimestamps();
     }
 
     public function favoriteMuscle(): BelongsToMany
     {
-        return $this->belongsToMany('App\TrainingMuscle','Favorites','user_id','training_muscle_id')->withTimestamps();
+        return $this->belongsToMany('App\TrainingMuscle','favorites','user_id','training_muscle_id')->withTimestamps();
     }
 
     public function favoriteTrainingStretch(): BelongsToMany
     {
-        return $this->belongsToMany('App\TrainingStretch','Favorites','user_id','stretch_id')->withTimestamps();
+        return $this->belongsToMany('App\TrainingStretch','favorites','user_id','stretch_id')->withTimestamps();
     }
 
 
