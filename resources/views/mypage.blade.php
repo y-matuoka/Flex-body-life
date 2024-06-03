@@ -80,12 +80,7 @@
           </div>
         </div>
 
-        {{-- rimainderで追記８日目に表示される/大山★ここを追記する --}}
-        @if($latestAchievementDate && now()->diffInDays($latestAchievementDate) == 0)
-        <div class="reminder" style="font-size: 25px; color: tomato; font-weight: bold;font-family: MuseoModerno,sans-serif;">
-          <a href="{{ route('reminder', Auth::user()) }}" style="color: tomato;">!!◆◇お知らせ◆◇!!</a>
-        </div>
-        @endif
+
 
         
   {{-- rimainderで追記８日目に表示される/大山★ここを追記する --}}
