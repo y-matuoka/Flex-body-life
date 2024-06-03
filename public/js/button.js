@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Unknown type:', type);
         return;
     }
-    alert(url);
+    // alert(url);
     $.ajax({
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
       error: function (xhr, status, error) {
         console.error(error);
-        alert('お気に入りの追加に失敗しました');
+        // alert('お気に入りの追加に失敗しました');
       }
     });
   });
