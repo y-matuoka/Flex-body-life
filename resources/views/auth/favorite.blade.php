@@ -26,7 +26,7 @@
         margin: 0 auto;
     }
 
-.row {
+    .row {
         display: center;
         justify-content: center;
         width: 100%;
@@ -37,13 +37,13 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-}
+    }
 
-.col-md-4 {
-    width: 100%
-}
+    .col-md-4 {
+        width: 100%
+    }
 
-footer {
+    footer {
         margin-top: 2rem;
         display: flex;
     }
@@ -77,7 +77,7 @@ footer {
                     <br>
                     <br>
                         <a href="{{ route('mypage') }}">
-                        <button type="submit" class="btn" style="background-color: #A59B93; color: white; font-size: 25px;font-family: MuseoModerno, sans-serif;">
+                        <button type="submit" class="btn" style="background-color: #A59B93; color: white; font-size: 25px; font-family: MuseoModerno, sans-serif;">
                         My Page
                         </button></a>
                         <br>
@@ -89,24 +89,25 @@ footer {
                         </div>
                     </div>
                     </footer>
+                </div>
                 @else
-
                     <div class="row">
                         @foreach($favorites as $favorite)
                             <div class="col-md-4">
-                                <div class="card mb-4 ">
+                                <div class="card mb-4">
                                     <div class="card-body">
-
-                      {{-- stretchお気に入り --}}
                                         @if($favorite->stretch)
-                                        <form action="{{ route('favorites.remove') }}" method="POST" style="display: inline" font-size:20px;>
-                                            @csrf
-                                            <input type="hidden" name="fav_id" value="{{ $favorite->id }}">
-                                            <button type="submit" class="btn btn-danger">お気に入りを解除</button>
-                                        </form>
-                                        <img src="/images/{{$favorite->stretch->training_image}}" alt=" "style="max-width: 350px">
+                                            <img src="/images/{{$favorite->stretch->training_image}}" alt=" " style="max-width: 350px">
                                             <h5 class="card-title">{{ $favorite->stretch->name }}</h5>
                                             <p class="card-text">{{ $favorite->stretch->description }}</p>
+                                        @elseif($favorite->muscle)
+                                            <img src="/images/{{$favorite->muscle->training_image}}" alt=" " style="max-width: 350px">
+                                            <h5 class="card-title">{{ $favorite->muscle->name }}</h5>
+                                            <p class="card-text">{{ $favorite->muscle->description }}</p>
+                                        @elseif($favorite->mix)
+                                            <img src="/images/{{$favorite->mix->training_image}}" alt=" " style="max-width: 200px">
+                                            <h5 class="card-title">{{ $favorite->mix->name }}</h5>
+                                            <p class="card-text">{{ $favorite->mix->description }}</p>
                                         @endif
 
                                         <form action="{{ route('favorites.remove') }}" method="POST" style="display: inline;">
@@ -114,45 +115,31 @@ footer {
                                             <input type="hidden" name="fav_id" value="{{ $favorite->id }}">
                                             <button type="submit" class="btn btn-danger">お気に入りを解除</button>
                                         </form>
-                                        {{-- muscleお気に入り --}}
-                                        @if($favorite->muscle)
-                                        <img src="/images/{{$favorite->muscle->training_image}}" alt=" "style="max-width: 350px">
-                                            <h5 class="card-title">{{ $favorite->muscle->name }}</h5>
-                                            <p class="card-text">{{ $favorite->muscle->description }}</p>
-                                            @endif
-
-                                            <form action="{{ route('favorites.remove') }}" method="POST" style="display: inline;">
-                                                @csrf
-                                                <input type="hidden" name="fav_id" value="{{ $favorite->id }}">
-                                                <button type="submit" class="btn btn-danger">お気に入りを解除</button>
-                                            </form>
-                                        {{-- mixお気に入り --}}
-                                        @if($favorite->mix)
-                                        <img src="/images/{{$favorite->mix->training_image}}" alt=" "style="max-width: 200px">
-                                            <h5 class="card-title">{{ $favorite->mix->name }}</h5>
-                                            <p class="card-text">{{ $favorite->mix->description }}</p>
-                                        @endif
-
-                                    </div>
                                     </div>
                                 </div>
                             </div>
-                @endforeach
-                <div class="text-center">
-                    <a href="{{ route('mypage') }}">
-                    <button type="submit" class="btn" style="background-color: #A59B93; color: white; font-size: 25px;font-family: MuseoModerno, sans-serif;">
-                    My Page
-                    </button></a>
-                </div>
-                <br>
-                <footer style="display: flex; justify-content: center; align-items: center; margin-top: 2rem; margin-left: -50px;">
-                <div class="row mt-2">
-                    <div class="col-md-offset-3 col-md-6 text-center mt-2">
-                        <img src="{{ asset('images/flex-logo.png') }}" alt="" class="footer-image">
+                        @endforeach
                     </div>
-                </div>
-                </footer>
+                    <br>
+                    <br>
+                    <div class="text-center">
+                        <a href="{{ route('mypage') }}">
+                        <button type="submit" class="btn" style="background-color: #A59B93; color: white; font-size: 25px; font-family: MuseoModerno, sans-serif;">
+                        My Page
+                        </button></a>
+                    </div>
+                    <br>
+                    <footer style="display: flex; justify-content: center; align-items: center; margin-top: 2rem; margin-left: -60px;">
+                    <div class="row mt-2">
+                        <div class="col-md-offset-3 col-md-6 text-center mt-2">
+                            <img src="{{ asset('images/flex-logo.png') }}" alt="" class="footer-image">
+                        </div>
+                    </div>
+                    </footer>
                 @endif
-                @endsection
-
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
 
