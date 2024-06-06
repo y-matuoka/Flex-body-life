@@ -26,10 +26,10 @@ class TrainingController extends Controller
 
        $userCourse = $user->courses()->first();
 
-        if(!isset($userCourse)){
-            $message = 'コースが登録されていませんでした。コース選択をしましょう！';
-            return redirect()->route('course.index')->with('error',$message);
-        }
+       if(is_null($userCourse) ){
+        $message = 'コースが登録されていませんでした。コース選択をしましょう！';
+        return redirect()->route('course.index')->with('error',$message);
+    }
        
         //training_level(登録日0,1日目1,2日目2,初級)(3日目3,4日目4,5日目5,1中級)(6日目6,7日目7,上級)
         $currentDate = Carbon::now();
@@ -61,6 +61,7 @@ class TrainingController extends Controller
             return redirect()->route('course')->with('error',$message);
         }
         
+      
        
         //dd($training);
         return view('training/index',[
